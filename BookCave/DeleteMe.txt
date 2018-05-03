@@ -1,0 +1,2 @@
+Placeholder for the project files.
+Delete when project files are implemented.
