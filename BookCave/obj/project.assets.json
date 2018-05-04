@@ -12536,23 +12536,23 @@
     ]
   },
   "packageFolders": {
-    "/home/aexx/.nuget/packages/": {},
-    "/usr/share/dotnet/sdk/NuGetFallbackFolder": {}
+    "/Users/vjmyndir/.nuget/packages/": {},
+    "/usr/local/share/dotnet/sdk/NuGetFallbackFolder": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/home/aexx/hr2018/VLN2/2018_VLN2/BookCave/BookCave.csproj",
+      "projectUniqueName": "/Users/vjmyndir/Desktop/Tölvunarfræði/2018/3 vikna /2018_VLN2/BookCave/BookCave.csproj",
       "projectName": "BookCave",
-      "projectPath": "/home/aexx/hr2018/VLN2/2018_VLN2/BookCave/BookCave.csproj",
-      "packagesPath": "/home/aexx/.nuget/packages/",
-      "outputPath": "/home/aexx/hr2018/VLN2/2018_VLN2/BookCave/obj/",
+      "projectPath": "/Users/vjmyndir/Desktop/Tölvunarfræði/2018/3 vikna /2018_VLN2/BookCave/BookCave.csproj",
+      "packagesPath": "/Users/vjmyndir/.nuget/packages/",
+      "outputPath": "/Users/vjmyndir/Desktop/Tölvunarfræði/2018/3 vikna /2018_VLN2/BookCave/obj/",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
-        "/usr/share/dotnet/sdk/NuGetFallbackFolder"
+        "/usr/local/share/dotnet/sdk/NuGetFallbackFolder"
       ],
       "configFilePaths": [
-        "/home/aexx/.nuget/NuGet/NuGet.Config"
+        "/Users/vjmyndir/.nuget/NuGet/NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "netcoreapp2.0"
