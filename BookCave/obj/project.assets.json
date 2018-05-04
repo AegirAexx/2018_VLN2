@@ -12532,27 +12532,28 @@
   "projectFileDependencyGroups": {
     ".NETCoreApp,Version=v2.0": [
       "Microsoft.AspNetCore.All >= 2.0.6",
+      "Microsoft.EntityFrameworkCore.SqlServer >= 2.0.2",
       "Microsoft.NETCore.App >= 2.0.0"
     ]
   },
   "packageFolders": {
-    "/home/aexx/.nuget/packages/": {},
-    "/usr/share/dotnet/sdk/NuGetFallbackFolder": {}
+    "C:\\Users\\Rebekka Hulda\\.nuget\\packages\\": {},
+    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/home/aexx/hr2018/VLN2/2018_VLN2/BookCave/BookCave.csproj",
+      "projectUniqueName": "C:\\Users\\Rebekka Hulda\\Desktop\\Verklegt2\\2018_VLN2\\BookCave\\BookCave.csproj",
       "projectName": "BookCave",
-      "projectPath": "/home/aexx/hr2018/VLN2/2018_VLN2/BookCave/BookCave.csproj",
-      "packagesPath": "/home/aexx/.nuget/packages/",
-      "outputPath": "/home/aexx/hr2018/VLN2/2018_VLN2/BookCave/obj/",
+      "projectPath": "C:\\Users\\Rebekka Hulda\\Desktop\\Verklegt2\\2018_VLN2\\BookCave\\BookCave.csproj",
+      "packagesPath": "C:\\Users\\Rebekka Hulda\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Rebekka Hulda\\Desktop\\Verklegt2\\2018_VLN2\\BookCave\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
-        "/usr/share/dotnet/sdk/NuGetFallbackFolder"
+        "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
       ],
       "configFilePaths": [
-        "/home/aexx/.nuget/NuGet/NuGet.Config"
+        "C:\\Users\\Rebekka Hulda\\AppData\\Roaming\\NuGet\\NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "netcoreapp2.0"
@@ -12577,6 +12578,10 @@
           "Microsoft.AspNetCore.All": {
             "target": "Package",
             "version": "[2.0.6, )"
+          },
+          "Microsoft.EntityFrameworkCore.SqlServer": {
+            "target": "Package",
+            "version": "[2.0.2, )"
           },
           "Microsoft.NETCore.App": {
             "target": "Package",
