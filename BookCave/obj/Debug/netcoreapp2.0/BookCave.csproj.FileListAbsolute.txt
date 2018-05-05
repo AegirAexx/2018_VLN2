@@ -23,3 +23,8 @@ C:\Users\dagur\Documents\GitHub\2018_VLN2\BookCave\obj\Debug\netcoreapp2.0\BookC
 C:\Users\dagur\Documents\GitHub\2018_VLN2\BookCave\obj\Debug\netcoreapp2.0\BookCave.AssemblyInfo.cs
 C:\Users\dagur\Documents\GitHub\2018_VLN2\BookCave\obj\Debug\netcoreapp2.0\BookCave.dll
 C:\Users\dagur\Documents\GitHub\2018_VLN2\BookCave\obj\Debug\netcoreapp2.0\BookCave.pdb
+C:\Users\dagur\Documents\GitHub\2018_VLN2\BookCave\bin\Debug\netcoreapp2.0\BookCave.deps.json
+C:\Users\dagur\Documents\GitHub\2018_VLN2\BookCave\bin\Debug\netcoreapp2.0\BookCave.runtimeconfig.json
+C:\Users\dagur\Documents\GitHub\2018_VLN2\BookCave\bin\Debug\netcoreapp2.0\BookCave.runtimeconfig.dev.json
+C:\Users\dagur\Documents\GitHub\2018_VLN2\BookCave\bin\Debug\netcoreapp2.0\BookCave.dll
+C:\Users\dagur\Documents\GitHub\2018_VLN2\BookCave\bin\Debug\netcoreapp2.0\BookCave.pdb

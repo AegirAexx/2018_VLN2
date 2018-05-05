@@ -1,0 +1,17 @@
+@model List<UserListViewModel>
+@{
+    ViewData["Users"] = "See All Users";
+}
+<div class="container">
+    <div class="jumbotron">
+        <h2>BookCave &#64; DATAdump</h2>
+    </div>
+    @foreach(var user in @Model)
+    {
+        <p>@user.UserId</p>
+        <p>@user.UserName</p>
+        <p>@user.FavoriteBook</p>
+        <p><a href="@user.Image">Image</a></p>
+        <br>
+    }
+</div>
