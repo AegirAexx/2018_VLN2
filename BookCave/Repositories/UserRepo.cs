@@ -19,9 +19,10 @@ namespace BookCave.Repositories
            var users = (from u in _db.Users
                         select new UserListViewModel
                         {
-                           Id = u.Id,
+                           UserId = u.UserId,
                            UserName = u.UserName,
-                           FavoriteBook = u.FavoriteBook
+                           FavoriteBook = u.FavoriteBook,
+                           Image = u.Image
                         }).ToList();
            return users;
        }
