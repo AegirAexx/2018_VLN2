@@ -15,19 +15,19 @@ nupkg/
 *.sln.docstates
 
 # Build results
-[Dd]ebug/
-[Dd]ebugPublic/
-[Rr]elease/
-[Rr]eleases/
-x64/
-x86/
-build/
-bld/
-[Bb]in/
-[Oo]bj/
-msbuild.log
-msbuild.err
-msbuild.wrn
+BookCave/[Dd]ebug/
+BookCave/[Dd]ebugPublic/
+BookCave/[Rr]elease/
+BookCave/[Rr]eleases/
+BookCave/x64/
+BookCave/x86/
+BookCave/build/
+BookCave/bld/
+BookCave/[Bb]in/
+BookCave/[Oo]bj/
+BookCave/msbuild.log
+BookCave/msbuild.err
+BookCave/msbuild.wrn
 
 # Visual Studio 2015
 .vs/
