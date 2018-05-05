@@ -18,3 +18,8 @@ C:/Users/Rebekka Hulda/Desktop/Verklegt2/2018_VLN2/BookCave/obj/Debug/netcoreapp
 /home/aexx/hr2018/VLN2/2018_VLN2/BookCave/obj/Debug/netcoreapp2.0/BookCave.AssemblyInfo.cs
 /home/aexx/hr2018/VLN2/2018_VLN2/BookCave/obj/Debug/netcoreapp2.0/BookCave.dll
 /home/aexx/hr2018/VLN2/2018_VLN2/BookCave/obj/Debug/netcoreapp2.0/BookCave.pdb
+C:\Users\dagur\Documents\GitHub\2018_VLN2\BookCave\obj\Debug\netcoreapp2.0\BookCave.csproj.CoreCompileInputs.cache
+C:\Users\dagur\Documents\GitHub\2018_VLN2\BookCave\obj\Debug\netcoreapp2.0\BookCave.AssemblyInfoInputs.cache
+C:\Users\dagur\Documents\GitHub\2018_VLN2\BookCave\obj\Debug\netcoreapp2.0\BookCave.AssemblyInfo.cs
+C:\Users\dagur\Documents\GitHub\2018_VLN2\BookCave\obj\Debug\netcoreapp2.0\BookCave.dll
+C:\Users\dagur\Documents\GitHub\2018_VLN2\BookCave\obj\Debug\netcoreapp2.0\BookCave.pdb
