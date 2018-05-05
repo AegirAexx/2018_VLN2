@@ -6,6 +6,8 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using BookCave.Models;
 using BookCave.Services;
+using BookCave.Models.InputModels;
+using BookCave.Data.EntityModels;
 
 namespace BookCave.Controllers
 {
@@ -39,6 +41,37 @@ namespace BookCave.Controllers
         {
             var users = _userService.GetAllUsers();
             return View(users);
+        }
+
+        [HttpGet]
+        public IActionResult AddUser()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public IActionResult AddUser(UserInputModel inputUser)
+        {
+            if(ModelState.IsValid)
+            {
+                var newUser = new User
+                {
+                    UserId = inputUser.UserID,
+                    UserName = inputUser.UserName,
+                    FullName = inputUser.FullName,
+                    Email = inputUser.Email,
+                    Gender = inputUser.Gender,
+                    Age = inputUser.Age,
+                    FavoriteBook = inputUser.FavoriteBook,
+                    IsActive = 1,
+                    JobTitle = "User",
+                    Image = ""
+                };
+
+                _userService.AddUser(newUser);
+                return RedirectToAction("Index");
+            }
+            return View();
         }
 
     }

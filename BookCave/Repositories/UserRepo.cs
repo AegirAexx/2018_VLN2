@@ -1,6 +1,8 @@
 using System.Collections.Generic;
 using System.Linq;
 using BookCave.Data;
+using BookCave.Data.EntityModels;
+using BookCave.Models.InputModels;
 using BookCave.Models.ViewModels;
 
 namespace BookCave.Repositories
@@ -19,12 +21,17 @@ namespace BookCave.Repositories
            var users = (from u in _db.Users
                         select new UserListViewModel
                         {
-                           UserId = u.UserId,
                            UserName = u.UserName,
                            FavoriteBook = u.FavoriteBook,
                            Image = u.Image
                         }).ToList();
            return users;
+       }
+
+       public void AddUser(User newUser)
+       {
+           _db.Users.Add(newUser);
+           _db.SaveChanges();
        }
 
     }
