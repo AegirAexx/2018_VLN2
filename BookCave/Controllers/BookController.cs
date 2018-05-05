@@ -17,8 +17,18 @@ namespace BookCave.Controllers
         {
             // _bookService = new BookService();
         }
+
+        [HttpGet]
         public IActionResult Index()
         {
+            return View();
+        }
+
+        [HttpGet]
+        public IActionResult Details(/*int id*/)
+        {
+            // @TODO
+            // Here we need to add the logic that can pass each book from database to the view
             return View();
         }
     }
