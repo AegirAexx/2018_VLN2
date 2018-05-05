@@ -1,0 +1,13 @@
+@model List<BookListViewModel>
+@{
+    ViewData["Title"] = "See All Books";
+}
+<div class="container">
+    <div class="jumbotron">
+        <h2>BookCave &#64; DATAdump</h2>
+    </div>
+    @foreach(var book in @Model)
+    {
+        <p>@book.Title</p>
+    }
+</div>

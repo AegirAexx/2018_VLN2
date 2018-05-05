@@ -1,8 +1,11 @@
-﻿@model List<BookCave.Models.ViewModels.BookListViewModel>
+﻿@{
+    ViewData["Title"] = "BookCave Inc";
+}
 
-    <div>
-        @foreach(var book in @Model)
-        {
-            <p>@book.Title</p>
-        }
+
+<div class="container">
+    <div class="jumbotron">
+        <h1>HOME CONTROLLER</h1>
     </div>
+    <a asp-area="" asp-controller="Home" asp-action="SeeBooks" class="btn btn-success">GET BOOKS FROM LOCAL SERVER</a>
+</div>
