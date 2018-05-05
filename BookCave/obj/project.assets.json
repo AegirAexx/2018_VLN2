@@ -12537,23 +12537,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Rebekka Hulda\\.nuget\\packages\\": {},
-    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
+    "/home/aexx/.nuget/packages/": {},
+    "/usr/share/dotnet/sdk/NuGetFallbackFolder": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Rebekka Hulda\\Desktop\\Verklegt2\\2018_VLN2\\BookCave\\BookCave.csproj",
+      "projectUniqueName": "/home/aexx/hr2018/VLN2/2018_VLN2/BookCave/BookCave.csproj",
       "projectName": "BookCave",
-      "projectPath": "C:\\Users\\Rebekka Hulda\\Desktop\\Verklegt2\\2018_VLN2\\BookCave\\BookCave.csproj",
-      "packagesPath": "C:\\Users\\Rebekka Hulda\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Rebekka Hulda\\Desktop\\Verklegt2\\2018_VLN2\\BookCave\\obj\\",
+      "projectPath": "/home/aexx/hr2018/VLN2/2018_VLN2/BookCave/BookCave.csproj",
+      "packagesPath": "/home/aexx/.nuget/packages/",
+      "outputPath": "/home/aexx/hr2018/VLN2/2018_VLN2/BookCave/obj/",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
-        "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        "/usr/share/dotnet/sdk/NuGetFallbackFolder"
       ],
       "configFilePaths": [
-        "C:\\Users\\Rebekka Hulda\\AppData\\Roaming\\NuGet\\NuGet.Config"
+        "/home/aexx/.nuget/NuGet/NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "netcoreapp2.0"

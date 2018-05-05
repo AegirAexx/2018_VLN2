@@ -1,10 +1,20 @@
-C:\Users\Rebekka Hulda\Desktop\Verklegt2\2018_VLN2\BookCave\bin\Debug\netcoreapp2.0\BookCave.deps.json
-C:\Users\Rebekka Hulda\Desktop\Verklegt2\2018_VLN2\BookCave\bin\Debug\netcoreapp2.0\BookCave.runtimeconfig.json
-C:\Users\Rebekka Hulda\Desktop\Verklegt2\2018_VLN2\BookCave\bin\Debug\netcoreapp2.0\BookCave.runtimeconfig.dev.json
-C:\Users\Rebekka Hulda\Desktop\Verklegt2\2018_VLN2\BookCave\bin\Debug\netcoreapp2.0\BookCave.dll
-C:\Users\Rebekka Hulda\Desktop\Verklegt2\2018_VLN2\BookCave\bin\Debug\netcoreapp2.0\BookCave.pdb
-C:\Users\Rebekka Hulda\Desktop\Verklegt2\2018_VLN2\BookCave\obj\Debug\netcoreapp2.0\BookCave.csproj.CoreCompileInputs.cache
-C:\Users\Rebekka Hulda\Desktop\Verklegt2\2018_VLN2\BookCave\obj\Debug\netcoreapp2.0\BookCave.AssemblyInfoInputs.cache
-C:\Users\Rebekka Hulda\Desktop\Verklegt2\2018_VLN2\BookCave\obj\Debug\netcoreapp2.0\BookCave.AssemblyInfo.cs
-C:\Users\Rebekka Hulda\Desktop\Verklegt2\2018_VLN2\BookCave\obj\Debug\netcoreapp2.0\BookCave.dll
-C:\Users\Rebekka Hulda\Desktop\Verklegt2\2018_VLN2\BookCave\obj\Debug\netcoreapp2.0\BookCave.pdb
+C:/Users/Rebekka Hulda/Desktop/Verklegt2/2018_VLN2/BookCave/bin/Debug/netcoreapp2.0/BookCave.deps.json
+C:/Users/Rebekka Hulda/Desktop/Verklegt2/2018_VLN2/BookCave/bin/Debug/netcoreapp2.0/BookCave.runtimeconfig.json
+C:/Users/Rebekka Hulda/Desktop/Verklegt2/2018_VLN2/BookCave/bin/Debug/netcoreapp2.0/BookCave.runtimeconfig.dev.json
+C:/Users/Rebekka Hulda/Desktop/Verklegt2/2018_VLN2/BookCave/bin/Debug/netcoreapp2.0/BookCave.dll
+C:/Users/Rebekka Hulda/Desktop/Verklegt2/2018_VLN2/BookCave/bin/Debug/netcoreapp2.0/BookCave.pdb
+C:/Users/Rebekka Hulda/Desktop/Verklegt2/2018_VLN2/BookCave/obj/Debug/netcoreapp2.0/BookCave.csproj.CoreCompileInputs.cache
+C:/Users/Rebekka Hulda/Desktop/Verklegt2/2018_VLN2/BookCave/obj/Debug/netcoreapp2.0/BookCave.AssemblyInfoInputs.cache
+C:/Users/Rebekka Hulda/Desktop/Verklegt2/2018_VLN2/BookCave/obj/Debug/netcoreapp2.0/BookCave.AssemblyInfo.cs
+C:/Users/Rebekka Hulda/Desktop/Verklegt2/2018_VLN2/BookCave/obj/Debug/netcoreapp2.0/BookCave.dll
+C:/Users/Rebekka Hulda/Desktop/Verklegt2/2018_VLN2/BookCave/obj/Debug/netcoreapp2.0/BookCave.pdb
+/home/aexx/hr2018/VLN2/2018_VLN2/BookCave/bin/Debug/netcoreapp2.0/BookCave.deps.json
+/home/aexx/hr2018/VLN2/2018_VLN2/BookCave/bin/Debug/netcoreapp2.0/BookCave.runtimeconfig.json
+/home/aexx/hr2018/VLN2/2018_VLN2/BookCave/bin/Debug/netcoreapp2.0/BookCave.runtimeconfig.dev.json
+/home/aexx/hr2018/VLN2/2018_VLN2/BookCave/bin/Debug/netcoreapp2.0/BookCave.dll
+/home/aexx/hr2018/VLN2/2018_VLN2/BookCave/bin/Debug/netcoreapp2.0/BookCave.pdb
+/home/aexx/hr2018/VLN2/2018_VLN2/BookCave/obj/Debug/netcoreapp2.0/BookCave.csproj.CoreCompileInputs.cache
+/home/aexx/hr2018/VLN2/2018_VLN2/BookCave/obj/Debug/netcoreapp2.0/BookCave.AssemblyInfoInputs.cache
+/home/aexx/hr2018/VLN2/2018_VLN2/BookCave/obj/Debug/netcoreapp2.0/BookCave.AssemblyInfo.cs
+/home/aexx/hr2018/VLN2/2018_VLN2/BookCave/obj/Debug/netcoreapp2.0/BookCave.dll
+/home/aexx/hr2018/VLN2/2018_VLN2/BookCave/obj/Debug/netcoreapp2.0/BookCave.pdb
