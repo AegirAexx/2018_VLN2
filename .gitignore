@@ -31,3 +31,14 @@ msbuild.wrn
 
 # Visual Studio 2015
 .vs/
+BookCave/obj/Debug/netcoreapp2.0/BookCave.pdb
+BookCave/bin/Debug/netcoreapp2.0/BookCave.dll
+BookCave/bin/Debug/netcoreapp2.0/BookCave.pdb
+BookCave/bin/Debug/netcoreapp2.0/BookCave.runtimeconfig.dev.json
+BookCave/obj/BookCave.csproj.nuget.cache
+BookCave/obj/BookCave.csproj.nuget.g.props
+BookCave/obj/BookCave.csproj.nuget.g.targets
+BookCave/obj/project.assets.json
+BookCave/obj/Debug/netcoreapp2.0/BookCave.dll
+BookCave/obj/Debug/netcoreapp2.0/BookCave.csproj.CoreCompileInputs.cache
+BookCave/obj/Debug/netcoreapp2.0/BookCave.csproj.FileListAbsolute.txt
