@@ -56,7 +56,6 @@ namespace BookCave.Controllers
             {
                 var newUser = new User
                 {
-                    UserId = inputUser.UserID,
                     UserName = inputUser.UserName,
                     FullName = inputUser.FullName,
                     Email = inputUser.Email,
