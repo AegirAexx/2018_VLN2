@@ -21,6 +21,7 @@ namespace BookCave.Repositories
            var users = (from u in _db.Users
                         select new UserListViewModel
                         {
+                           Id = u.Id,
                            UserName = u.UserName,
                            FavoriteBook = u.FavoriteBook,
                            Image = u.Image
