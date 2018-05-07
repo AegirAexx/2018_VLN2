@@ -2,8 +2,11 @@ using System.Security.Claims;
 using System.Threading.Tasks;
 using BookCave.Models;
 using BookCave.Models.ViewModels;
+using Microsoft.AspNetCore.Authentication;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+
 
 namespace BookCave.Controllers
 {
@@ -12,12 +15,15 @@ namespace BookCave.Controllers
         private readonly SignInManager<ApplicationUser> _signInManager;
         private readonly UserManager<ApplicationUser> _userManager;
 
-        public AccountController(SignInManager<ApplicationUser> signInManager, UserManager<ApplicationUser> userManager)
+        public AccountController(
+            SignInManager<ApplicationUser> signInManager,
+            UserManager<ApplicationUser> userManager)
         {
             _signInManager = signInManager;
             _userManager = userManager;
         }
 
+    
         public IActionResult Register()
         {
             return View();
@@ -42,12 +48,16 @@ namespace BookCave.Controllers
 
                 return RedirectToAction("Index", "Home");
             }
+            AddErrors(result);
 
             return View(); 
         }
 
-        public IActionResult Login()
+        [HttpGet]
+        [AllowAnonymous]
+        public async Task<IActionResult> Login()
         {
+            await HttpContext.SignOutAsync(IdentityConstants.ExternalScheme);
             return View();
         }
 
@@ -75,6 +85,13 @@ namespace BookCave.Controllers
         public IActionResult AccessDenied()
         {
             return View();
+        }
+        private void AddErrors(IdentityResult result)
+        {
+            foreach (var error in result.Errors)
+            {
+                ModelState.AddModelError(string.Empty, error.Description);
+            }
         }
     }
 }
