@@ -22,7 +22,14 @@ namespace BookCave.Repositories
                            Id = o.Id,
                            CustomerId = o.CustomerId,
                            TotalPrice = o.TotalPrice,
-                           OrderStatus = o.OrderStatus 
+                           OrderStatus = o.OrderStatus,
+                           OrderItems = (from oi in _db.OrderItems
+                                        where oi.OrderId == o.Id
+                                        select new OrderItemViewModel
+                                        {
+                                            BookId = oi.BookId,
+                                            Price = oi.Price
+                                        }).ToList()
                         }).ToList();
            return orders;
        }
