@@ -1,7 +1,10 @@
+using System;
 using System.Security.Claims;
 using System.Threading.Tasks;
 using BookCave.Models;
 using BookCave.Models.ViewModels;
+using BookCave.Services;
+using Microsoft.AspNetCore.Diagnostics;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 
@@ -9,13 +12,15 @@ namespace BookCave.Controllers
 {
     public class AccountController : Controller
     {
+        private readonly IUserServices _userServices; ///Arnar
         private readonly SignInManager<ApplicationUser> _signInManager;
         private readonly UserManager<ApplicationUser> _userManager;
 
-        public AccountController(SignInManager<ApplicationUser> signInManager, UserManager<ApplicationUser> userManager)
+        public AccountController(SignInManager<ApplicationUser> signInManager, UserManager<ApplicationUser> userManager, IUserServices userServices)
         {
             _signInManager = signInManager;
             _userManager = userManager;
+            _userServices = userServices;
         }
 
         public IActionResult Register()
@@ -27,6 +32,7 @@ namespace BookCave.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Register(RegisterViewModel model)
         {
+            _userServices.ProcessUser(model);
             if (!ModelState.IsValid) { return View(); }
 
             var user = new ApplicationUser { UserName = model.Email, Email = model.Email };
@@ -74,7 +80,8 @@ namespace BookCave.Controllers
 
         public IActionResult AccessDenied()
         {
-            return View();
+            return View(); ///Maybe we should have a dedicated error page rather than
+            ///directing straight to view
         }
     }
 }
