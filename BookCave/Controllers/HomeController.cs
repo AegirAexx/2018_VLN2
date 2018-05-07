@@ -15,13 +15,13 @@ namespace BookCave.Controllers
     {
         private BookService _bookService;
 
-        private UserService _userService;
+        private OrderService _orderService;
 
         public HomeController()
         {
             _bookService = new BookService();
 
-            _userService = new UserService();
+            _orderService = new OrderService();
         }
         public IActionResult Index()
         {
@@ -34,18 +34,13 @@ namespace BookCave.Controllers
             return View(books);
         }
 
-        public IActionResult SeeUsers()
+        public IActionResult Getorders()
         {
-            var users = _userService.GetAllUsers();
-            return View(users);
+            var orders = _orderService.GetAllOrders();
+            return View(orders);
         }
 
-        [HttpGet]
-        public IActionResult AddUser()
-        {
-            return View();
-        }
-
+        /*   //Ég á eftir að breyta þessu í order - Dagur
         [HttpPost]
         public IActionResult AddUser(UserInputModel inputUser)
         {
@@ -68,7 +63,7 @@ namespace BookCave.Controllers
                 return RedirectToAction("Index");
             }
             return View();
-        }
+        }*/
 
     }
 }
