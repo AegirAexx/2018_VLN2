@@ -5,10 +5,11 @@ namespace BookCave.Models.ViewModels
 {
     public class OrderListViewModel
     {
+        private List<OrderItemViewModel> orderItems = new List<OrderItemViewModel>();
         public int Id { get; set; }
         public int CustomerId { get; set; }
         public int TotalPrice { get; set; }
         public string OrderStatus { get; set; }
-        public List<OrderItemViewModel> OrderItems  = new List<OrderItemViewModel>();
+        public List<OrderItemViewModel> OrderItems { get => orderItems; set => orderItems = value; }
     }
 }
