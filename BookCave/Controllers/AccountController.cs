@@ -13,6 +13,7 @@ namespace BookCave.Controllers
     public class AccountController : Controller
     {
         private readonly IUserServices _userServices; ///Arnar
+      
         private readonly SignInManager<ApplicationUser> _signInManager;
         private readonly UserManager<ApplicationUser> _userManager;
 
@@ -54,6 +55,7 @@ namespace BookCave.Controllers
 
         public IActionResult Login()
         {
+
             return View();
         }
 
@@ -61,6 +63,7 @@ namespace BookCave.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Login(LoginViewModel model)
         {
+            _userServices.ProcessLogin(model);
             if (!ModelState.IsValid) { return View(); }
             var result = await _signInManager.PasswordSignInAsync(model.Email, model.Password, model.RememberMe, false);
             if (result.Succeeded)
