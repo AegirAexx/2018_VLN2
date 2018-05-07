@@ -11,7 +11,13 @@
         <p>OrderId: @order.Id</p>
         <p>CustomerId: @order.CustomerId</p>
         <p>TotalPrice: @order.TotalPrice</p>
-        <p>OrderStatus: @order.OrderStatus</p>  
+        <p>OrderStatus: @order.OrderStatus</p>
+        <ol>
+            @foreach(var item in @order.OrderItems)
+            {
+                <li>@item.BookId</li>
+            }
+        </ol>
         <br>
     }
 </div>
