@@ -28,7 +28,14 @@ namespace BookCave.Repositories
                                         select new OrderItemViewModel
                                         {
                                             BookId = oi.BookId,
-                                            Price = oi.Price
+                                            Price = oi.Price,
+                                            Book = (from b in _db.Books
+                                                    where b.Id == oi.BookId
+                                                    select new BookListViewModel
+                                                    {
+                                                        Title = b.Title,
+                                                        Id = b.Id
+                                                    }).ToList()
                                         }).ToList()
                         }).ToList();
            return orders;

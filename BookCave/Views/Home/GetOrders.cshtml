@@ -15,7 +15,12 @@
         <ol>
             @foreach(var item in @order.OrderItems)
             {
-                <li>@item.BookId</li>
+                <li>
+                    @foreach(var book in @item.Book)
+                    {
+                        @book.Title
+                    }
+                </li>
             }
         </ol>
         <br>
