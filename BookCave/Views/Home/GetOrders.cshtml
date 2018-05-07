@@ -9,7 +9,7 @@
     @foreach(var order in @Model)
     {
         <p>OrderId: @order.Id</p>
-        <p>CustomerId: @order.CustomerId</p>
+        <p>User: @order.UserName</p>
         <p>TotalPrice: @order.TotalPrice</p>
         <p>OrderStatus: @order.OrderStatus</p>
         <ol>
@@ -23,6 +23,7 @@
                 </li>
             }
         </ol>
+        <p>-------------------------------------------------------</p>
         <br>
     }
 </div>

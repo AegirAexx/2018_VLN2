@@ -21,6 +21,7 @@ namespace BookCave.Repositories
                         {
                            Id = o.Id,
                            CustomerId = o.CustomerId,
+                           UserName = o.UserName,
                            TotalPrice = o.TotalPrice,
                            OrderStatus = o.OrderStatus,
                            OrderItems = (from oi in _db.OrderItems
