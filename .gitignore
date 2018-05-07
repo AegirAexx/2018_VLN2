@@ -15,21 +15,22 @@ nupkg/
 *.sln.docstates
 
 # Build results
-BookCave/[Dd]ebug/
-BookCave/[Dd]ebugPublic/
-BookCave/[Rr]elease/
-BookCave/[Rr]eleases/
-BookCave/x64/
-BookCave/x86/
-BookCave/build/
-BookCave/bld/
-BookCave/[Bb]in/
-BookCave/[Oo]bj/
-BookCave/msbuild.log
-BookCave/msbuild.err
-BookCave/msbuild.wrn
+[Dd]ebug/
+[Dd]ebugPublic/
+[Rr]elease/
+[Rr]eleases/
+x64/
+x86/
+build/
+bld/
+[Bb]in/
+[Oo]bj/
+msbuild.log
+msbuild.err
+msbuild.wrn
 
 # Visual Studio 2015
+<<<<<<< HEAD
 .vs/
 BookCave/bin/Debug/netcoreapp2.0/BookCave.dll
 BookCave/bin/Debug/netcoreapp2.0/BookCave.pdb
@@ -62,3 +63,6 @@ BookCave/obj/Debug/netcoreapp2.0/BookCave.csproj.CoreCompileInputs.cache
 BookCave/obj/Debug/netcoreapp2.0/BookCave.csproj.FileListAbsolute.txt
 BookCave/obj/project.assets.json
 BookCave/obj/Debug/netcoreapp2.0/BookCave.csproj.CoreCompileInputs.cache
+=======
+.vs/
+>>>>>>> 42c90c6fd632a93253267f7add2a8d64ec2d95f9
