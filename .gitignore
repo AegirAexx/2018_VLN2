@@ -28,4 +28,7 @@ bld/
 msbuild.log
 msbuild.err
 msbuild.wrn
+<<<<<<< HEAD
 
+=======
+>>>>>>> master
