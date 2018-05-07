@@ -28,3 +28,13 @@ C:\Users\dagur\Documents\GitHub\2018_VLN2\BookCave\bin\Debug\netcoreapp2.0\BookC
 C:\Users\dagur\Documents\GitHub\2018_VLN2\BookCave\bin\Debug\netcoreapp2.0\BookCave.runtimeconfig.dev.json
 C:\Users\dagur\Documents\GitHub\2018_VLN2\BookCave\bin\Debug\netcoreapp2.0\BookCave.dll
 C:\Users\dagur\Documents\GitHub\2018_VLN2\BookCave\bin\Debug\netcoreapp2.0\BookCave.pdb
+C:\Users\Rebekka Hulda\Documents\GitHub\2018_VLN2\BookCave\bin\Debug\netcoreapp2.0\BookCave.deps.json
+C:\Users\Rebekka Hulda\Documents\GitHub\2018_VLN2\BookCave\bin\Debug\netcoreapp2.0\BookCave.runtimeconfig.json
+C:\Users\Rebekka Hulda\Documents\GitHub\2018_VLN2\BookCave\bin\Debug\netcoreapp2.0\BookCave.runtimeconfig.dev.json
+C:\Users\Rebekka Hulda\Documents\GitHub\2018_VLN2\BookCave\bin\Debug\netcoreapp2.0\BookCave.dll
+C:\Users\Rebekka Hulda\Documents\GitHub\2018_VLN2\BookCave\bin\Debug\netcoreapp2.0\BookCave.pdb
+C:\Users\Rebekka Hulda\Documents\GitHub\2018_VLN2\BookCave\obj\Debug\netcoreapp2.0\BookCave.csproj.CoreCompileInputs.cache
+C:\Users\Rebekka Hulda\Documents\GitHub\2018_VLN2\BookCave\obj\Debug\netcoreapp2.0\BookCave.AssemblyInfoInputs.cache
+C:\Users\Rebekka Hulda\Documents\GitHub\2018_VLN2\BookCave\obj\Debug\netcoreapp2.0\BookCave.AssemblyInfo.cs
+C:\Users\Rebekka Hulda\Documents\GitHub\2018_VLN2\BookCave\obj\Debug\netcoreapp2.0\BookCave.dll
+C:\Users\Rebekka Hulda\Documents\GitHub\2018_VLN2\BookCave\obj\Debug\netcoreapp2.0\BookCave.pdb
