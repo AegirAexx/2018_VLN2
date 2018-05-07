@@ -15,20 +15,21 @@ namespace BookCave.Controllers
 
         private UserService _userService;
 
+        private AuthorService _authorService;
+
         public HomeController()
         {
             _bookService = new BookService();
 
             _userService = new UserService();
-        }
 
-        [HttpGet]
+            _authorService = new AuthorService();
+        }
         public IActionResult Index()
         {
             return View();
         }
 
-        [HttpGet]
         public IActionResult SeeBooks()
         {
             var books = _bookService.GetAllBooks();
@@ -39,6 +40,12 @@ namespace BookCave.Controllers
         {
             var users = _userService.GetAllUsers();
             return View(users);
+        }
+
+        public IActionResult SeeAuthors()
+        {
+            var authors = _authorService.GetAllAuthors();
+            return View(authors);
         }
 
     }
