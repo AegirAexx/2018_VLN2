@@ -39,5 +39,19 @@ namespace BookCave.Repositories
            return topten;
        }
 
+        public List<BookListViewModel> GetGenre(string genre)
+       {
+           var genreView = (from b in _db.Books
+                        where b.Genre == genre
+                        select new BookListViewModel
+                        {
+                            Id = b.Id,
+                            Title = b.Title,
+                            Rating = b.Rating,
+                            Genre = b.Genre
+                        }).ToList();
+
+           return genreView;
+       }
     }
 }
