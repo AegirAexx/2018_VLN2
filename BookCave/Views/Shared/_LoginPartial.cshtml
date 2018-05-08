@@ -13,13 +13,12 @@
 {
     <form asp-area="" asp-action="LogOut" asp-controller="Account" method="POST">
         <a class="btn btn-outline-dark btn-sm" asp-area="" asp-action="Index" asp-controller="Manage" title="Manage">Hello @claim</a>
-        <button type="submit" class="btn btn-outline-dark btn-sm">Log out</button>
+        <a type="submit" class="btn btn-outline-dark btn-sm">Log out</a>
     </form>
+    <li><a class="fas fa-user-circle fa-lg" asp-area="" asp-controller="Customer" asp-action="OrderHistory">Register</a></li>
 }
 else
 {
-
-    <a class="btn btn-outline-dark btn-sm" asp-area="" asp-controller="Account" asp-action="Register">Register</a>
-    <a class="btn btn-outline-dark btn-sm" asp-area="" asp-controller="Account" asp-action="Login">Log in</a>
-
+    <li><a class="fas fa-user-circle fa-lg" asp-area="" asp-controller="Account" asp-action="Register">Register</a></li>
+    <li><a class="fas fa-user-circle fa-lg" asp-area="" asp-controller="Account" asp-action="Login">Log in</a></li>
 }
