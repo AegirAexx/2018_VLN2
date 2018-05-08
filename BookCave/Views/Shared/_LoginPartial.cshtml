@@ -12,25 +12,14 @@
 @if(SignInManager.IsSignedIn(User))
 {
     <form asp-area="" asp-action="LogOut" asp-controller="Account" method="POST">
-        <ul class="nav navbar-nav navbar-right">
-            <li>
-                <a asp-area="" asp-action="Index" asp-controller="Manage" title="Manage">Hello @claim</a>
-            </li>
-            <li>
-                <button type="submit" class="btn btn-link navbar-btn navbar-link">Log out</button>
-            </li>
-        </ul>
+        <a class="btn btn-outline-dark btn-sm" asp-area="" asp-action="Index" asp-controller="Manage" title="Manage">Hello @claim</a>
+        <button type="submit" class="btn btn-outline-dark btn-sm">Log out</button>
     </form>
 }
 else
 {
-    <ul class="nav navbar-nav navbar-right">
-        <li>
-            <a asp-area="" asp-controller="Account" asp-action="Register">Register</a>
-        </li>
-        <li>
-            <a asp-area="" asp-controller="Account" asp-action="Login">Log in</a>
-        </li>
-    
-    </ul>
+
+    <a class="btn btn-outline-dark btn-sm" asp-area="" asp-controller="Account" asp-action="Register">Register</a>
+    <a class="btn btn-outline-dark btn-sm" asp-area="" asp-controller="Account" asp-action="Login">Log in</a>
+
 }
