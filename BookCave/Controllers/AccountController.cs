@@ -81,7 +81,11 @@ namespace BookCave.Controllers
             {
                 return RedirectToAction("Index", "Home");
             }
-            return View();
+            else
+            {
+                ModelState.AddModelError(string.Empty, "Invalid login attempt.");
+                return View(model);
+            }
         }
 
         [HttpPost]

@@ -4,8 +4,9 @@ namespace BookCave.Models.ViewModels
 {
     public class RegisterViewModel
     {
-        [Required(ErrorMessage = "Email address is required")]
+        [Required]
         [EmailAddress]
+        [Display(Name = "Email")]
         public string Email { get; set; }
         [Required(ErrorMessage = "First name is required")]
         public string FirstName { get; set; }

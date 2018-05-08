@@ -8,6 +8,7 @@
 <br/>
 <form asp-action="Register" asp-controller="Account" class="form-horizontal">
     <h4>Create a new account</h4>
+    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
     <div class="form-group">
         <input type="email" asp-for="Email" class="form-control" autofocus="autofocus" placeholder="Enter email.." />
         <span asp-validation-for="Email" class="text-danger"></span>
