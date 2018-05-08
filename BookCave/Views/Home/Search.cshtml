@@ -1,6 +1,6 @@
 @model List<BookListViewModel>
 @{
-    ViewData["Genre"] = "Search";
+    ViewData["Search"] = "Search";
 }
 <div class="container">
     <div class="jumbotron">
@@ -9,7 +9,7 @@
     <ul>
         @foreach(var book in @Model)
         {
-            <li>Title: @book.Title ; Rating: @book.Rating ; Genre: @book.Genre</li>
+            <li>Id: @book.Id ; Title: @book.Title</li>
         }
     </ul>
 </div>

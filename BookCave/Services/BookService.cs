@@ -31,5 +31,11 @@ namespace BookCave.Services
            var genreView = _bookRepo.GetGenre(genre);
            return genreView;
        }
+
+       public List<BookListViewModel> SearchBooks(string lowerCaseTitle)
+       {
+           var bookSearch = _bookRepo.SearchBooks(lowerCaseTitle);
+           return bookSearch;
+       }
     }
 }
