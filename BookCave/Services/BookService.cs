@@ -19,5 +19,11 @@ namespace BookCave.Services
 
            return books;
        }
+
+       public List<BookListViewModel> TopTenBooks()
+       {
+           var topten = _bookRepo.TopTenBooks();
+           return topten;
+       }
     }
 }

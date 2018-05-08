@@ -25,5 +25,19 @@ namespace BookCave.Repositories
            return books;
        }
 
+       public List<BookListViewModel> TopTenBooks()
+       {
+           var topten = (from b in _db.Books
+                        orderby b.Rating descending
+                        select new BookListViewModel
+                        {
+                            Id = b.Id,
+                            Title = b.Title,
+                            Rating = b.Rating
+                        }).Take(10).ToList();
+
+           return topten;
+       }
+
     }
 }
