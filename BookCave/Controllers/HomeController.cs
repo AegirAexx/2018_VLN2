@@ -13,9 +13,9 @@ namespace BookCave.Controllers
 {
     public class HomeController : Controller
     {
-        private BookService _bookService;
+        private BookService _bookService; // Read only?
 
-        private OrderService _orderService;
+        private OrderService _orderService; // Read only?
 
         public HomeController()
         {
@@ -34,7 +34,7 @@ namespace BookCave.Controllers
             return View(books);
         }
 
-        public IActionResult Getorders()
+        public IActionResult GetOrders()
         {
             var orders = _orderService.GetAllOrders();
             return View(orders);

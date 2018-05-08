@@ -13,7 +13,7 @@
     <header class="menu-container">
                 <div class="menu">
                     <ul class="flex-list">
-                        <li><a href="#"><img src="~/images/logo.png" alt="BookCave" id="logo-image"></a></li>
+                        <li><a asp-area="" asp-controller="Home" asp-action="Index"><img src="~/images/logo.png" alt="BookCave" id="logo-image"></a></li>
                         <li><a href="#">Shop by Category</a>
                             <ul>
                                 <li><a href="">School</a>
@@ -103,8 +103,9 @@
     <!-- Latest compiled JavaScript -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>
     <script src="~/js/site.js"></script>
-
-          
+    <script src="https://ajax.aspnetcdn.com/ajax/jquery.validate/1.16.0/jquery.validate.min.js"></script>
+    <script src="https://ajax.aspnetcdn.com/ajax/jquery.validation.unobtrusive/3.2.6/jquery.validate.unobtrusive.min.js"></script>
+    @RenderSection("Scripts", required: false)
 </body>
 </html>
 
