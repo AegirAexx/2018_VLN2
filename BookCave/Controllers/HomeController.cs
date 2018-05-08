@@ -13,18 +13,15 @@ namespace BookCave.Controllers
 {
     public class HomeController : Controller
     {
-        private BookService _bookService;
+        private BookService _bookService; // Read only?
 
-        private OrderService _orderService;
-
-
+        private OrderService _orderService; // Read only?
 
         public HomeController()
         {
             _bookService = new BookService();
 
             _orderService = new OrderService();
-
         }
         public IActionResult Index()
         {
@@ -43,30 +40,32 @@ namespace BookCave.Controllers
             return View(orders);
         }
 
-        /*   //Ég á eftir að breyta þessu í order - Dagur
-        [HttpPost]
-        public IActionResult AddUser(UserInputModel inputUser)
+        public IActionResult TopTenBooks()
         {
-            if(ModelState.IsValid)
-            {
-                var newUser = new User
-                {
-                    UserName = inputUser.UserName,
-                    FullName = inputUser.FullName,
-                    Email = inputUser.Email,
-                    Gender = inputUser.Gender,
-                    Age = inputUser.Age,
-                    FavoriteBook = inputUser.FavoriteBook,
-                    IsActive = 1,
-                    JobTitle = "User",
-                    Image = ""
-                };
+            var topten = _bookService.TopTenBooks();
+            return View(topten);
+        }
 
-                _userService.AddUser(newUser);
-                return RedirectToAction("Index");
+        public IActionResult Genre(string genre)
+        {
+            var genreView = _bookService.GetGenre(genre);
+            return View(genreView);
+        }
+        public IActionResult Search(string x)
+        {
+             if(x != null)
+            {
+                var lowerCaseTitle = x.ToLower();
+                var bookSearch = _bookService.SearchBooks(lowerCaseTitle);
+
+                if(bookSearch.Count != 0)
+                {
+                    return View(bookSearch);
+                }
+                return View("NotFound");
             }
             return View();
-        }*/
+        }
 
     }
 }

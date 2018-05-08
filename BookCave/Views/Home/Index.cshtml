@@ -11,5 +11,19 @@
 
     <a asp-area="" asp-controller="Home" asp-action="GetOrders" class="btn btn-success">GET ORDERS FROM LOCAL SERVER</a>
 
-    <a asp-area="" asp-controller="Home" asp-action="AddOrder" class="btn btn-success">ADD AN ORDER TO THE LOCAL SERVER</a>
+    <a asp-area="" asp-controller="Home" asp-action="TopTenBooks" class="btn btn-success">TOP TEN LIST</a>
+
+        <form asp-controller="Home" asp-action="Genre" method="get">
+        <fieldset>
+            <legend>Genre</legend>
+            <select id="genre" name="genre">
+            <option value="Crime">Crime</option>
+            <option value="Children">Children</option>
+            <option value="Science Fiction">Science Fiction</option>
+            <option value="Mistery, thriller & suspense">Mistery, thriller &#38 suspense</option>
+            </select>
+            <p><input type="submit" value="Select" /> </p>
+        </fieldset>
+
+        </form>
 </div>

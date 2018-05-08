@@ -17,7 +17,7 @@
     <header class="menu-container">
                 <div class="menu">
                     <ul class="flex-list">
-                        <li><a href="#"><img src="~/images/logo.png" alt="BookCave" id="logo-image"></a></li>
+                        <li><a asp-area="" asp-controller="Home" asp-action="Index"><img src="~/images/logo.png" alt="BookCave" id="logo-image"></a></li>
                         <li><a href="#">Shop by Category</a>
                             <ul>
                                 <li><a href="">School</a>
@@ -54,7 +54,7 @@
                             </ul>
                         </li>
                         <li id="li-search" class="li-nohover">
-                            <form action="#" method="get" id="top-search" class="form-inline">
+                            <form asp-controller="Home" asp-action="Search" method="get" id="top-search" class="form-inline">
                                 <div class="form-group">
                                     <input id="x" type="text" class="form-control" name="x" placeholder="Title / Author / ISBN">
                                     <button type="submit" class="btn bg-light"><i class="fas fa-search"></i></button>
@@ -104,11 +104,11 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"></script>
     <!-- Latest compiled JavaScript -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>
-    <script src="~/js/site.js"></script> -->
-    <!-- Arnar -->
+    <script src="~/js/site.js"></script>
     <script src="https://ajax.aspnetcdn.com/ajax/jquery.validate/1.16.0/jquery.validate.min.js"></script>
     <script src="https://ajax.aspnetcdn.com/ajax/jquery.validation.unobtrusive/3.2.6/jquery.validate.unobtrusive.min.js"></script>
     @RenderSection("Scripts", required: false)
+          
 </body>
 </html>
 

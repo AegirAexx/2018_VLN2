@@ -28,3 +28,6 @@ bld/
 msbuild.log
 msbuild.err
 msbuild.wrn
+*.dll
+BookCave/bin/Debug/netcoreapp2.0/BookCave.dll
+BookCave/obj/Debug/netcoreapp2.0/BookCave.csproj.CoreCompileInputs.cache
