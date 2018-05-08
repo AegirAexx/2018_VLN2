@@ -40,6 +40,12 @@ namespace BookCave.Controllers
             return View(orders);
         }
 
+        public IActionResult TopTenBooks()
+        {
+            var topten = _bookService.TopTenBooks();
+            return View(topten);
+        }
+
         /*   //Ég á eftir að breyta þessu í order - Dagur
         [HttpPost]
         public IActionResult AddUser(UserInputModel inputUser)
