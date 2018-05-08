@@ -34,7 +34,7 @@ namespace BookCave.Controllers
             return View(books);
         }
 
-        public IActionResult Getorders()
+        public IActionResult GetOrders()
         {
             var orders = _orderService.GetAllOrders();
             return View(orders);
@@ -67,4 +67,3 @@ namespace BookCave.Controllers
 
     }
 }
-
