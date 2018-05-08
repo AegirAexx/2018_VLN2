@@ -37,5 +37,11 @@ namespace BookCave.Services
            var bookSearch = _bookRepo.SearchBooks(lowerCaseTitle);
            return bookSearch;
        }
+
+       public List<BookListViewModel> BooksAlphabet()
+       {
+            var booksAlphaOrder = _bookRepo.BooksAlphabet();
+            return booksAlphaOrder;
+       }
     }
 }
