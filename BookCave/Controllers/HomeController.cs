@@ -17,14 +17,11 @@ namespace BookCave.Controllers
 
         private OrderService _orderService;
 
-
-
         public HomeController()
         {
             _bookService = new BookService();
 
             _orderService = new OrderService();
-
         }
         public IActionResult Index()
         {
@@ -41,6 +38,12 @@ namespace BookCave.Controllers
         {
             var orders = _orderService.GetAllOrders();
             return View(orders);
+        }
+
+        public IActionResult TopTenBooks()
+        {
+            var topten = _bookService.TopTenBooks();
+            return View(topten);
         }
 
         /*   //Ég á eftir að breyta þessu í order - Dagur
