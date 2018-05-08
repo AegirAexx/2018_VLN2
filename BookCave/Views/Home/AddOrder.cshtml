@@ -1,0 +1,18 @@
+@model BookCave.Models.InputModels.UserInputModel
+
+<h2>Add Order&#58;</h2>
+<form method="post" asp-controller="Home" asp-action="AddOrder">
+        <label asp-for="CustomerId"></label>
+        <input type="number" asp-for="CustomerId" placeholder="Enter CustomerId"><br>
+        <span asp-validation-for="CustomerId"></span>
+
+        <label asp-for="TotalPrice"></label>
+        <input type="number" asp-for="TotalPrice" placeholder="Enter totalPrice"><br>
+        <span asp-validation-for="TotalPrice"></span>
+
+        <label asp-for="OrderStatus"></label>
+        <input type="text" asp-for="OrderStatus" placeholder="Enter status"><br>
+        <span asp-validation-for="OrderStatus"></span>
+
+        <br><button type="submit">Add Order!</button>
+</form>
