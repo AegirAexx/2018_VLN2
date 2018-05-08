@@ -6,10 +6,10 @@
     <div class="jumbotron">
         <h2>BookCave &#64; DATAdump</h2>
     </div>
-    <ol>
+    <ul>
         @foreach(var book in @Model)
         {
-            <li>Title: @book.Title Rating: @book.Rating</li>
+            <li>Title: @book.Title ; Rating: @book.Rating ; Genre: @book.Genre</li>
         }
-    </ol>
+    </ul>
 </div>
