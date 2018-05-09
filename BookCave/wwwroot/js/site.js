@@ -39,10 +39,6 @@ $(document).ready(function () {
     });
     //when clicked on mobile-menu, normal menu is shown as a list, classic rwd menu story (thanks mwl from stackoverflow)
 
-<<<<<<< HEAD
-});
-
-=======
     //Hér fyrir neðan er js fyrir details síðu
     $("ul.menu-items > li").on("click",function(){
         $("ul.menu-items > li").removeClass("active");
@@ -76,4 +72,3 @@ $(document).ready(function () {
     }) 
 
 });
->>>>>>> 46e02d22ec30d561345fbd745bc107392bfbafeb
