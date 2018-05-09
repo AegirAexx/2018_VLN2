@@ -11,11 +11,11 @@ namespace BookCave.Controllers
 {
     public class BookController : Controller
     {
-        // private Service _Service; // Vantar Service
+        private BookService _bookService;
 
         public BookController()
         {
-            // _bookService = new BookService();
+            _bookService = new BookService();
         }
 
         [HttpGet]
@@ -25,11 +25,11 @@ namespace BookCave.Controllers
         }
 
         [HttpGet]
-        public IActionResult Details(/*int id*/)
+        public IActionResult Details(int id)
         {
-            // @TODO
-            // Here we need to add the logic that can pass each book from database to the view
-            return View();
+            var bookDetails = _bookService.BookDetails(id);
+
+            return View(bookDetails);
         }
     }
 }

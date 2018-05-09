@@ -76,6 +76,29 @@ namespace BookCave.Repositories
                                 }).ToList();
            return booksAlphaOrder;
        }
+
+        public BookDetailsViewModel BookDetails(int id)
+        {
+            var bookDetails = (from b in _db.Books
+                                where b.Id == id
+                                select new BookDetailsViewModel
+                                {
+                                    Id = b.Id,
+                                    GoodReadsId = b.GoodReadsId, 
+                                    Title = b.Title,
+                                    Author = b.Author,
+                                    ISBN = b.ISBN,
+                                    Publisher = b.Publisher,
+                                    PageCount = b.PageCount,
+                                    YearPublished = b.YearPublished,
+                                    OriginalPublicationYear = b.OriginalPublicationYear,
+                                    Rating = b.Rating,
+                                    Genre = b.Genre,
+                                    Price = b.Price
+                                }).SingleOrDefault();
+            
+            return bookDetails;
+        }
     }
 
 }

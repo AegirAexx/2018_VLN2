@@ -1,6 +1,6 @@
-namespace BookCave.Data.EntityModels
+namespace BookCave.Models.ViewModels
 {
-    public class Book
+    public class BookDetailsViewModel
     {
         public int Id { get; set; }
         public int GoodReadsId { get; set; }
