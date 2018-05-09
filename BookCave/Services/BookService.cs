@@ -25,5 +25,11 @@ namespace BookCave.Services
            var topten = _bookRepo.TopTenBooks();
            return topten;
        }
+
+       public List<BookListViewModel> GetGenre(string genre)
+       {
+           var genreView = _bookRepo.GetGenre(genre);
+           return genreView;
+       }
     }
 }

@@ -47,30 +47,11 @@ namespace BookCave.Controllers
             return View(topten);
         }
 
-        /*   //Ég á eftir að breyta þessu í order - Dagur
-        [HttpPost]
-        public IActionResult AddUser(UserInputModel inputUser)
+        public IActionResult Genre(string genre)
         {
-            if(ModelState.IsValid)
-            {
-                var newUser = new User
-                {
-                    UserName = inputUser.UserName,
-                    FullName = inputUser.FullName,
-                    Email = inputUser.Email,
-                    Gender = inputUser.Gender,
-                    Age = inputUser.Age,
-                    FavoriteBook = inputUser.FavoriteBook,
-                    IsActive = 1,
-                    JobTitle = "User",
-                    Image = ""
-                };
-
-                _userService.AddUser(newUser);
-                return RedirectToAction("Index");
-            }
-            return View();
-        }*/
+            var genreView = _bookService.GetGenre(genre);
+            return View(genreView);
+        }
 
     }
 }
