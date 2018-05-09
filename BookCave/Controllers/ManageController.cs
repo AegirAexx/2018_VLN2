@@ -19,7 +19,7 @@ namespace BookCave.Controllers
     public class ManageController : Controller
     {
         private readonly SignInManager<ApplicationUser> _signInManager;
-        private readonly UserManager<ApplicationUser> _userManager;
+        private readonly UserManager<ApplicationUser> _userManager; 
 
         public ManageController(
             SignInManager<ApplicationUser> signInManager,
@@ -186,6 +186,60 @@ namespace BookCave.Controllers
 
             return RedirectToAction(nameof(SetPassword));
         }
+
+        [HttpGet]
+         public async Task<IActionResult> EditProfile()
+        {
+
+            return View();
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> EditProfile(EditProfileViewModel model)
+        {
+            if (!ModelState.IsValid) { return View(); }
+
+            var user = await _userManager.GetUserAsync(User);
+            if (user == null)
+            {
+                throw new AuthenticationException($"Unable to load user with ID '{_userManager.GetUserId(User)}'.");
+            }
+
+            var pmodel = new ApplicationUser
+            {
+                PhoneNumber = model.Address
+            };
+
+            var editProfileResult = await _userManager.UpdateAsync(pmodel);
+            if (!editProfileResult.Succeeded)
+            {
+                AddErrors(editProfileResult);
+                return View(model);
+            }
+
+            
+            //var user = new ApplicationUser { FirstName = model.FirstName, LastName = model.LastName, Image = model.Image, FavoriteBook = model.FavoriteBook };
+            
+            //var result = await _userManager.UpdateAsync(user);
+
+            // if (false)
+            // {
+            //     //The user is successfully registered
+            //     //Add the concatenated first and last name as fullName in claims
+            //     await _userManager.AddClaimAsync(user, new Claim("Name", $"{model.FirstName} {model.LastName}"));
+            //     await _signInManager.SignInAsync(user, false);
+
+            //     return RedirectToAction("Index", "Home");
+            // }
+            //AddErrors(result);
+
+            return View();
+        }
+
+
+        [HttpGet]
+ 
         private void AddErrors(IdentityResult result)
         {
             foreach (var error in result.Errors)

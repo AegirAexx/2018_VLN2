@@ -1,4 +1,5 @@
 using BookCave.Data.EntityModels;
+using BookCave.Models;
 using Microsoft.EntityFrameworkCore;
 
 namespace BookCave.Data
@@ -10,6 +11,7 @@ namespace BookCave.Data
         public DbSet<Book> Books { get; set; }
 
         public DbSet<User> Users { get; set; }
+        public DbSet<Update> Update { get; set; } 
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
