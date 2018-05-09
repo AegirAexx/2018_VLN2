@@ -5,3 +5,68 @@
 <h3>@ViewData["Message"]</h3>
 
 <p>Use this area to provide additional information.</p>
+
+<div id="accordion" role="tablist" aria-multiselectable="true">
+  <div class="card">
+    <div class="card-header" role="tab" id="Firstheading">
+      <h5 class="mb-0">
+        <a data-toggle="collapse" data-parent="#accordion" href="#collapse1" aria-expanded="true" aria-controls="collapse1">
+          Heading 1
+        </a>
+      </h5>
+    </div>
+
+    <div id="collapse1" class="collapse show" role="tabpanel" aria-labelledby="Firstheading">
+<div style="margin:20px;">
+        <div class="card-group">
+  <div class="card">
+    <div class="card-body">
+      <h4 class="card-title">Card Title</h4>
+      <p class="card-text">Here is a longer description of the card and the height will be auto aligned with flex box.</p>
+    </div>
+    <div class="card-footer">
+      <small class="text-muted">Here is a footer</small>
+    </div>
+  </div>
+  <div class="card">
+    <div class="card-body">
+      <h4 class="card-title">Card Title</h4>
+      <p class="card-text">Here is a shorter description of the card.</p>
+    </div>
+    <div class="card-footer">
+      <small class="text-muted">Here is a footer</small>
+    </div>
+  </div>
+</div>
+</div>
+    </div>
+  </div>
+  <div class="card">
+    <div class="card-header" role="tab" id="secondheading">
+      <h5 class="mb-0">
+        <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapse2" aria-expanded="false" aria-controls="collapse2">
+          Heading 2
+        </a>
+      </h5>
+    </div>
+    <div id="collapse2" class="collapse" role="tabpanel" aria-labelledby="secondheading">
+      <div class="card-body">
+        Here is the content for the second section.
+      </div>
+    </div>
+  </div>
+  <div class="card">
+    <div class="card-header" role="tab" id="headingThree">
+      <h5 class="mb-0">
+        <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapse3" aria-expanded="false" aria-controls="collapse3">
+          Heading 3
+        </a>
+      </h5>
+    </div>
+    <div id="collapse3" class="collapse" role="tabpanel" aria-labelledby="headingThree">
+      <div class="card-body">
+        Here is the content for the third section.
+      </div>
+    </div>
+  </div>
+</div>
