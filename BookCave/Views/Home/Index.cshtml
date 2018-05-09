@@ -26,6 +26,12 @@
             </select>
             <p><input type="submit" value="Select" /> </p>
         </fieldset>
+        </form>
 
+        <form asp-controller="ShoppingCart" asp-action="Index" method="get">
+            <div class="form-group">
+                <input id="UserName" type="text" class="form-control" name="x" >
+                <button type="submit" class="btn bg-light"><i class="fas fa-search"></i></button>
+            </div>
         </form>
 </div>
