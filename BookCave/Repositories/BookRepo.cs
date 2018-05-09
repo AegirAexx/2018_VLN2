@@ -65,6 +65,17 @@ namespace BookCave.Repositories
                         }).ToList();
            return bookSearch;
        }
+
+       public List<BookListViewModel> BooksAlphabet()
+       {
+           var booksAlphaOrder = (from b in _db.Books
+                                orderby b.Title
+                                select new BookListViewModel
+                                {
+                                    Title = b.Title,
+                                }).ToList();
+           return booksAlphaOrder;
+       }
     }
 
 }

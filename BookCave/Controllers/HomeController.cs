@@ -73,5 +73,13 @@ namespace BookCave.Controllers
             return View();
         }
 
+        public IActionResult BooksAlphabet()
+        {
+            var booksAlphaOrder = _bookService.BooksAlphabet();
+            return View(booksAlphaOrder);
+        }
+
+
+
     }
 }
