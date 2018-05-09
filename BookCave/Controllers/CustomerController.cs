@@ -13,10 +13,25 @@ namespace BookCave.Controllers
     {
         // private Service _Service; // Vantar Service
 
+
+        ///Veit ekki hvort að þetta sé réttur staður en set OrderList hingað
+        private OrderService _orderService;
+
         public CustomerController()
         {
-            // _bookService = new BookService();
+            _orderService = new OrderService();
         }
+
+        public IActionResult OrderHistory()
+        {
+            var orders = _orderService.GetAllOrders();
+            return View(orders);
+        }
+
+        // public CustomerController()
+        // {
+        //     _bookService = new BookService();
+        // }
 
         [HttpGet]
         public IActionResult Index()

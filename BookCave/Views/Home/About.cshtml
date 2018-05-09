@@ -1,7 +1,68 @@
-﻿@{
-    ViewData["Title"] = "About";
-}
+﻿@{ ViewData["Title"] = "Help and information"; }
 <h2>@ViewData["Title"]</h2>
-<h3>@ViewData["Message"]</h3>
 
-<p>Use this area to provide additional information.</p>
+
+
+<div id="accordion">
+  <div class="card">
+    <div class="card-header" id="headingOne">
+      <h5 class="mb-0">
+        <button class="btn btn-link" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+          About Us
+        </button>
+      </h5>
+    </div>
+
+    <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
+      <div class="card-body">
+         <h4>How are we?</h4>
+        Our roots are form Iceland and first began as a school project. Since then we have grown and now  
+        we are the "best online bookstore" five year running according to your mom. Supporting the comunity as a whole is one of our 
+        policys and we have donated over $100.000 to "children that don't read good" since 2015.
+      </div>
+    </div>
+  </div>
+  <div class="card">
+    <div class="card-header" id="headingTwo">
+      <h5 class="mb-0">
+        <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+          FAQ
+        </button>
+      </h5>
+    </div>
+    <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
+      <div class="card-body">
+               <h4>Why is the website not accepting my chosen password?</h4>
+        Our website is designed to accept passwords between 6-10 characters in length. Letters, numbers, and
+         capital letters are allowed and alphanumeric (such as # $ % ) are a requirement. Passwords are case
+          sensitive so when logging back in, be sure your caps lock is not on.
+        <h4>What do I do if I forgot my password?</h4>
+        If you have forgotten your password, click the "Forgot your password?" link on the log in page and we will
+         send you an email with a link to reset your password. We do not email or give out existing passwords for security reasons.
+        <h4>How do I get another password? Can you change it for me?</h4>
+        If you've forgotten your password, click the "Forgot your password?" link on the log in page and
+      we'll send you an email with a link to reset your password. We can't change your password for you and 
+         we don't email or give out existing passwords for security reasons.
+      </div>
+    </div>
+  </div>
+  <div class="card">
+    <div class="card-header" id="headingThree">
+      <h5 class="mb-0">
+        <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+          Delivery and shipping
+        </button>
+      </h5>
+    </div>
+    <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordion">
+      <div class="card-body">
+        <h4>How long dose it take for my order to arrive?</h4>
+        Domestic orders are shipped within 24 hours, Monday-Friday (excluding holidays) and international
+         orders can take up to 48 hours to be processed.
+         All orders are sent with UPS. Transit is typically 2-7 bussiness days. For more information about delivery time
+         and to track your order please go to visit <a href="http://www.ups.com" rel="nofollow" target="_blank">www.ups.com</a>
+      </div>
+    </div>
+  </div>
+</div>
+

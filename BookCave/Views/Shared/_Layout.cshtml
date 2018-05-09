@@ -8,6 +8,11 @@
     <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
     <link rel="stylesheet" href="~/css/site.css" />
+        <link rel="stylesheet" href="~/css/w3.css" />
+    <!-- Arnar -->
+    <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
+    <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
 </head>
 <body>
     <header class="menu-container">
@@ -49,6 +54,7 @@
                                 </li>
                             </ul>
                         </li>
+                        <li><a asp-area="" asp-controller="Home" asp-action="TopTenBooks">Top 10 Books</a></li>
                         <li id="li-search" class="li-nohover">
                             <form asp-controller="Home" asp-action="Search" method="get" id="top-search" class="form-inline">
                                 <div class="form-group">
@@ -73,29 +79,29 @@
                         </li>
                         <li><a href="#"><i class="fas fa-user-circle fa-lg"></i></a>
                             <ul>
-                                <li><a href="#">ACCOUNT</a></li>
-                                <li><a href="#">MANAGEMENT</a></li>
-                                <li><a href="#">CONTROLLER</a></li>
+                                <p class="flex-list">@await Html.PartialAsync("_LoginPartial")</p>
                             </ul>
                         </li>                      
                     </ul>
                 </div>
     </header>
 
-    <div id="main-body">
+    <div id="main-body" class="container mt-3">
         @RenderBody()
     </div>
 
     <hr>
-    <footer>
-        <button type="button" class="btn btn-outline-primary btn-sm"><a asp-area="" asp-controller="Home" asp-action="Index">Home</a></button>
-        <button type="button" class="btn btn-outline-secondary btn-sm"><a asp-area="" asp-controller="Book" asp-action="Index">Book</a></button>
-        <button type="button" class="btn btn-outline-success btn-sm"><a asp-area="" asp-controller="Author" asp-action="Index">Author</a></button>
-        <button type="button" class="btn btn-outline-info btn-sm"><a asp-area="" asp-controller="Customer" asp-action="Index">Customer</a></button>
-        <button type="button" class="btn btn-outline-warning btn-sm"><a asp-area="" asp-controller="Warehouse" asp-action="Index">Warehouse</a></button>
-        <button type="button" class="btn btn-outline-danger btn-sm"><a asp-area="" asp-controller="Admin" asp-action="Index">Admin</a></button>
-        <p class="flex-list">@await Html.PartialAsync("_LoginPartial")</p>
+    <footer class="w3-bottom w3-center"> 
+        <a class="text-muted btn-md btn" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+        <a class="text-muted btn-md btn" asp-area="" asp-controller="Book" asp-action="Index">Book</a>
+        <a class="text-muted btn-md btn" asp-area="" asp-controller="Author" asp-action="Index">Author</a>
+        <a class="text-muted btn-md btn" asp-area="" asp-controller="Customer" asp-action="Index">Customer</a>
+        <a class="text-muted btn-md btn" asp-area="" asp-controller="Warehouse" asp-action="Index">Warehouse</a>
+        <a class="text-muted btn-md btn" asp-area="" asp-controller="Admin" asp-action="Index">Admin</a>
+        <a class="text-muted btn-md btn" asp-area="" asp-controller="Home" asp-action="About">Help and information</a>
     </footer>
+
+
     <!-- jQuery library -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <!-- Popper JS -->
