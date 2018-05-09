@@ -18,15 +18,19 @@ namespace BookCave.Controllers
 
         private OrderService _orderService; // Read only?
 
+        private ShoppingCartService _shoppingCart;
+
         public ShoppingCartController()
         {
             _bookService = new BookService();
 
             _orderService = new OrderService();
+
+            _shoppingCart = new ShoppingCartService();
         }
 
         [HttpGet]
-        public IActionResult Index()
+        public IActionResult Index(string userName)
         {
             // @TODO Return heildar view fyrir fullscreen
 
@@ -39,7 +43,9 @@ namespace BookCave.Controllers
             //     ShoppingCart = _shoppingCart,
             //     ShoppingCartTotal = _shoppingCart.GetShoppingCartTotal()
             // };
-            return View(/*shoppingCartViewModel*/);
+            var cartBookList = _shoppingCart.GetCartList(userName);
+
+            return View(cartBookList);
         }
 
         [HttpPost]

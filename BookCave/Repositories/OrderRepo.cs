@@ -42,5 +42,21 @@ namespace BookCave.Repositories
            return orders;
        }
 
+       public List<CartBookViewModel> GetCartList(string userName)
+       {
+           var cartBooks = (from o in _db.OrderItems
+                            where o.UserName == userName && o.Status == "Cart"
+                            select new CartBookViewModel
+                            {
+                                Id = o.BookId,
+                                Price = o.Price,
+                                Title = (from b in _db.Books
+                                        where b.Id == o.BookId
+                                        select b.Title).SingleOrDefault()
+                            }).ToList();
+            
+            return cartBooks;
+       }
+
     }
 }
