@@ -53,5 +53,29 @@ namespace BookCave.Repositories
 
            return genreView;
        }
+
+       public List<BookListViewModel> SearchBooks(string lowerCaseTitle)
+       {
+           var bookSearch = (from b in _db.Books
+                        where b.Title.ToLower().Contains(lowerCaseTitle)
+                        select new BookListViewModel
+                        {
+                            Id = b.Id,
+                            Title = b.Title,
+                        }).ToList();
+           return bookSearch;
+       }
+
+       public List<BookListViewModel> BooksAlphabet()
+       {
+           var booksAlphaOrder = (from b in _db.Books
+                                orderby b.Title
+                                select new BookListViewModel
+                                {
+                                    Title = b.Title,
+                                }).ToList();
+           return booksAlphaOrder;
+       }
     }
+
 }

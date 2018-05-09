@@ -52,6 +52,29 @@ namespace BookCave.Controllers
             var genreView = _bookService.GetGenre(genre);
             return View(genreView);
         }
+        public IActionResult Search(string x)
+        {
+             if(x != null)
+            {
+                var lowerCaseTitle = x.ToLower();
+                var bookSearch = _bookService.SearchBooks(lowerCaseTitle);
+
+                if(bookSearch.Count != 0)
+                {
+                    return View(bookSearch);
+                }
+                return View("NotFound");
+            }
+            return View();
+        }
+
+        public IActionResult BooksAlphabet()
+        {
+            var booksAlphaOrder = _bookService.BooksAlphabet();
+            return View(booksAlphaOrder);
+        }
+
+
 
     }
 }

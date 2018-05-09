@@ -1,15 +1,15 @@
 @model List<BookListViewModel>
 @{
-    ViewData["Genre"] = "Search";
+    ViewData["Aplhabet"] = "Alphabet";
 }
 <div class="container">
     <div class="jumbotron">
         <h2>BookCave &#64; DATAdump</h2>
     </div>
-    <ul>
+    <ol>
         @foreach(var book in @Model)
         {
-            <li>Title: @book.Title ; Rating: @book.Rating ; Genre: @book.Genre</li>
+            <li>Title: @book.Title</li>
         }
-    </ul>
+    </ol>
 </div>
