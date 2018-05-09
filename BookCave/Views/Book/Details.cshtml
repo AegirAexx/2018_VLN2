@@ -1,42 +1,44 @@
 @{
     ViewData["Title"] = "[DYNAMIC TITLE]";
 }
+ 
+
 
 
   <div class="py-5">
     <div class="container">
       <div class="row">
-        <div class="col-md-3">
+        <div class="col-md-4">
           <img class="img-fluid d-block mx-auto img-thumbnail" src="https://images.gr-assets.com/books/1464570795l/77197.jpg"> </div>
-        <div class="col-md-9" >
-          <h1 class="">Book title
+        <div class="col-md-8" >
+          <h1 id="book-title">Book title
             <br> </h1>
-          <p class="lead">by Author</p>
-          <p class="">Paragraph. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-md-12"> </div>
-      </div>
-      <div class="row">
-        <div class="col-md-3">
-          <div class="btn-group">
-            <a href="#" class="btn btn-outline-primary">Add to cart</a>
-            <a href="#" class="btn btn-outline-primary">Add to wishlist</a>
+          <p id="book-author">by Author</p>
+          <p><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i></p>
+          <h5 class="title-price"><small>Price</small></h5>
+          <p class="lead">$ 399</p>
+          <p class="">Paragraph. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam mi erat, rhoncus in fringilla quis, ullamcorper ac ante. Donec quis mauris sit amet felis sodales tristique sit amet vitae augue. Fusce ullamcorper a leo sed tincidunt. Aenean gravida turpis pulvinar lobortis porttitor. Aliquam sodales volutpat dui, non elementum erat venenatis eleifend. Donec felis sapien, luctus ac tincidunt a, ultrices eu augue. Duis scelerisque tortor vitae posuere lacinia. Donec eget commodo felis. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Phasellus ultricies neque vitae urna consectetur, eu aliquet diam sagittis. Nam lectus sapien, rutrum gravida eleifend nec, sagittis quis metus.
+          </p>
+          <div>
+            <button class="btn btn-block btn-success"><i class="fas fa-shopping-cart"></i> Add to cart</button> 
+            <button  class="btn btn-block btn-danger"><i class="far fa-heart"></i> Add to wishlist</button>
           </div>
         </div>
-        <div class="col-md-9">
-          <p class="lead">Price</p>
         </div>
       </div>
     </div>
-  </div>
-  <div class="py-5">
+  <hr / id="book-divider">
+  <div>
     <div class="container">
       <div class="row">
         <div class="col-md-6" id="BookDetails">
           <h3 class="" contenteditable="true">Book details</h3>
-          <p class="">Paragraph. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+            <ul class="">
+                <li>Paperback: 464 pages</li>
+                <li>Publisher: Bantam (5 April 2018)</li>
+                <li>Language: English</li>
+                <li>ISBN: 0857503618</li>
+            </ul>
         </div>
         <div class="col-md-6">
           <h3 class="" contenteditable="true">About the author</h3>
@@ -45,15 +47,13 @@
       </div>
     </div>
   </div>
-  <div class="py-5">
-    <div class="container">
-      <div class="row"> </div>
-      <div class="row">
-        <div class="col-md-12">
-          <h2>Reviews</h2>
-        </div>
-      </div>
-      <div class="row">
+
+
+        
+  
+
+<!-- 
+ <div class="row">
         <div class="col-md-12">
           <h4 class="">Jón Jónson</h4>
         </div>
@@ -64,6 +64,37 @@
         <div class="col-md-11 border">
           <p class="">Paragraph. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
         </div>
-      </div>
-    </div>
-  </div>
+      </div> -->
+
+      <div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      <h2 class="page-header">Reviews</h2>
+        <section class="comment-list">
+          <!-- First Comment -->
+          <article class="row">
+            <div class="col-md-2 col-sm-2 hidden-xs">
+              <figure class="thumbnail">
+                <img class="img-responsive" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRZpYU0PmdMDRDn0wsB5yIEzZi6pcCJhxo-d_txR3iMO_9yHjGG" />
+                <figcaption class="text-center">username</figcaption>
+              </figure>
+            </div>
+            <div class="col-md-10 col-sm-10">
+              <div class="panel panel-default arrow left">
+                <div class="panel-body">
+                  <header class="text-left">
+                    <div class="comment-user"><i class="fa fa-user"></i> That Guy</div>
+                    <time class="comment-date" datetime="16-12-2014 01:05"><i class="fa fa-clock-o"></i> Dec 16, 2014</time>
+                    <p class="text-right"><a href="#" class="btn btn-default btn-sm"><i class="fa fa-reply"></i> reply</a></p>
+                  </header>
+                  <div class="comment-post">
+                    <p>
+                      Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </article> -->
+
+
