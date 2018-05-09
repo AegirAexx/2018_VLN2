@@ -2,14 +2,37 @@
 @{
     ViewData["TopTen"] = "Top Ten Books";
 }
-<div class="container">
-    <div class="jumbotron">
-        <h2>BookCave &#64; DATAdump</h2>
+
+@{int i = 1;}
+@foreach(var book in @Model)
+{
+  <div class="py-5" >
+    <div class="container">
+      <div class="row">
+        <div class="col-md-1 display-1 d-flex justify-content-center align-items-center">@i</div>
+        <div class="col-md-2 d-flex justify-content-center align-items-center">
+          <img class="img-fluid d-block" src="https://images.gr-assets.com/books/1519091756m/41064.jpg">
+        </div>
+        <div class="col-md-9">
+          <h1 class="">@book.Title</h1>
+          <p class="lead">By </p>
+          <p>Rating: @book.Rating</p>
+        </div>
+      </div>
     </div>
-    <ol>
-        @foreach(var book in @Model)
-        {
-            <li>Title: @book.Title Rating: @book.Rating</li>
-        }
-    </ol>
+  </div>
+ i++;
+}
+
+<div id="review-field" class="container jumbotron" style="margin-top: 20px">
+    <p>Search for a review by book title:</p>
+    <form action="GET">
+        <input type="text" name="review" id="review" placeholder="Book Title...">
+        <input type="button" id="review-btn" value="Search">
+    </form>
 </div>
+
+<div id="review-display" class="container jumbotron">
+    <h2 style="text-align: center">Reviews</h2>
+</div>
+
