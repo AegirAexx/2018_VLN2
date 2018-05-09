@@ -248,9 +248,18 @@ Book detail's
 #book-author{
     margin-top: 0px;
 }
-
 #book-divider{
     margin: 0px 0px;
+}
+/* ––––––––––––––––––––––––––––––––––––––––––––––––––
+Book detail's
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+.border-light{
+    margin: 10px 10px;
+}
+
+.order-group{
+    list-style-type: none;
 }
 
 /* ––––––––––––––––––––––––––––––––––––––––––––––––––

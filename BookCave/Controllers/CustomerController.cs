@@ -28,6 +28,12 @@ namespace BookCave.Controllers
             return View(orders);
         }
 
+        public IActionResult OrderDetails()
+        {
+            var orders = _orderService.GetAllOrders();
+            return View(orders);
+        }
+
         // public CustomerController()
         // {
         //     _bookService = new BookService();
