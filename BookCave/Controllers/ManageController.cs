@@ -187,54 +187,38 @@ namespace BookCave.Controllers
             return RedirectToAction(nameof(SetPassword));
         }
 
+        [Authorize]
         [HttpGet]
          public async Task<IActionResult> EditProfile()
-        {
+        {   
+            var user = await _userManager.GetUserAsync(User);
 
-            return View();
+            return View(new EditProfileViewModel {
+                FirstName = user.FirstName,
+                LastName = user.LastName,
+                Address = user.Address,
+                FavoriteBook = user.FavoriteBook,
+                Image = user.Image
+            });
         }
 
+        [Authorize]
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> EditProfile(EditProfileViewModel model)
         {
-            if (!ModelState.IsValid) { return View(); }
-
             var user = await _userManager.GetUserAsync(User);
-            if (user == null)
-            {
-                throw new AuthenticationException($"Unable to load user with ID '{_userManager.GetUserId(User)}'.");
-            }
 
-            var pmodel = new ApplicationUser
-            {
-                PhoneNumber = model.Address
-            };
+            user.FirstName = model.FirstName;
+            user.LastName = model.LastName;
+            user.Address = model.Address;
+            user.FavoriteBook = model.FavoriteBook;
+            user.Image = model.Image;
 
-            var editProfileResult = await _userManager.UpdateAsync(pmodel);
-            if (!editProfileResult.Succeeded)
-            {
-                AddErrors(editProfileResult);
-                return View(model);
-            }
+            await _userManager.UpdateAsync(user);
 
-            
-            //var user = new ApplicationUser { FirstName = model.FirstName, LastName = model.LastName, Image = model.Image, FavoriteBook = model.FavoriteBook };
-            
-            //var result = await _userManager.UpdateAsync(user);
 
-            // if (false)
-            // {
-            //     //The user is successfully registered
-            //     //Add the concatenated first and last name as fullName in claims
-            //     await _userManager.AddClaimAsync(user, new Claim("Name", $"{model.FirstName} {model.LastName}"));
-            //     await _signInManager.SignInAsync(user, false);
-
-            //     return RedirectToAction("Index", "Home");
-            // }
-            //AddErrors(result);
-
-            return View();
+            return View(model);
         }
 
 
