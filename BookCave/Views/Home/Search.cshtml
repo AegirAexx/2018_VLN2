@@ -2,14 +2,21 @@
 @{
     ViewData["Search"] = "Search";
 }
-<div class="container">
-    <div class="jumbotron">
-        <h2>BookCave &#64; DATAdump</h2>
+
+@foreach(var book in @Model)
+{
+  <div class="py-5" >
+    <div class="container">
+      <div class="row">
+        <div class="col-md-2 d-flex justify-content-center align-items-center">
+          <img class="img-fluid d-block" src="https://images.gr-assets.com/books/1519091756m/41064.jpg">
+        </div>
+        <div class="col-md-9">
+          <h1 class="">@book.Title</h1>
+          <p class="lead">By  </p>
+          <p>Rating: @book.Rating</p>
+        </div>
+      </div>
     </div>
-    <ul>
-        @foreach(var book in @Model)
-        {
-            <li>Id: @book.Id ; Title: @book.Title</li>
-        }
-    </ul>
-</div>
+  </div>
+}
