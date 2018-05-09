@@ -1,4 +1,5 @@
-﻿using System;
+
+using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
@@ -6,27 +7,31 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using BookCave.Models;
 using BookCave.Services;
+using BookCave.Models.InputModels;
+using BookCave.Data.EntityModels;
 
 namespace BookCave.Controllers
 {
     public class HomeController : Controller
     {
-        private BookService _bookService;
+        private BookService _bookService; // Read only?
 
-        private UserService _userService;
-
-        private AuthorService _authorService;
+        private OrderService _orderService; // Read only?
 
         public HomeController()
         {
             _bookService = new BookService();
 
-            _userService = new UserService();
-
-            _authorService = new AuthorService();
+            _orderService = new OrderService();
         }
         public IActionResult Index()
         {
+            return View();
+        }
+        public IActionResult About()
+        {
+            ViewData["Message"] = "Your application description page.";
+
             return View();
         }
 
@@ -36,17 +41,47 @@ namespace BookCave.Controllers
             return View(books);
         }
 
-        public IActionResult SeeUsers()
+        public IActionResult GetOrders()
         {
-            var users = _userService.GetAllUsers();
-            return View(users);
+            var orders = _orderService.GetAllOrders();
+            return View(orders);
         }
 
-        public IActionResult SeeAuthors()
+        public IActionResult TopTenBooks()
         {
-            var authors = _authorService.GetAllAuthors();
-            return View(authors);
+            var topten = _bookService.TopTenBooks();
+            return View(topten);
         }
+
+        public IActionResult Genre(string genre)
+        {
+            var genreView = _bookService.GetGenre(genre);
+            return View(genreView);
+        }
+        public IActionResult Search(string x)
+        {
+             if(x != null)
+            {
+                var lowerCaseTitle = x.ToLower();
+                var bookSearch = _bookService.SearchBooks(lowerCaseTitle);
+
+                if(bookSearch.Count != 0)
+                {
+                    return View(bookSearch);
+                }
+                return View("NotFound");
+            }
+            return View();
+        }
+
+        public IActionResult BooksAlphabet()
+        {
+            var booksAlphaOrder = _bookService.BooksAlphabet();
+            return View(booksAlphaOrder);
+        }
+
+
 
     }
 }
+
