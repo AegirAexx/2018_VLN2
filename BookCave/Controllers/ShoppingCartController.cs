@@ -13,6 +13,7 @@ namespace BookCave.Controllers
 {
     public class ShoppingCartController : Controller
     {
+        // Þarf controller ekki Data Repo?
         private BookService _bookService; // Read only?
 
         private OrderService _orderService; // Read only?
