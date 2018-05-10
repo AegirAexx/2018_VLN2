@@ -18,9 +18,6 @@ $(document).ready(function () {
       $("#details-cover").append(cover);
       $("#details-description").append(text);
   });
-<<<<<<< HEAD
-});
-=======
 
   $("#add-to-cart").click(() =>  { 
 
@@ -37,4 +34,3 @@ $(document).ready(function () {
 
 
 
->>>>>>> master
