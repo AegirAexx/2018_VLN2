@@ -1,104 +1,97 @@
 ﻿<!DOCTYPE html>
 <html>
 <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@ViewData["Title"] - BookCave</title>
+    <link rel="stylesheet" href="http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.12/css/all.css" integrity="sha384-G0fIWCsCzJIMAVNQPfjH08cyYaUtMwjJwqiRKxxE/rx96Uroj1BtIQ6MLJuheaO9" crossorigin="anonymous">
-    <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
-    <link rel="stylesheet" href="~/css/site.css" />
-        <link rel="stylesheet" href="~/css/w3.css" />
-    <!-- Arnar -->
-    <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-    <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
-    <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+    <link rel="stylesheet" href="~/css/site.css">
+    <link rel="stylesheet" href="~/css/w3.css">
 </head>
 <body>
-    <header class="menu-container">
-                <div class="menu">
-                    <ul class="flex-list">
-                        <li><a asp-area="" asp-controller="Home" asp-action="Index"><img src="~/images/logo.png" alt="BookCave" id="logo-image"></a></li>
-                        <li><a href="#">Shop by Category</a>
+    <header class="w3-top">
+        <div class="menu-container">
+        <div class="menu">
+            <ul class="d-flex justify-content-center">
+                <li><a asp-area="" asp-controller="Home" asp-action="Index"><img src="~/images/logo.png" alt="BookCave" class="hide-mobile" id="logo-image"></a></li>
+                <li><a href="#">Shop by Category</a>
+                    <ul>
+                        <li><a href="">School</a>
                             <ul>
-                                <li><a href="">School</a>
-                                    <ul>
-                                        <li><a href="#">Lidership</a></li>
-                                        <li><a href="#">History</a></li>
-                                        <li><a href="#">Locations</a></li>
-                                        <li><a href="#">Careers</a></li>
-                                    </ul>
-                                </li>
-                                <li><a href="#">Study</a>
-                                    <ul>
-                                        <li><a href="#">Undergraduate</a></li>
-                                        <li><a href="#">Masters</a></li>
-                                        <li><a href="#">International</a></li>
-                                        <li><a href="#">Online</a></li>
-                                    </ul>
-                                </li>
-                                <li><a href="#">Research</a>
-                                    <ul>
-                                        <li><a href="#">Undergraduate research</a></li>
-                                        <li><a href="#">Masters research</a></li>
-                                        <li><a href="#">Funding</a></li>
-                                    </ul>
-                                </li>
-                                <li><a href="#">Something</a>
-                                    <ul>
-                                        <li><a href="#">Sub something</a></li>
-                                        <li><a href="#">Sub something</a></li>
-                                        <li><a href="#">Sub something</a></li>
-                                        <li><a href="#">Sub something</a></li>
-                                    </ul>
-                                </li>
+                                <li><a href="#">Lidership</a></li>
+                                <li><a href="#">History</a></li>
+                                <li><a href="#">Locations</a></li>
+                                <li><a href="#">Careers</a></li>
                             </ul>
                         </li>
-                        <li><a asp-area="" asp-controller="Home" asp-action="TopTenBooks">Top 10 Books</a></li>
-                        <li id="li-search" class="li-nohover">
-                            <form asp-controller="Home" asp-action="Search" method="get" id="top-search" class="form-inline">
-                                <div class="form-group">
-                                    <input id="x" type="text" class="form-control" name="x" placeholder="Title / Author / ISBN">
-                                    <button type="submit" class="btn bg-light"><i class="fas fa-search"></i></button>
-                                </div>
-                            </form>
-                        </li>
-                        <li><a href="#"><i class="far fa-heart fa-lg"></i></a>
+                        <li><a href="#">Study</a>
                             <ul>
-                                <li><a href="#">BOOK</a></li>
-                                <li><a href="#">LIST</a></li>
-                                <li><a href="#">ITEM</a></li>
+                                <li><a href="#">Undergraduate</a></li>
+                                <li><a href="#">Masters</a></li>
+                                <li><a href="#">International</a></li>
+                                <li><a href="#">Online</a></li>
                             </ul>
                         </li>
-                        <li><a href="#"><i class="fas fa-shopping-cart fa-lg"></i></a>
+                        <li><a href="#">Research</a>
                             <ul>
                                 <li><a href="#">SHOPPING</a></li>
                                 <li><a asp-area="" asp-controller="ShoppingCart" asp-action="Index">CART</a></li>
                                 <li><a href="#">ITEM</a></li>
                             </ul>
                         </li>
-                        <li><a href="#"><i class="fas fa-user-circle fa-lg"></i></a>
+                        <li><a href="#">Something</a>
                             <ul>
-                                <p class="flex-list">@await Html.PartialAsync("_LoginPartial")</p>
+                                <li><a href="#">Sub something</a></li>
+                                <li><a href="#">Sub something</a></li>
+                                <li><a href="#">Sub something</a></li>
+                                <li><a href="#">Sub something</a></li>
                             </ul>
-                        </li>                      
+                        </li>
                     </ul>
-                </div>
+                </li>
+                <li><a asp-area="" asp-controller="Home" asp-action="TopTenBooks">Top 10 Books</a></li>
+                <li id="li-search" class="li-nohover">
+                    <form asp-controller="Home" asp-action="Search" method="get" id="top-search" class="form-inline">
+                        <div class="form-group">
+                            <input id="x" type="text" class="form-control" name="x" placeholder="Title / Author / ISBN">
+                            <button type="submit" class="btn nav-search"><i class="fas fa-search"></i></button>
+                        </div>
+                    </form>
+                </li>
+                <li class="mt-1"><a href="#"><i class="far fa-heart fa-lg"></i></a>
+                    <ul>
+                        <li><a href="#">BOOK</a></li>
+                        <li><a href="#">LIST</a></li>
+                        <li><a href="#">ITEM</a></li>
+                    </ul>
+                </li>
+                <li class="mt-1"><a href="#"><i class="fas fa-shopping-cart fa-lg"></i></a>
+                    <ul>
+                        <li><a href="#">SHOPPING</a></li>
+                        <li><a href="#">CART</a></li>
+                        <li><a href="#">ITEM</a></li>
+                    </ul>
+                </li>
+                <li class="mt-1"><a href="#"><i class="fas fa-user-circle fa-lg"></i></a>
+                    <ul>
+                        @await Html.PartialAsync("_LoginPartial")
+                    </ul>
+                </li>                      
+            </ul>
+        </div>
+        </div>
     </header>
 
-    <div id="main-body" class="container mt-3">
+    <div id="main-body" class="container">
         @RenderBody()
     </div>
 
     <hr>
     <footer class="w3-bottom w3-center"> 
-        <a class="text-muted btn-md btn" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
-        <a class="text-muted btn-md btn" asp-area="" asp-controller="Book" asp-action="Index">Book</a>
-        <a class="text-muted btn-md btn" asp-area="" asp-controller="Author" asp-action="Index">Author</a>
-        <a class="text-muted btn-md btn" asp-area="" asp-controller="Customer" asp-action="Index">Customer</a>
-        <a class="text-muted btn-md btn" asp-area="" asp-controller="Warehouse" asp-action="Index">Warehouse</a>
-        <a class="text-muted btn-md btn" asp-area="" asp-controller="Admin" asp-action="Index">Admin</a>
-        <a class="text-muted btn-md btn" asp-area="" asp-controller="Home" asp-action="About">Help and information</a>
+        <a class="btn" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+        <a class="btn" asp-area="" asp-controller="Home" asp-action="About">Help and information</a>
     </footer>
 
 
