@@ -36,6 +36,7 @@
                             <button type="button" class="btn btn-danger">
                                 <a asp-area="" asp-controller="ShoppingCart" asp-action="Remove" asp-route-id="@item.Id">Remove from cart</a>
                             </button></td>
+                            <p id="details-isbn" style="visibility: hidden">@item.ISBN13</p>
                         </tr>
                     }
 
@@ -80,7 +81,7 @@
 </div>
 
 
-<p id="details-isbn" style="visibility: hidden">@item.ISBN13</p>
+
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script src="~/js/shoppingCart.js"></script>
