@@ -20,8 +20,8 @@
           <p class="">Paragraph. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam mi erat, rhoncus in fringilla quis, ullamcorper ac ante. Donec quis mauris sit amet felis sodales tristique sit amet vitae augue. Fusce ullamcorper a leo sed tincidunt. Aenean gravida turpis pulvinar lobortis porttitor. Aliquam sodales volutpat dui, non elementum erat venenatis eleifend. Donec felis sapien, luctus ac tincidunt a, ultrices eu augue. Duis scelerisque tortor vitae posuere lacinia. Donec eget commodo felis. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Phasellus ultricies neque vitae urna consectetur, eu aliquet diam sagittis. Nam lectus sapien, rutrum gravida eleifend nec, sagittis quis metus.
           </p>
           <div>
-            <button class="btn btn-block btn-success"><i class="fas fa-shopping-cart"></i> Add to cart</button>
-            <a asp-area="" asp-controller="ShoppingCart" asp-action="Add" asp-route-id="@Model.Id">Add to Cart</a>
+            <button class="btn btn-block btn-success" asp-controller="ShoppingCart" asp-action="Add" asp-route-id="@Model.Id">
+              <i class="fas fa-shopping-cart"></i> Add to cart</button>
             <button  class="btn btn-block btn-danger"><i class="far fa-heart"></i> Add to wishlist</button>
           </div>
         </div>
@@ -53,22 +53,7 @@
   </div>
 
 
-        
-  
-
-<!-- 
- <div class="row">
-        <div class="col-md-12">
-          <h4 class="">Jón Jónson</h4>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-md-1">
-          <img class="img-fluid d-block img-thumbnail mx-auto border" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRZpYU0PmdMDRDn0wsB5yIEzZi6pcCJhxo-d_txR3iMO_9yHjGG"> </div>
-        <div class="col-md-11 border">
-          <p class="">Paragraph. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-        </div>
-      </div> -->
+      
 <div class="container ">
   <div class="row">
     <div class="col-md-12">
@@ -85,7 +70,7 @@
               <div class="panel panel-default arrow left">
                 <div class="panel-body">
                   <header class="text-left">
-                    <div class="comment-user"><i class="fa fa-user"></i> Username </div>
+                    <div class="comment-user"><i class="fa fa-user"></i> Username <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i></div>
                     <time class="comment-date" datetime="16-12-2014 01:05"><i class="fa fa-clock-o"></i> Dec 16, 2014</time>                   
                   </header>
                   <div class="comment-post">
