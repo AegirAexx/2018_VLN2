@@ -31,7 +31,7 @@ namespace BookCave.Repositories
                                         select new OrderItemViewModel
                                         {
                                             BookId = oi.BookId,
-                                            Price = oi.Price,
+                                            TotalPrice = oi.Price,
                                             Book = (from b in _db.Books
                                                     where b.Id == oi.BookId
                                                     select new BookListViewModel
