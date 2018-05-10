@@ -2,15 +2,16 @@ namespace BookCave.Data.EntityModels
 {
     public class Address
     {
+        public int Id { get; set; }
         public int addressId { get; set; }
         public int UserId { get; set; }
-        public string streetName { get; set; }
-        public string houseNumber { get; set; }
-        public string city { get; set; }
-        public string state { get; set; }
-        public string country { get; set; }
-        public int zipCode { get; set; }
-        public bool isShippingAddress { get; set; }
+        public string StreetName { get; set; }
+        public int HouseNumber { get; set; }
+        public string City { get; set; }
+        public string State { get; set; }
+        public string Country { get; set; }
+        public int ZipCode { get; set; }
+        public bool IsShippingAddress { get; set; }
 
     }
 }
