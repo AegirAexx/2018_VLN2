@@ -16,6 +16,8 @@ namespace BookCave.Models.InputModels
         public string Age { get; set; }
         [Required]
         public int FavoriteBook { get; set; }
+        public string Image { get; set; }
+        public string Address { get; set; }
 
     }
 }

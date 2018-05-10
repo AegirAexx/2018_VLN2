@@ -17,15 +17,19 @@ namespace BookCave.Repositories
 
         public List<CartBookViewModel> GetCartList(string userId)
         {
-            var cartBooks = (from o in _db.OrderItems
-                                where o.UserId == userId && o.Status == "Cart"
+            var cartBooks = (from oi in _db.OrderItems
+                                where oi.UserId == userId && oi.Status == "Cart"
                                 select new CartBookViewModel
                                 {
-                                    Id = o.BookId,
-                                    Price = o.Price,
+                                    Id = oi.Id,
+                                    Price = oi.Price,
                                     Title = (from b in _db.Books
-                                            where b.Id == o.BookId
-                                            select b.Title).SingleOrDefault()
+                                            where b.Id == oi.BookId
+                                            select b.Title).SingleOrDefault(),
+                                    Author = (from b in _db.Books
+                                            where b.Id == oi.BookId
+                                            select b.Author).SingleOrDefault(),
+                                    OrderId = oi.OrderId
                                 }).ToList();
                 
                 return cartBooks;
@@ -75,5 +79,30 @@ namespace BookCave.Repositories
             _db.SaveChanges();
         }
 
+        public void Remove(int orderItem)
+        {
+            var itemToRemove = (from oi in _db.OrderItems
+                                where oi.Id == orderItem
+                                select oi).SingleOrDefault();
+            
+            if(itemToRemove != null)
+            {
+                _db.OrderItems.Remove(itemToRemove);
+                _db.SaveChanges();
+            }
+        }
+        public PayOrderViewModel  CheckOut(int id, int price)
+        {
+            
+            var orderDetails = (from o in _db.Orders
+                                where o.Id == id
+                                select new PayOrderViewModel
+                                {
+                                    Id = o.Id,
+                                    TotalPrice = price
+                                }).SingleOrDefault();
+            
+            return orderDetails;
+        }
     }
 }

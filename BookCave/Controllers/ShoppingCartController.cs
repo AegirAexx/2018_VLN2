@@ -53,6 +53,13 @@ namespace BookCave.Controllers
             return View();
         }
 
+        public IActionResult Remove(int id)
+        {
+            _shoppingCartService.Remove(id);
+
+            return View();
+        }
+
         public IActionResult RemoveFromShoppingCart(/*int|inputmodel ???Id*/)
         {
             // Created an OrderItem? from JSON
@@ -63,9 +70,11 @@ namespace BookCave.Controllers
             // It will be AJAX back into DOM to reflect change 
             // in the cart inventory.
         }
-        public IActionResult CheckOut()
+        public IActionResult CheckOut(int id)
         {
-            return View();
+            var order = _shoppingCartService.CheckOut(id);
+            
+            return View(order);
         }
 
     }
