@@ -69,27 +69,24 @@
           <p class="">Paragraph. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
         </div>
       </div> -->
-
-      <div class="container">
+<div class="container ">
   <div class="row">
     <div class="col-md-12">
       <h2 class="page-header">Reviews</h2>
         <section class="comment-list">
           <!-- First Comment -->
-          <article class="row">
+          <div class="row ">
             <div class="col-md-2 col-sm-2 hidden-xs">
-              <figure class="thumbnail">
-                <img class="img-responsive" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRZpYU0PmdMDRDn0wsB5yIEzZi6pcCJhxo-d_txR3iMO_9yHjGG" />
-                <figcaption class="text-center">username</figcaption>
-              </figure>
+              <div class="">
+                <img class="img-fluid d-block img-thumbnail mx-auto border" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRZpYU0PmdMDRDn0wsB5yIEzZi6pcCJhxo-d_txR3iMO_9yHjGG" />
+              </div>
             </div>
-            <div class="col-md-10 col-sm-10">
+            <div class="col-md-10 col-sm-10 mx-auto border">
               <div class="panel panel-default arrow left">
                 <div class="panel-body">
                   <header class="text-left">
-                    <div class="comment-user"><i class="fa fa-user"></i> That Guy</div>
-                    <time class="comment-date" datetime="16-12-2014 01:05"><i class="fa fa-clock-o"></i> Dec 16, 2014</time>
-                    <p class="text-right"><a href="#" class="btn btn-default btn-sm"><i class="fa fa-reply"></i> reply</a></p>
+                    <div class="comment-user"><i class="fa fa-user"></i> Username </div>
+                    <time class="comment-date" datetime="16-12-2014 01:05"><i class="fa fa-clock-o"></i> Dec 16, 2014</time>                   
                   </header>
                   <div class="comment-post">
                     <p>
@@ -99,6 +96,71 @@
                 </div>
               </div>
             </div>
-          </article>
+          </div>
+
+
+
+<!-- First Comment -->
+<div class="row mt-3">
+  <div class="col-md-2 col-sm-2 hidden-xs">
+    <div class="thumbnail">
+      <img class="img-fluid d-block img-thumbnail mx-auto border" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRZpYU0PmdMDRDn0wsB5yIEzZi6pcCJhxo-d_txR3iMO_9yHjGG"
+      />
+    </div>
+  </div>
+  <div>
+    <div>
+    <div id="writeReview">
+      <h4 class=""style="display:show">Read this book?</h4>
+      <button id="write-review" type="submit" href="#comment" class="btn btn-success">Write a review</button>
+      <div class="py-5 "></div>
+    </div>
+  <form action="/action_page.php" id="comment" style="display:none">
+        <div class="form-group">
+          <label for="comment">Review:</label>
+          <textarea class="form-control" rows="5"></textarea>
+        </div>
+        <p>
+          <div class="dropdown">
+            <button type="dropdown" class="btn dropdown-toggle" data-toggle="dropdown">
+              Rate this book!
+            </button>
+            <div class="dropdown-menu">
+              <a class="dropdown-item" href="#">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+              </a>
+              <a class="dropdown-item" href="#">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                </i>
+              </a>
+              <a class="dropdown-item" href="#">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                </i>
+              </a>
+              <a class="dropdown-item" href="#">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+              </a>
+              <a class="dropdown-item" href="#">
+                <i class="fas fa-star"></i>
+              </a>
+            </div>
+            <button type="submit" class="btn btn-success">Submit</button>
+        </p>
+     </form>
+    </div>
+  </div>
+</div>
+<div class="py-5"></div>
+
 
 
