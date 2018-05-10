@@ -77,6 +77,13 @@ namespace BookCave.Controllers
             return View(order);
         }
 
+        public IActionResult Buy(int id)
+        {
+            var order = _shoppingCartService.Buy(id);
+            
+            return View(order);
+        }
+
     }
 }
 
