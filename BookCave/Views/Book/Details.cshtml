@@ -8,8 +8,7 @@
   <div class="py-5">
     <div class="container">
       <div class="row">
-        <div class="col-md-4">
-          <img class="img-fluid d-block mx-auto img-thumbnail" src="https://images.gr-assets.com/books/1464570795l/77197.jpg"> </div>
+        <div class="col-md-4" id="details-cover"></div>
         <div class="col-md-8" >
           <h1 id="book-title">@Model.Title
             <br> </h1>
@@ -89,8 +88,7 @@
 <div class="row mt-3">
   <div class="col-md-2 col-sm-2 hidden-xs">
     <div class="thumbnail">
-      <img class="img-fluid d-block img-thumbnail mx-auto border" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRZpYU0PmdMDRDn0wsB5yIEzZi6pcCJhxo-d_txR3iMO_9yHjGG"
-      />
+      <img class="img-fluid d-block img-thumbnail mx-auto border" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRZpYU0PmdMDRDn0wsB5yIEzZi6pcCJhxo-d_txR3iMO_9yHjGG"/>
     </div>
   </div>
   <div>
@@ -147,5 +145,8 @@
 </div>
 <div class="py-5"></div>
 
+<p id="details-isbn" style="visibility: hidden">@Model.ISBN13</p>
 
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="~/js/details.js"></script>
 
