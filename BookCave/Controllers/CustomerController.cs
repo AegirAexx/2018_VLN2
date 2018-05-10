@@ -6,43 +6,40 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using BookCave.Models;
 using BookCave.Services;
+using Microsoft.AspNetCore.Identity;
 
 namespace BookCave.Controllers
 {
     public class CustomerController : Controller
     {
-        // private Service _Service; // Vantar Service
+        private readonly UserManager<ApplicationUser> _userManager;
 
-
-        ///Veit ekki hvort að þetta sé réttur staður en set OrderList hingað
         private OrderService _orderService;
 
-        public CustomerController()
-        {
-            _orderService = new OrderService();
-        }
-
-        public IActionResult OrderHistory()
-        {
-            var orders = _orderService.GetAllOrders();
-            return View(orders);
-        }
-
-        public IActionResult OrderDetails()
-        {
-            var orders = _orderService.GetAllOrders();
-            return View(orders);
-        }
-
-        // public CustomerController()
-        // {
-        //     _bookService = new BookService();
-        // }
-
-        [HttpGet]
         public IActionResult Index()
         {
             return View();
         }
+        public CustomerController(UserManager<ApplicationUser> userManager)
+        {
+            _orderService = new OrderService();
+
+            _userManager = userManager;
+        }
+
+        public IActionResult OrderHistory()
+        {
+            var currentUser = _userManager.GetUserId(HttpContext.User);
+
+            var orders = _orderService.GetAllOrders(currentUser);
+            return View(orders);
+        }
+
+        public IActionResult OrderDetails(int orderId)
+        {
+            var orderItems = _orderService.GetOrderDetails(orderId);
+            return View(orderItems);
+        }
+
     }
 }
