@@ -20,7 +20,8 @@
           <p class="">Paragraph. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam mi erat, rhoncus in fringilla quis, ullamcorper ac ante. Donec quis mauris sit amet felis sodales tristique sit amet vitae augue. Fusce ullamcorper a leo sed tincidunt. Aenean gravida turpis pulvinar lobortis porttitor. Aliquam sodales volutpat dui, non elementum erat venenatis eleifend. Donec felis sapien, luctus ac tincidunt a, ultrices eu augue. Duis scelerisque tortor vitae posuere lacinia. Donec eget commodo felis. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Phasellus ultricies neque vitae urna consectetur, eu aliquet diam sagittis. Nam lectus sapien, rutrum gravida eleifend nec, sagittis quis metus.
           </p>
           <div>
-            <button class="btn btn-block btn-success"><i class="fas fa-shopping-cart"></i> Add to cart</button> 
+            <button class="btn btn-block btn-success"><i class="fas fa-shopping-cart"></i> Add to cart</button>
+            <a asp-area="" asp-controller="ShoppingCart" asp-action="Add" asp-route-id="@Model.Id">Add to Cart</a>
             <button  class="btn btn-block btn-danger"><i class="far fa-heart"></i> Add to wishlist</button>
           </div>
         </div>

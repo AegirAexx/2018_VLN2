@@ -27,9 +27,18 @@ namespace BookCave.Services
             return cartBookList; 
         }
 
-        public void AddToCart(int bookId)
+        public void Add(int bookToAdd, string currentUser)
         {
+            var cartId = GetCartId(currentUser);
             
+            _shoppingCartRepo.Add(bookToAdd, currentUser, cartId);
+
+        }
+
+        public void Remove(int orderItem)
+        {
+            _shoppingCartRepo.Remove(orderItem);
+
         }
 
         public void RemoveFromCart(Book book)
@@ -42,10 +51,6 @@ namespace BookCave.Services
             // Remove OrderItem form OrderItem List.
         }
 
-        public void ClearCart()
-        {
-            // null stillir allt? Delete/Free method?
-        }
 
         public decimal GetShoppingCartTotal()
         {
@@ -54,7 +59,13 @@ namespace BookCave.Services
             return total;
         }
 
-        
+        public int GetCartId(string currentUser)
+        {
+            var cartId = _shoppingCartRepo.GetCartId(currentUser);
+
+            return cartId;
+        }
+
 
     }
 
