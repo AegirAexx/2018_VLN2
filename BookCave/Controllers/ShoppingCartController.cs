@@ -53,6 +53,13 @@ namespace BookCave.Controllers
             return View();
         }
 
+        public IActionResult Remove(int id)
+        {
+            _shoppingCartService.Remove(id);
+
+            return View();
+        }
+
         public IActionResult RemoveFromShoppingCart(/*int|inputmodel ???Id*/)
         {
             // Created an OrderItem? from JSON

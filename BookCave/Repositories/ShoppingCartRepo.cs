@@ -21,7 +21,7 @@ namespace BookCave.Repositories
                                 where o.UserId == userId && o.Status == "Cart"
                                 select new CartBookViewModel
                                 {
-                                    Id = o.BookId,
+                                    Id = o.Id,
                                     Price = o.Price,
                                     Title = (from b in _db.Books
                                             where b.Id == o.BookId
@@ -78,5 +78,17 @@ namespace BookCave.Repositories
             _db.SaveChanges();
         }
 
+        public void Remove(int orderItem)
+        {
+            var itemToRemove = (from oi in _db.OrderItems
+                                where oi.Id == orderItem
+                                select oi).SingleOrDefault();
+            
+            if(itemToRemove != null)
+            {
+                _db.OrderItems.Remove(itemToRemove);
+                _db.SaveChanges();
+            }
+        }
     }
 }

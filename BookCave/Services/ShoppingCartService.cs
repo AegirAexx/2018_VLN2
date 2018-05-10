@@ -35,6 +35,12 @@ namespace BookCave.Services
 
         }
 
+        public void Remove(int orderItem)
+        {
+            _shoppingCartRepo.Remove(orderItem);
+
+        }
+
         public void RemoveFromCart(Book book)
         {
             // Finna bókina
