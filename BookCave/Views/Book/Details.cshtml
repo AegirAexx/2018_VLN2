@@ -20,8 +20,8 @@
           <p class="">Paragraph. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam mi erat, rhoncus in fringilla quis, ullamcorper ac ante. Donec quis mauris sit amet felis sodales tristique sit amet vitae augue. Fusce ullamcorper a leo sed tincidunt. Aenean gravida turpis pulvinar lobortis porttitor. Aliquam sodales volutpat dui, non elementum erat venenatis eleifend. Donec felis sapien, luctus ac tincidunt a, ultrices eu augue. Duis scelerisque tortor vitae posuere lacinia. Donec eget commodo felis. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Phasellus ultricies neque vitae urna consectetur, eu aliquet diam sagittis. Nam lectus sapien, rutrum gravida eleifend nec, sagittis quis metus.
           </p>
           <div>
-            <button class="btn btn-block btn-success"><i class="fas fa-shopping-cart"></i> Add to cart</button>
-            <a asp-area="" asp-controller="ShoppingCart" asp-action="Add" asp-route-id="@Model.Id">Add to Cart</a>
+            <button class="btn btn-block btn-success" asp-controller="ShoppingCart" asp-action="Add" asp-route-id="@Model.Id">
+              <i class="fas fa-shopping-cart"></i> Add to cart</button>
             <button  class="btn btn-block btn-danger"><i class="far fa-heart"></i> Add to wishlist</button>
           </div>
         </div>
@@ -53,43 +53,25 @@
   </div>
 
 
-        
-  
-
-<!-- 
- <div class="row">
-        <div class="col-md-12">
-          <h4 class="">Jón Jónson</h4>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-md-1">
-          <img class="img-fluid d-block img-thumbnail mx-auto border" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRZpYU0PmdMDRDn0wsB5yIEzZi6pcCJhxo-d_txR3iMO_9yHjGG"> </div>
-        <div class="col-md-11 border">
-          <p class="">Paragraph. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-        </div>
-      </div> -->
-
-      <div class="container">
+      
+<div class="container ">
   <div class="row">
     <div class="col-md-12">
       <h2 class="page-header">Reviews</h2>
         <section class="comment-list">
           <!-- First Comment -->
-          <article class="row">
+          <div class="row ">
             <div class="col-md-2 col-sm-2 hidden-xs">
-              <figure class="thumbnail">
-                <img class="img-responsive" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRZpYU0PmdMDRDn0wsB5yIEzZi6pcCJhxo-d_txR3iMO_9yHjGG" />
-                <figcaption class="text-center">username</figcaption>
-              </figure>
+              <div class="">
+                <img class="img-fluid d-block img-thumbnail mx-auto border" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRZpYU0PmdMDRDn0wsB5yIEzZi6pcCJhxo-d_txR3iMO_9yHjGG" />
+              </div>
             </div>
-            <div class="col-md-10 col-sm-10">
+            <div class="col-md-10 col-sm-10 mx-auto border">
               <div class="panel panel-default arrow left">
                 <div class="panel-body">
                   <header class="text-left">
-                    <div class="comment-user"><i class="fa fa-user"></i> That Guy</div>
-                    <time class="comment-date" datetime="16-12-2014 01:05"><i class="fa fa-clock-o"></i> Dec 16, 2014</time>
-                    <p class="text-right"><a href="#" class="btn btn-default btn-sm"><i class="fa fa-reply"></i> reply</a></p>
+                    <div class="comment-user"><i class="fa fa-user"></i> Username <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i></div>
+                    <time class="comment-date" datetime="16-12-2014 01:05"><i class="fa fa-clock-o"></i> Dec 16, 2014</time>                   
                   </header>
                   <div class="comment-post">
                     <p>
@@ -99,6 +81,71 @@
                 </div>
               </div>
             </div>
-          </article>
+          </div>
+
+
+
+<!-- First Comment -->
+<div class="row mt-3">
+  <div class="col-md-2 col-sm-2 hidden-xs">
+    <div class="thumbnail">
+      <img class="img-fluid d-block img-thumbnail mx-auto border" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRZpYU0PmdMDRDn0wsB5yIEzZi6pcCJhxo-d_txR3iMO_9yHjGG"
+      />
+    </div>
+  </div>
+  <div>
+    <div>
+    <div id="writeReview">
+      <h4 class=""style="display:show">Read this book?</h4>
+      <button id="write-review" type="submit" href="#comment" class="btn btn-success">Write a review</button>
+      <div class="py-5 "></div>
+    </div>
+  <form action="/action_page.php" id="comment" style="display:none">
+        <div class="form-group">
+          <label for="comment">Review:</label>
+          <textarea class="form-control" rows="5"></textarea>
+        </div>
+        <p>
+          <div class="dropdown">
+            <button type="dropdown" class="btn dropdown-toggle" data-toggle="dropdown">
+              Rate this book!
+            </button>
+            <div class="dropdown-menu">
+              <a class="dropdown-item" href="#">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+              </a>
+              <a class="dropdown-item" href="#">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                </i>
+              </a>
+              <a class="dropdown-item" href="#">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                </i>
+              </a>
+              <a class="dropdown-item" href="#">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+              </a>
+              <a class="dropdown-item" href="#">
+                <i class="fas fa-star"></i>
+              </a>
+            </div>
+            <button type="submit" class="btn btn-success">Submit</button>
+        </p>
+     </form>
+    </div>
+  </div>
+</div>
+<div class="py-5"></div>
+
 
 
