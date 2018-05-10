@@ -70,9 +70,18 @@ namespace BookCave.Controllers
             // It will be AJAX back into DOM to reflect change 
             // in the cart inventory.
         }
-        public IActionResult CheckOut()
+        public IActionResult CheckOut(int id)
         {
-            return View();
+            var order = _shoppingCartService.CheckOut(id);
+            
+            return View(order);
+        }
+
+        public IActionResult Buy(int id)
+        {
+            var order = _shoppingCartService.Buy(id);
+            
+            return View(order);
         }
 
     }

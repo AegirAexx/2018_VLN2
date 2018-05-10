@@ -41,21 +41,11 @@ namespace BookCave.Services
 
         }
 
-        public void RemoveFromCart(Book book)
-        {
-            // Finna bókina
-            // athuga ef það eru fleiri en eitt eintak af henni
-            // If > 1
-            // amount-- && Gera eitthvað við gagnagrunninn?
-            // Else
-            // Remove OrderItem form OrderItem List.
-        }
 
-
-        public decimal GetShoppingCartTotal()
+        public int GetCartTotal(int id)
         {
             // LINQ til að skoða öll verðin og leggja það saman.
-            var total = new decimal();
+            var total = 10000 + id;
             return total;
         }
 
@@ -66,7 +56,21 @@ namespace BookCave.Services
             return cartId;
         }
 
+        public PayOrderViewModel  CheckOut(int id)
+        {
+            var totalPrice = GetCartTotal(id); 
+            
+            var orderDetails = _shoppingCartRepo.CheckOut(id, totalPrice);
+            
+            return orderDetails;
+        }
 
+        public PayOrderViewModel Buy(int id)
+        {
+            var orderDetails = _shoppingCartRepo.Buy(id);
+            
+            return orderDetails;
+        }
     }
 
 }

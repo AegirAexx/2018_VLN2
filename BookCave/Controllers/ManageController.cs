@@ -19,7 +19,7 @@ namespace BookCave.Controllers
     public class ManageController : Controller
     {
         private readonly SignInManager<ApplicationUser> _signInManager;
-        private readonly UserManager<ApplicationUser> _userManager;
+        private readonly UserManager<ApplicationUser> _userManager; 
 
         public ManageController(
             SignInManager<ApplicationUser> signInManager,
@@ -186,6 +186,44 @@ namespace BookCave.Controllers
 
             return RedirectToAction(nameof(SetPassword));
         }
+
+        [Authorize]
+        [HttpGet]
+         public async Task<IActionResult> EditProfile()
+        {   
+            var user = await _userManager.GetUserAsync(User);
+
+            return View(new EditProfileViewModel {
+                FirstName = user.FirstName,
+                LastName = user.LastName,
+                Address = user.Address,
+                FavoriteBook = user.FavoriteBook,
+                Image = user.Image
+            });
+        }
+
+        [Authorize]
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> EditProfile(EditProfileViewModel model)
+        {
+            var user = await _userManager.GetUserAsync(User);
+
+            user.FirstName = model.FirstName;
+            user.LastName = model.LastName;
+            user.Address = model.Address;
+            user.FavoriteBook = model.FavoriteBook;
+            user.Image = model.Image;
+
+            await _userManager.UpdateAsync(user);
+
+
+            return View(model);
+        }
+
+
+        [HttpGet]
+ 
         private void AddErrors(IdentityResult result)
         {
             foreach (var error in result.Errors)

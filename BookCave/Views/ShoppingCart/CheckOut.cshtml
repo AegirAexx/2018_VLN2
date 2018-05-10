@@ -1,10 +1,12 @@
+@model PayOrderViewModel
+
 <div class="container-fluid py-3">
     <div class="row">
         <div class="col-12 col-sm-8 col-md-6 col-lg-4 mx-auto">
             <div id="pay-invoice" class="card">
                 <div class="card-body">
                     <div class="card-title">
-                        <h3 class="text-center">Pay Invoice</h3>
+                        <h3 class="text-center">Pay Invoice @Model.Id</h3>
                     </div>
                     <hr>
                     <form action="/echo" method="post" novalidate="novalidate" class="needs-validation">
@@ -17,8 +19,8 @@
                             </ul>
                         </div>
                         <div class="form-group">
-                            <label for="cc-payment" class="control-label mb-1">Payment amount</label>
-                            <input id="cc-payment" name="cc-payment" type="text" class="form-control" aria-required="true" aria-invalid="false" required value="100.00">
+                            <label for="cc-payment" class="control-label mb-1">Total Price</label>
+                            <input id="cc-payment" name="cc-payment" type="text" class="form-control" aria-required="true" aria-invalid="false" required value="@Model.TotalPrice">
                             <span class="invalid-feedback">Enter the payment amount</span>
                         </div>
                         <div class="form-group has-success">
@@ -62,7 +64,7 @@
                         <div>
                             <button id="payment-button" type="submit" class="btn btn-lg btn-info btn-block">
                                 <i class="fa fa-lock fa-lg"></i>&nbsp;
-                                <span id="payment-button-amount">Pay $100.00</span>
+                                <a asp-area="" asp-controller="ShoppingCart" asp-action="Buy" asp-route-id="@Model.Id">Buy</a>
                                 <span id="payment-button-sending" style="display:none;">Sending…</span>
                             </button>
                         </div>

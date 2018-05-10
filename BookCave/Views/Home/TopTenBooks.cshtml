@@ -2,9 +2,13 @@
 @{
     ViewData["TopTen"] = "Top Ten Books";
 }
+<<<<<<< HEAD
 
 <button id="prufa"> prufa</button>
 
+=======
+<!-- <button type="button" id="top-ten-nigger"></button> -->
+>>>>>>> master
 @{int i = 1;}
 @foreach(var book in @Model)
 {
@@ -12,16 +16,27 @@
     <div class="container">
       <div class="row">
         <div class="col-md-1 display-1 d-flex justify-content-center align-items-center">@i</div>
+<<<<<<< HEAD
         <div class="col-md-2 d-flex justify-content-center align-items-center" id="top-ten-image"></div>
         <div class="col-md-9">
           <a asp-area="" asp-controller="Book" asp-action="Details" asp-route-id="@book.Id"><h1 id="title@i">@book.Title</h1></a>
+=======
+        <div class="col-md-2 d-flex justify-content-center align-items-center" id="top-ten-@i"></div>
+        <div class="col-md-9">
+          <a asp-area="" asp-controller="Book" asp-action="Details" asp-route-id="@book.Id"><h1>@book.Title</h1></a>
+>>>>>>> master
           <p class="lead">By </p>
           <p>Rating: @book.Rating</p>
         </div>
       </div>
     </div>
   </div>
+<<<<<<< HEAD
  <p id="top-ten-isbn" style="visibility: hidden">@book.ISBN13</p>
+=======
+  <p  id="top-ten-isbn-@i" style="visibility: hidden">@book.ISBN13</p>
+>>>>>>> master
  i++;
 }
-
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="~/js/topten.js"></script>

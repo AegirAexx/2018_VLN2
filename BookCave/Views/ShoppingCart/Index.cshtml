@@ -34,7 +34,6 @@
                             <td class="col-sm-1 col-md-1 text-center"><strong>@item.Price</strong></td>
                             <td class="col-sm-1 col-md-1">
                             <button type="button" class="btn btn-danger">
-                                <span class="glyphicon glyphicon-remove"></span> Remove
                                 <a asp-area="" asp-controller="ShoppingCart" asp-action="Remove" asp-route-id="@item.Id">Remove from cart</a>
                             </button></td>
                         </tr>
@@ -71,7 +70,7 @@
                         </button></td>
                         <td>
                         <button type="button" class="btn btn-success">
-                            Checkout <span class="glyphicon glyphicon-play"></span>
+                            <a asp-area="" asp-controller="ShoppingCart" asp-action="Checkout" asp-route-id="@Model.ElementAt(0).OrderId">Checkout</a>
                         </button></td>
                     </tr>
                 </tbody>
