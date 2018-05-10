@@ -8,6 +8,7 @@ using BookCave.Models;
 using BookCave.Services;
 using BookCave.Models.InputModels;
 using BookCave.Data.EntityModels;
+using Microsoft.AspNetCore.Identity;
 
 namespace BookCave.Controllers
 {
@@ -18,19 +19,23 @@ namespace BookCave.Controllers
 
         private OrderService _orderService; // Read only?
 
-        private ShoppingCartService _shoppingCart;
+        private ShoppingCartService _shoppingCartService;
 
-        public ShoppingCartController()
+        private readonly UserManager<ApplicationUser> _userManager;
+
+        public ShoppingCartController(UserManager<ApplicationUser> userManager)
         {
             _bookService = new BookService();
 
             _orderService = new OrderService();
 
-            _shoppingCart = new ShoppingCartService();
+            _shoppingCartService = new ShoppingCartService();
+
+            _userManager = userManager;
         }
 
         [HttpGet]
-        public IActionResult Index(string userName)
+        public IActionResult Index()
         {
             // @TODO Return heildar view fyrir fullscreen
 
@@ -43,7 +48,9 @@ namespace BookCave.Controllers
             //     ShoppingCart = _shoppingCart,
             //     ShoppingCartTotal = _shoppingCart.GetShoppingCartTotal()
             // };
-            var cartBookList = _shoppingCart.GetCartList(userName);
+            var currentUser = _userManager.GetUserId(HttpContext.User);
+
+            var cartBookList = _shoppingCartService.GetCartList(currentUser);
 
             return View(cartBookList);
         }

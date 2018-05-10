@@ -1,7 +1,9 @@
 using System.Collections.Generic;
 using BookCave.Data.EntityModels;
+using BookCave.Models;
 using BookCave.Models.ViewModels;
 using BookCave.Repositories;
+using Microsoft.AspNetCore.Identity;
 
 namespace BookCave.Services
 {
@@ -9,30 +11,23 @@ namespace BookCave.Services
     {
         private OrderRepo _orderRepo;
         private BookRepo _bookRepo;
+        private ShoppingCartRepo _shoppingCartRepo;
 
         public ShoppingCartService()
         {
             _bookRepo = new BookRepo();
             _orderRepo = new OrderRepo();
-        }
-        public static ShoppingCartService GetCart()
-        {
-            // ISession method?
-
-            // Tengja cart við session / API / User klasi initiate method
-            
-            return new ShoppingCartService();
+            _shoppingCartRepo = new ShoppingCartRepo();
         }
 
-        public List<CartBookViewModel> GetCartList(string userName)
+        public List<CartBookViewModel> GetCartList(string userId)
         {
-            
-            var cartBookList = _orderRepo.GetCartList(userName);
+            var cartBookList = _shoppingCartRepo.GetCartList(userId);
             
             return cartBookList; 
         }
 
-        public void AddToCart(int bookId, string userName)
+        public void AddToCart(int bookId)
         {
             
         }
