@@ -12,7 +12,7 @@
           <img class="img-fluid d-block" src="https://images.gr-assets.com/books/1519091756m/41064.jpg">
         </div>
         <div class="col-md-9">
-          <h1 class="">@book.Title</h1>
+          <a asp-area="" asp-controller="Book" asp-action="Details" asp-route-id="@book.Id"><h1 class="">@book.Title</h1></a>
           <p class="lead">By  </p>
           <p>Rating: @book.Rating</p>
         </div>

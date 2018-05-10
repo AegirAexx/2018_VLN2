@@ -78,7 +78,10 @@ namespace BookCave.Controllers
             // It will be AJAX back into DOM to reflect change 
             // in the cart inventory.
         }
-
+        public IActionResult CheckOut()
+        {
+            return View();
+        }
         // Controller til að staðfesta pöntun og klára pöntun
         // Account tengingar?
 
