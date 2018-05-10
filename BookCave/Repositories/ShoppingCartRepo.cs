@@ -91,7 +91,7 @@ namespace BookCave.Repositories
                 _db.SaveChanges();
             }
         }
-        public PayOrderViewModel  CheckOut(int id, int price)
+        public PayOrderViewModel CheckOut(int id, int price)
         {
             
             var orderDetails = (from o in _db.Orders
