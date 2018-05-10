@@ -29,7 +29,10 @@ namespace BookCave.Repositories
                                     Author = (from b in _db.Books
                                             where b.Id == oi.BookId
                                             select b.Author).SingleOrDefault(),
-                                    OrderId = oi.OrderId
+                                    OrderId = oi.OrderId,
+                                    ISBN13 = (from b in _db.Books
+                                            where b.Id == oi.BookId
+                                            select b.ISBN13).SingleOrDefault()
                                 }).ToList();
                 
                 return cartBooks;
@@ -52,7 +55,9 @@ namespace BookCave.Repositories
                                     {
                                         UserId = currentUser,
                                         TotalPrice = 0,
-                                        OrderStatus = "Cart"
+                                        OrderStatus = "Cart",
+                                        BillingAddressId = 0,
+                                        ShippingAddressId = 0
                                     };
                 _db.Orders.Add(newCart);
                 _db.SaveChanges();
