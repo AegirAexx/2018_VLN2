@@ -34,7 +34,8 @@ namespace BookCave.Repositories
                             Id = b.Id,
                             Title = b.Title,
                             Rating = b.Rating,
-                            ISBN13 = b.ISBN13
+                            ISBN13 = b.ISBN13,
+                            Author = b.Author
                         }).Take(10).ToList();
 
            return topten;

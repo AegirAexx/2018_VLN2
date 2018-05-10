@@ -13,7 +13,7 @@
         <div class="col-md-2 d-flex justify-content-center align-items-center" id="top-ten-@i"></div>
         <div class="col-md-9">
           <a asp-area="" asp-controller="Book" asp-action="Details" asp-route-id="@book.Id"><h1>@book.Title</h1></a>
-          <p class="lead">By </p>
+          <p class="lead">By @book.Author</p>
           <p>Rating: @book.Rating</p>
         </div>
       </div>
