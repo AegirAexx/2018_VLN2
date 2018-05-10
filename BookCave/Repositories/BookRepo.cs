@@ -33,7 +33,8 @@ namespace BookCave.Repositories
                         {
                             Id = b.Id,
                             Title = b.Title,
-                            Rating = b.Rating
+                            Rating = b.Rating,
+                            ISBN13 = b.ISBN13
                         }).Take(10).ToList();
 
            return topten;
@@ -87,7 +88,7 @@ namespace BookCave.Repositories
                                     GoodReadsId = b.GoodReadsId, 
                                     Title = b.Title,
                                     Author = b.Author,
-                                    ISBN = b.ISBN,
+                                    ISBN = b.ISBN13,
                                     Publisher = b.Publisher,
                                     PageCount = b.PageCount,
                                     YearPublished = b.YearPublished,
