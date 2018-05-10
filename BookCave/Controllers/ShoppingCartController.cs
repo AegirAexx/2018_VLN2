@@ -14,10 +14,9 @@ namespace BookCave.Controllers
 {
     public class ShoppingCartController : Controller
     {
-        // Þarf controller ekki Data Repo?
-        private BookService _bookService; // Read only?
+        private BookService _bookService;
 
-        private OrderService _orderService; // Read only?
+        private OrderService _orderService;
 
         private ShoppingCartService _shoppingCartService;
 
@@ -44,13 +43,14 @@ namespace BookCave.Controllers
             return View(cartBookList);
         }
 
+        [HttpPost]
         public IActionResult Add(int id)
         {
             var currentUser = _userManager.GetUserId(HttpContext.User);
             
             _shoppingCartService.Add(id, currentUser);
 
-            return View();
+            return Ok();
         }
 
         public IActionResult Remove(int id)

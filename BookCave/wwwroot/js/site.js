@@ -73,8 +73,4 @@ $(document).ready(() => {
         
         form.addClass('was-validated');
     });
-<<<<<<< HEAD
-=======
-
->>>>>>> master
 });
