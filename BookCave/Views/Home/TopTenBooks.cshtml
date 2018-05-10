@@ -3,6 +3,8 @@
     ViewData["TopTen"] = "Top Ten Books";
 }
 
+<button id="prufa"> prufa</button>
+
 @{int i = 1;}
 @foreach(var book in @Model)
 {
@@ -19,8 +21,7 @@
       </div>
     </div>
   </div>
+ <p id="top-ten-isbn" style="visibility: hidden">@book.ISBN13</p>
  i++;
-
- <p id="top-ten-isbn@i" style="visibility: hidden">@book.ISBN13</p>
 }
 
