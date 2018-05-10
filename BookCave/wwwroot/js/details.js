@@ -8,10 +8,12 @@ $(document).ready(function () {
 
   $.get(googleURL,(data) => {
       const imageURL = data.items[0].volumeInfo.imageLinks.thumbnail;
-      
-      const event = `<img class="img-fluid d-block mx-auto img-thumbnail" src="${imageURL}">`;
+      const text = data.items[0].volumeInfo.description;
 
-      $("#details-cover").append(event);
+      const cover = `<img class="img-fluid d-block mx-auto img-thumbnail" src="${imageURL}">`;
+      
+      $("#details-cover").append(cover);
+      $("#details-description").append(text);
   });
 });
 
