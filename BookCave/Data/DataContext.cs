@@ -1,4 +1,5 @@
 using BookCave.Data.EntityModels;
+using BookCave.Models;
 using Microsoft.EntityFrameworkCore;
 
 namespace BookCave.Data

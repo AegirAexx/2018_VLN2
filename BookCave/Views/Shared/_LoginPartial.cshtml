@@ -10,7 +10,24 @@
 
 @if(SignInManager.IsSignedIn(User))
 {
+<<<<<<< HEAD
     <form asp-action="LogOut" asp-controller="Account" method="POST">
+=======
+    <form asp-area="" asp-action="LogOut" asp-controller="Account" method="POST">
+        <ul class="nav navbar-nav navbar-right">
+            <li>
+                <a asp-area="" asp-action="Index" asp-controller="Manage" asp-action="EditProfile" title="Manage">Hello @claim</a>
+            </li>
+            <li>
+                <button type="submit" class="btn btn-link navbar-btn navbar-link">Log out</button>
+            </li>
+        </ul>
+    </form>
+}
+else
+{
+    <ul class="nav navbar-nav navbar-right">
+>>>>>>> anna
         <li>
             <button class="btn btn-link navbar-btn navbar-link">@claim</button>        
         </li>
