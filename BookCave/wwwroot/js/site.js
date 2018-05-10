@@ -1,7 +1,7 @@
 ﻿/*global $ */
-$(document).ready(function () {
+$(document).ready(() => {
 
-    // HEADER NAVIGATION
+    // ***HEADER NAVIGATION***
     $('.menu > ul > li:has( > ul)').addClass('menu-dropdown-icon');
     //Checks if li has sub (ul) and adds class for toggle icon - just an UI
 
@@ -38,7 +38,7 @@ $(document).ready(function () {
     //when clicked on mobile-menu, normal menu is shown as a list, classic rwd menu story (thanks mwl from stackoverflow)
 
 
-    //DETAILS
+    // ***DETAILS***
     //Hér fyrir neðan er js fyrir details síðu
     $("ul.menu-items > li").on("click",function(){
         $("ul.menu-items > li").removeClass("active");
@@ -73,24 +73,96 @@ $(document).ready(function () {
 
     $(function () {
         $('[data-toggle="popover"]').popover()
-      })
+    })
       
       
-      $("#payment-button").click(function(e) {
-      
-          // Fetch form to apply Bootstrap validation
-          var form = $(this).parents('form');
-          
-          if (form[0].checkValidity() === false) {
-            e.preventDefault();
-            e.stopPropagation();
-          }
-          else {
-            // Perform ajax submit here
-            form.submit();
-          }
-          
-          form.addClass('was-validated');
-      });
+    $("#payment-button").click(function(e) {
+    
+        // Fetch form to apply Bootstrap validation
+        var form = $(this).parents('form');
+        
+        if (form[0].checkValidity() === false) {
+        e.preventDefault();
+        e.stopPropagation();
+        }
+        else {
+        // Perform ajax submit here
+        form.submit();
+        }
+        
+        form.addClass('was-validated');
+    });
+
+    // ***AJAX TOP TEN MYNDIR***
+    $("#top-ten-trigger").click(() => { 
+
+        // Developer key from GoodReads
+        const key = "AIzaSyBAnYjI3ZTTYIPGedsL7TYsgV0Emwgo_oI";
+
+
+        const book1 = ({
+            isbn: document.querySelector("#top-ten-isbn-1").innerHTML,
+            picture: document.querySelector("#top-ten-1")
+        });
+
+        const googleURL = `https://www.googleapis.com/books/v1/volumes?q=${isbn}&key=${key}`;
+
+        $.get(googleURL,(data) => {
+
+                
+
+
+                $("#p3-tbody").append(event);
+        });
+
+
+
+        const book2 = ({
+            isbn: document.querySelector("#top-ten-isbn-2").innerHTML,
+            picture: document.querySelector("#top-ten-2")
+        });
+
+        const book3 = ({
+            isbn: document.querySelector("#top-ten-isbn-3").innerHTML,
+            picture: document.querySelector("#top-ten-3")
+        });
+
+        const book4 = ({
+            isbn: document.querySelector("#top-ten-isbn-4").innerHTML,
+            picture: document.querySelector("#top-ten-4")
+        });
+
+        const book5 = ({
+            isbn: document.querySelector("#top-ten-isbn-5").innerHTML,
+            picture: document.querySelector("#top-ten-5")
+        });
+
+        const book6 = ({
+            isbn: document.querySelector("#top-ten-isbn-6").innerHTML,
+            picture: document.querySelector("#top-ten-6")
+        });
+
+        const book7 = ({
+            isbn: document.querySelector("#top-ten-isbn-7").innerHTML,
+            picture: document.querySelector("#top-ten-7")
+        });
+
+        const book8 = ({
+            isbn: document.querySelector("#top-ten-isbn-8").innerHTML,
+            picture: document.querySelector("#top-ten-8")
+        });
+
+        const book9 = ({
+            isbn: document.querySelector("#top-ten-isbn-9").innerHTML,
+            picture: document.querySelector("#top-ten-9")
+        });
+
+        const book10 = ({
+            isbn: document.querySelector("#top-ten-isbn-10").innerHTML,
+            picture: document.querySelector("#top-ten-10")
+        });
+
+        
+    });
 
 });

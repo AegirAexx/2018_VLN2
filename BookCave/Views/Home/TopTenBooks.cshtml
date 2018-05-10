@@ -10,17 +10,16 @@
     <div class="container">
       <div class="row">
         <div class="col-md-1 display-1 d-flex justify-content-center align-items-center">@i</div>
-        <div class="col-md-2 d-flex justify-content-center align-items-center">
-          <img class="img-fluid d-block" src="https://images.gr-assets.com/books/1519091756m/41064.jpg">
-        </div>
+        <div class="col-md-2 d-flex justify-content-center align-items-center" id="top-ten-@i"></div>
         <div class="col-md-9">
-          <a asp-area="" asp-controller="Book" asp-action="Details" asp-route-id="@book.Id"><h1 class="">@book.Title</h1></a>
+          <a asp-area="" asp-controller="Book" asp-action="Details" asp-route-id="@book.Id"><h1>@book.Title</h1></a>
           <p class="lead">By </p>
           <p>Rating: @book.Rating</p>
         </div>
       </div>
     </div>
   </div>
+  <p  id="top-ten-isbn-@i" style="visibility: hidden">@book.ISBN13</p>
  i++;
 }
 
