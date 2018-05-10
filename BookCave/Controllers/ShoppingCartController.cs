@@ -60,6 +60,11 @@ namespace BookCave.Controllers
             return View();
         }
 
+        public IActionResult Address() ///Arnar
+        {
+            return View();
+        }
+
         public IActionResult RemoveFromShoppingCart(/*int|inputmodel ???Id*/)
         {
             // Created an OrderItem? from JSON
