@@ -23,6 +23,9 @@ namespace BookCave.Repositories
                            UserId = o.UserId,
                            TotalPrice = o.TotalPrice,
                            OrderStatus = o.OrderStatus,
+                           CustomerName = (from user in _db.AspNetUsers
+                                        where user.Id == o.UserId
+                                        select user.LastName).SingleOrDefault(),
                            OrderItems = (from oi in _db.OrderItems
                                         where oi.OrderId == o.Id
                                         select new OrderItemViewModel
