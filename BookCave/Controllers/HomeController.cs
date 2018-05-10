@@ -28,7 +28,7 @@ namespace BookCave.Controllers
         }
         public IActionResult Index()
         {
-            ViewBag.userid = _userManager.GetUserId(HttpContext.User);
+            var currentUser = _userManager.GetUserId(HttpContext.User);
             return View();
         }
         public IActionResult About()
