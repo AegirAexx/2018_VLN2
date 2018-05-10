@@ -22,9 +22,10 @@ namespace BookCave.Services
            return orders;
        }
 
-        public OrderItemViewModel GetOrderDetails(int orderId)
+        public List<OrderItemViewModel> GetOrderDetails(int id)
         {
-            var orderItems = _orderRepo.GetOrderDetails(orderId);
+            var orderItems = _orderRepo.GetOrderDetails(id);
+            
             return orderItems;
         }
     }
