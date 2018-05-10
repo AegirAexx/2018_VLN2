@@ -9,23 +9,26 @@ using BookCave.Models;
 using BookCave.Services;
 using BookCave.Models.InputModels;
 using BookCave.Data.EntityModels;
+using Microsoft.AspNetCore.Identity;
 
 namespace BookCave.Controllers
 {
     public class HomeController : Controller
     {
         private BookService _bookService; // Read only?
-
         private OrderService _orderService; // Read only?
+        private readonly UserManager<ApplicationUser> _userManager;
 
-        public HomeController()
+        public HomeController(UserManager<ApplicationUser> userManager)
         {
             _bookService = new BookService();
-
             _orderService = new OrderService();
+
+            _userManager = userManager;
         }
         public IActionResult Index()
         {
+            ViewBag.userid = _userManager.GetUserId(HttpContext.User);
             return View();
         }
         public IActionResult About()
@@ -79,9 +82,6 @@ namespace BookCave.Controllers
             var booksAlphaOrder = _bookService.BooksAlphabet();
             return View(booksAlphaOrder);
         }
-
-
-
     }
 }
 
