@@ -104,5 +104,28 @@ namespace BookCave.Repositories
             
             return orderDetails;
         }
+
+        public PayOrderViewModel Buy(int id)
+        {
+            var orderItemsToBuy = (from oi in _db.OrderItems
+                                    where oi.OrderId == id
+                                    select oi).ToList();
+            
+            foreach(var item in orderItemsToBuy)
+            {
+                item.Status = "Order";
+            }
+            _db.SaveChanges();
+            
+            var orderDetails = (from o in _db.Orders
+                                where o.Id == id
+                                select new PayOrderViewModel
+                                {
+                                    Id = o.Id,
+                                    TotalPrice = o.TotalPrice
+                                }).SingleOrDefault();
+            
+            return orderDetails;
+        }
     }
 }
