@@ -37,17 +37,6 @@ namespace BookCave.Controllers
         [HttpGet]
         public IActionResult Index()
         {
-            // @TODO Return heildar view fyrir fullscreen
-
-
-            // var items = _shoppingCart.GetShoppingCartItems();
-            // _shoppingCart.ShoppingCartItems = items;
-
-            // var shoppingCartViewModel = new ShoppingCartViewModel
-            // {
-            //     ShoppingCart = _shoppingCart,
-            //     ShoppingCartTotal = _shoppingCart.GetShoppingCartTotal()
-            // };
             var currentUser = _userManager.GetUserId(HttpContext.User);
 
             var cartBookList = _shoppingCartService.GetCartList(currentUser);
@@ -55,19 +44,15 @@ namespace BookCave.Controllers
             return View(cartBookList);
         }
 
-        [HttpPost]
-        public IActionResult AddToShoppingCart(/*int|inputmodel ???Id*/)
+        public IActionResult Add(int id)
         {
-            // Created an OrderItem? from JSON
+            var currentUser = _userManager.GetUserId(HttpContext.User);
+            
+            _shoppingCartService.Add(id, currentUser);
 
-            // Write to Memory(Push to Book<List>) 
-
-            return Ok(/*NewShoppingCartViewModelItem*/);
-            // It will be AJAX back into DOM to reflect change 
-            // in the cart inventory.
+            return View();
         }
 
-        // [HttpPost] || Delete?
         public IActionResult RemoveFromShoppingCart(/*int|inputmodel ???Id*/)
         {
             // Created an OrderItem? from JSON
@@ -82,8 +67,6 @@ namespace BookCave.Controllers
         {
             return View();
         }
-        // Controller til að staðfesta pöntun og klára pöntun
-        // Account tengingar?
 
     }
 }

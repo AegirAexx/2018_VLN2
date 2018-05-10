@@ -20,8 +20,7 @@ namespace BookCave.Repositories
                         select new OrderListViewModel
                         {
                            Id = o.Id,
-                           CustomerId = o.CustomerId,
-                           UserName = o.UserName,
+                           UserId = o.UserId,
                            TotalPrice = o.TotalPrice,
                            OrderStatus = o.OrderStatus,
                            OrderItems = (from oi in _db.OrderItems
