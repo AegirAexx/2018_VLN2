@@ -45,19 +45,19 @@ namespace BookCave.Repositories
            return orders;
        }
 
-        public OrderItemViewModel GetOrderDetails(int orderId)
+        public List<OrderItemViewModel> GetOrderDetails(int id)
         {
             var billingAddressId = (from o in _db.Orders
-                                    where o.Id == orderId
+                                    where o.Id == id
                                     select o.BillingAddressId).SingleOrDefault();
             
             var shippingAddressId = (from o in _db.Orders
-                                    where o.Id == orderId
+                                    where o.Id == id
                                     select o.ShippingAddressId).SingleOrDefault();
             
-            /* 
+            
             var orderItems = (from oi in _db.OrderItems
-                            where oi.OrderId == orderId
+                            where oi.OrderId == id
                             select new OrderItemViewModel
                             {
                                 BillingAddress = (from a in _db.Addresses
@@ -69,6 +69,7 @@ namespace BookCave.Repositories
                                                     City = a.City,
                                                     Country = a.Country,
                                                     ZipCode = a.ZipCode,
+                                                    Name = a.Name
                                                 }).SingleOrDefault(),
                                 ShippingAddress = (from a in _db.Addresses
                                                 where a.Id == shippingAddressId
@@ -79,6 +80,7 @@ namespace BookCave.Repositories
                                                     City = a.City,
                                                     Country = a.Country,
                                                     ZipCode = a.ZipCode,
+                                                    Name = a.Name
                                                 }).SingleOrDefault(),
                                 Book = (from b in _db.Books
                                         where oi.BookId == b.Id
@@ -89,15 +91,10 @@ namespace BookCave.Repositories
                                             Rating = b.Rating,
                                             Genre = b.Genre,
                                             ISBN13 = b.ISBN13,
-                                            Author = b.Author
+                                            Author = b.Author,
+                                            Price = b.Price
                                         }).SingleOrDefault(),
-                                Street = "TestGata"
-                            }).ToList();*/
-                var orderItems = new OrderItemViewModel
-                                    {
-                                        BillingAddress = 3,
-                                        ShippingAddress = shippingAddressId
-                                    };
+                            }).ToList();
 
             return orderItems;
         }

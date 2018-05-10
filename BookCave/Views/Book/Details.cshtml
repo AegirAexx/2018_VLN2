@@ -1,29 +1,36 @@
-@model BookDetailsViewModel
+@model BookDetailsViewModel 
+@{ ViewData["Title"] = @Model.Title; }
 
-@{
-    ViewData["Title"] = @Model.Title;
-}
-
-  <div class="py-5">
-    <div class="container">
-      <div class="row">
-        <div class="col-md-4" id="details-cover"></div>
-        <div class="col-md-8" >
-          <h1 id="book-title">@Model.Title</h1>
-          <p id="book-author">@Model.Author</p>
-          <p><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i></p>
-          <p class="lead">Price: @Model.Price ISK</p>
-          <br>
-          <h4>Description:</h4>
-          <div class="card">
-            <div class="card-body text-justify" id="details-description"></div>
-          </div>
-          <div>
-            <br>
-            <a class="btn btn-block btn-success" asp-area="" asp-controller="ShoppingCart" asp-action="Add" asp-route-id="@Model.Id"> <i class="fas fa-shopping-cart"></i> Add to Cart</a>
-            <button  class="btn btn-block btn-danger"><i class="far fa-heart"></i> Add to wishlist</button> 
-          </div>
+<div class="py-5">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-4" id="details-cover"></div>
+      <div class="col-md-8">
+        <h1 id="book-title">@Model.Title</h1>
+        <p id="book-author">@Model.Author</p>
+        <p>
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="far fa-star"></i>
+        </p>
+        <p class="lead">Price: @Model.Price ISK</p>
+        <br>
+        <h4>Description:</h4>
+        <div class="card">
+          <div class="card-body text-justify" id="details-description"></div>
         </div>
+        <div>
+          <br>
+
+          <button class="btn btn-block btn-success" type="button" id="add-to-cart">
+              <i class="fas fa-shopping-cart"></i> Add to Cart
+          </button>
+            
+          <button class="btn btn-block btn-danger">
+            <i class="far fa-heart"></i> Add to wishlist
+          </button>
         </div>
       </div>
     </div>
@@ -48,33 +55,41 @@
           <p class="">Paragraph. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
         </div>
       </div>
+      <div class="col-md-6">
+        <h3 class="" contenteditable="true">About the author</h3>
+        <p class="">Paragraph. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+      </div>
     </div>
   </div>
+</div>
 
 <div class="container ">
   <div class="row">
     <div class="col-md-12">
       <h2 class="page-header">Reviews</h2>
-        <section class="comment-list">
-          <!-- First Comment -->
-          <div class="row ">
-            <div class="col-md-2 col-sm-2 hidden-xs">
-              <div class="">
-                <img class="img-fluid d-block img-thumbnail mx-auto border" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRZpYU0PmdMDRDn0wsB5yIEzZi6pcCJhxo-d_txR3iMO_9yHjGG" />
-              </div>
+      <section class="comment-list">
+        <!-- First Comment -->
+        <div class="row ">
+          <div class="col-md-2 col-sm-2 hidden-xs">
+            <div class="">
+              <img class="img-fluid d-block img-thumbnail mx-auto border" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRZpYU0PmdMDRDn0wsB5yIEzZi6pcCJhxo-d_txR3iMO_9yHjGG"
+              />
             </div>
-            <div class="col-md-10 col-sm-10 mx-auto border">
-              <div class="panel panel-default arrow left">
-                <div class="panel-body">
-                  <header class="text-left">
-                    <div class="comment-user"><i class="fa fa-user"></i> Username </div>
-                    <time class="comment-date" datetime="16-12-2014 01:05"><i class="fa fa-clock-o"></i> Dec 16, 2014</time>                   
-                  </header>
-                  <div class="comment-post">
-                    <p>
-                      Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-                    </p>
-                  </div>
+          </div>
+          <div class="col-md-10 col-sm-10 mx-auto border">
+            <div class="panel panel-default arrow left">
+              <div class="panel-body">
+                <header class="text-left">
+                  <div class="comment-user">
+                    <i class="fa fa-user"></i> Username </div>
+                  <time class="comment-date" datetime="16-12-2014 01:05">
+                    <i class="fa fa-clock-o"></i> Dec 16, 2014</time>
+                </header>
+                <div class="comment-post">
+                  <p>
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                    Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                  </p>
                 </div>
               </div>
             </div>
@@ -143,8 +158,8 @@
   </div>
 </div>
 
-<p id="details-isbn" style="visibility: hidden">@Model.ISBN13</p>
+          <p id="details-isbn" style="visibility: hidden">@Model.ISBN13</p>
+          <p id="details-id" style="visibility: hidden">@Model.Id</p>
 
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-<script src="~/js/details.js"></script>
-
+          <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+          <script src="~/js/details.js"></script>

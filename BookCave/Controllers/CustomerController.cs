@@ -35,9 +35,15 @@ namespace BookCave.Controllers
             return View(orders);
         }
 
-        public IActionResult OrderDetails(int orderId)
+        public IActionResult OrderDetails(int id)
         {
-            var orderItems = _orderService.GetOrderDetails(orderId);
+            
+            var orderItems = _orderService.GetOrderDetails(id);
+            
+            if(orderItems.Count() == 0)
+            {
+                return View("bfdjkasfbdsbkj");
+            }
             return View(orderItems);
         }
 

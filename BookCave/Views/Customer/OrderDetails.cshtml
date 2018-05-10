@@ -1,4 +1,4 @@
-@model OrderItemViewModel
+@model List<OrderItemViewModel>
 
 <div id="main-body" class="container mt-3">
         
@@ -10,20 +10,12 @@
               <div>
                 <h4>Shipping address</h4>
                 <ul class="order-group">
-                    <li list-group-item=""><strong>Full name: </strong> Guðni Th. Jóhannesson</li>
-                    <li><strong>Street Name: </strong>@Model.BillingAddress</li>
-                    <li><strong>Town/City: </strong> @Model.BillingAddress</li>
-                    <li><strong>Country: </strong> @Model.BillingAddress</li>
-                    <li><strong>Zip code: </strong> @Model.BillingAddress</li>
+                    <li list-group-item=""><strong>Full name: </strong> @Model.ElementAt(0).BillingAddress.Name</li>
+                    <li>Street Name: @Model.ElementAt(0).BillingAddress.StreetName</li>
+                    <li><strong>Town/City: </strong>@Model.ElementAt(0).BillingAddress.City</li>
+                    <li><strong>Country: </strong>@Model.ElementAt(0).BillingAddress.Country</li>
+                    <li><strong>Zip code: </strong>@Model.ElementAt(0).BillingAddress.ZipCode</li>
                 </ul>
-            </div>
-          </div>
-        </div>
-        <div class="col-sm-5 border border-light rounded">
-          <div>
-            <div>
-              <h4>Payment method</h4>
-                <p><i class="fal fa-credit-card"></i><strong>Ending in: </strong>4567</p>
             </div>
           </div>
         </div>
@@ -36,68 +28,25 @@
             <div>
               <h4>Billing Address</h4>
                  <ul class="order-group">
-                    <li list-group-item=""><strong>Full name: </strong> Guðni Th. Jóhannesson</li>
-                    <li><strong>Street Name: </strong> @Model.ShippingAddress</li>
-                    <li><strong>Town/City: </strong> @Model.ShippingAddress</li>
-                    <li><strong>Country: </strong> @Model.ShippingAddress</li>
-                    <li><strong>Zip code: </strong> @Model.ShippingAddress</li>
+                    <li list-group-item=""><strong>Full name: </strong> @Model.ElementAt(0).ShippingAddress.Name</li>
+                    <li>Street Name: @Model.ElementAt(0).ShippingAddress.StreetName</li>
+                    <li><strong>Town/City: </strong>@Model.ElementAt(0).ShippingAddress.City</li>
+                    <li><strong>Country: </strong>@Model.ElementAt(0).ShippingAddress.Country</li>
+                    <li><strong>Zip code: </strong>@Model.ElementAt(0).ShippingAddress.ZipCode</li>
                 </ul>
             </div>
           </div>
         </div>
-    
 </div>
 <div class="container">
     <div class="row">
         <div class="col-sm-12 col-md-10">
-            <table class="table">
-                <thead>
-                    <tr>
-                        <th>Product</th>
-                        <th>   </th>
-                        <th>   </th>
-                        <th class="text-center">Price</th>
-                        <th class="text-center">Total</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td class="col-sm-8 col-md-6">
-                        <div class="media">
-                            <a class="thumbnail pull-left" href="#"> <img class="media-object" src="https://images.gr-assets.com/books/1412064931l/23168817.jpg" style="height: 72px;"> </a>
-                            <div class="media-body">
-                                <h4 class="media-heading">Product name</h4>
-                                <h5 class="media-heading"> by Brand name</h5>
-                                <span>Quantity: </span><span class="text-success"><strong>2</strong></span>
-                            </div>
-                        </div></td>
-                        <td>   </td>
-                        <td>   </td>
-                        <td class="col-sm-1 col-md-1 text-center"><strong>1500 kr</strong></td> 
-                        <td class="col-sm-1 col-md-1 text-center"><strong>3000 kr</strong></td>
-                    <tr>
-                        <td>   </td>
-                        <td>   </td>
-                        <td>   </td>
-                        <td><h5>Subtotal</h5></td>
-                        <td class="text-right"><h5><strong>$24.59</strong></h5></td>
-                    </tr>
-                    <tr>
-                        <td>   </td>
-                        <td>   </td>
-                        <td>   </td>
-                        <td><h5>Estimated shipping</h5></td>
-                        <td class="text-right"><h5><strong>$6.94</strong></h5></td>
-                    </tr>
-                    <tr>
-                        <td>   </td>
-                        <td>   </td>
-                        <td>   </td>
-                        <td><h3>Total</h3></td>
-                        <td class="text-right"><h3><strong>$31.53</strong></h3></td>
-                    </tr>
-                </tbody>
-            </table>
+                    @foreach(var item in @Model)
+                    {
+                        <ul>
+                            book: @item.Book.Title , by @item.Book.Author , Price: @item.Book.Price kr 
+                        </ul>
+                    }
         </div>
     </div>
 </div>
