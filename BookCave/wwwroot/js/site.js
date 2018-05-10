@@ -93,4 +93,19 @@ $(document).ready(function () {
           form.addClass('was-validated');
       });
 
+      $("#top-ten").click(() => {
+        const isbn = document.querySelector("#top-ten-isbn1").innerHTML;
+
+        $.ajax({
+            url: "https://www.googleapis.com/books/v1/volumes?q=" + isbn,
+            dataType: "json",
+          
+            success: function(data) {
+                const image = `<img class="img-fluid d-block" src="${data.items.volumeInfo.imageLinks.thumbnail}">`;
+                $("top-ten-image").append(image); 
+            },
+            type: 'GET'
+          });
+      }); 
+
 });
