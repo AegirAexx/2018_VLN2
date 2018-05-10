@@ -1,6 +1,6 @@
 @model List<OrderListViewModel>
 @{
-    ViewData["Orders"] = "Get All Orders";
+    ViewData["Orders"] = "Get orders";
 }
 
 <div class="row">
@@ -8,11 +8,11 @@
                 <div class="Order-list">
                     <div class="panel panel-default">
                         <div class="panel-heading">
-                            <h4>User Order List : </h4>
+                            <h4>User Order History : </h4>
                         </div>
                         <div class="panel-body">
                             <div class="alert alert-info">
-                                <b>Hello @Model.ElementAt(0).CustomerName, </b>Below are the yours orders with there reference numbers and date.
+                                Hello @Model.ElementAt(0).UserName, Below is your order history with reference number, status and total price.
                             </div>
                             <hr>
                             <div class="table-responsive">
@@ -20,11 +20,9 @@
                                     <thead>
                                         <tr>
                                             <th>OrderID</th>
-                                            <th>Date</th>
-                                            <th>Amount</th>
+                                            <th>Order Amount</th>
                                             <th>Status</th>
-                                            <th>Delivery On </th>
-                                            <th># #</th>
+                                            <th>Order details</th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -32,21 +30,19 @@
                                         {
                                         <tr>
                                             <td>@order.Id</td>
-                                            <td>01/24/2015 </td>
                                             <td>
-                                                <label class="label label-default">$ @order.TotalPrice</label>
+                                                <label class="label label-default">@order.TotalPrice ISK</label>
                                             </td>
                                             <td>
                                                 <label class="label label-default">@order.OrderStatus</label></td>
-                                            <td>N/A</td>
-                                            <td> <a href="#" class="btn btn-xs btn-success">View</a></td>
+                                            <td> <a asp-area="" asp-controller="Customer" asp-action="OrderDetails" asp-route-id="@order.Id" class="btn btn-xs btn-success">View</a></td>
                                         </tr>
                                         }
                                     </tbody>
                                 </table>
                             </div>
                             <div class="alert alert-warning">
-                                All above details are related to user email <b>info@claim.com</b> , for any issue please send an e-mail to <b>help@yourdomain.com</b>
+                                All avove details are related to proccessed orders belonging to user email <b>@Model.ElementAt(0).UserName</b> , for any issue please send an e-mail to <b>bookcave@bookcave.ru.is</b>
                             </div>
                         </div>
                     </div>

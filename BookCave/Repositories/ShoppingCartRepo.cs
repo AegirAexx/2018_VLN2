@@ -52,7 +52,9 @@ namespace BookCave.Repositories
                                     {
                                         UserId = currentUser,
                                         TotalPrice = 0,
-                                        OrderStatus = "Cart"
+                                        OrderStatus = "Cart",
+                                        BillingAddressId = 0,
+                                        ShippingAddressId = 0
                                     };
                 _db.Orders.Add(newCart);
                 _db.SaveChanges();

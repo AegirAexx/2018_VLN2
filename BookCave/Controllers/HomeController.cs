@@ -28,7 +28,6 @@ namespace BookCave.Controllers
         }
         public IActionResult Index()
         {
-            var currentUser = _userManager.GetUserId(HttpContext.User);
             return View();
         }
         public IActionResult About()
@@ -44,7 +43,7 @@ namespace BookCave.Controllers
 
         public IActionResult GetOrders()
         {
-            var orders = _orderService.GetAllOrders();
+            var orders = _orderService.GetAllOrders("Dagur");
             return View(orders);
         }
 
