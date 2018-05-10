@@ -45,10 +45,6 @@ namespace BookCave.Services
             // Remove OrderItem form OrderItem List.
         }
 
-        public void ClearCart()
-        {
-            // null stillir allt? Delete/Free method?
-        }
 
         public decimal GetShoppingCartTotal()
         {

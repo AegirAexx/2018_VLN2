@@ -25,7 +25,10 @@ namespace BookCave.Repositories
                                     Price = o.Price,
                                     Title = (from b in _db.Books
                                             where b.Id == o.BookId
-                                            select b.Title).SingleOrDefault()
+                                            select b.Title).SingleOrDefault(),
+                                    Author = (from b in _db.Books
+                                            where b.Id == o.BookId
+                                            select b.Author).SingleOrDefault()
                                 }).ToList();
                 
                 return cartBooks;
