@@ -89,7 +89,7 @@ namespace BookCave.Repositories
                                     GoodReadsId = b.GoodReadsId, 
                                     Title = b.Title,
                                     Author = b.Author,
-                                    ISBN = b.ISBN13,
+                                    ISBN13 = b.ISBN13,
                                     Publisher = b.Publisher,
                                     PageCount = b.PageCount,
                                     YearPublished = b.YearPublished,

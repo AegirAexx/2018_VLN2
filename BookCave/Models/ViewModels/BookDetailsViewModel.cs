@@ -6,7 +6,7 @@ namespace BookCave.Models.ViewModels
         public int GoodReadsId { get; set; }
         public string Title { get; set; }
         public string Author { get; set; }
-        public string ISBN { get; set; }
+        public string ISBN13 { get; set; }
         public string Publisher { get; set; }
         public int PageCount { get; set; }
         public int YearPublished { get; set; }
