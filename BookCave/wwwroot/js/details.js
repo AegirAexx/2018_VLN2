@@ -16,7 +16,3 @@ $(document).ready(function () {
       $("#details-description").append(text);
   });
 });
-
-
-
-
