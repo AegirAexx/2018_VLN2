@@ -297,6 +297,12 @@ Delivery address's
 
 #address{
     list-style-type: none;
+    list-style-position: inside;
+    padding-left: 0;
+}
+
+#addresstable, table, th, td{
+    border: 1px solid lightgray;
 }
 
 /* ––––––––––––––––––––––––––––––––––––––––––––––––––
