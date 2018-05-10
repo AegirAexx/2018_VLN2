@@ -2,7 +2,7 @@
 @{
     ViewData["TopTen"] = "Top Ten Books";
 }
-
+<!-- <button type="button" id="top-ten-nigger"></button> -->
 @{int i = 1;}
 @foreach(var book in @Model)
 {
@@ -22,4 +22,5 @@
   <p  id="top-ten-isbn-@i" style="visibility: hidden">@book.ISBN13</p>
  i++;
 }
-
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="~/js/topten.js"></script>
