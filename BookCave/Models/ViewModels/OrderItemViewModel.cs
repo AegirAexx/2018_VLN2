@@ -5,9 +5,9 @@ namespace BookCave.Models.ViewModels
 {
     public class OrderItemViewModel
     {
-        public int BillingAddress { get; set; }
-        public int ShippingAddress { get; set; }
-       // public BookListViewModel Book { get; set; }
+        public AddressViewModel BillingAddress { get; set; }
+        public AddressViewModel ShippingAddress { get; set; }
+        public BookListViewModel Book { get; set; }
 
     }
 }
