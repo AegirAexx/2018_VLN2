@@ -45,7 +45,7 @@ namespace BookCave.Repositories
            return orders;
        }
 
-        public List<OrderItemViewModel> GetOrderDetails(int orderId)
+        public OrderItemViewModel GetOrderDetails(int orderId)
         {
             var billingAddressId = (from o in _db.Orders
                                     where o.Id == orderId
@@ -55,7 +55,7 @@ namespace BookCave.Repositories
                                     where o.Id == orderId
                                     select o.ShippingAddressId).SingleOrDefault();
             
-            
+            /* 
             var orderItems = (from oi in _db.OrderItems
                             where oi.OrderId == orderId
                             select new OrderItemViewModel
@@ -90,8 +90,14 @@ namespace BookCave.Repositories
                                             Genre = b.Genre,
                                             ISBN13 = b.ISBN13,
                                             Author = b.Author
-                                        }).SingleOrDefault()
-                            }).ToList();
+                                        }).SingleOrDefault(),
+                                Street = "TestGata"
+                            }).ToList();*/
+                var orderItems = new OrderItemViewModel
+                                    {
+                                        BillingAddress = 3,
+                                        ShippingAddress = shippingAddressId
+                                    };
 
             return orderItems;
         }
