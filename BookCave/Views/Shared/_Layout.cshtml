@@ -22,7 +22,7 @@
                 <strong>Book Cave</strong>
             </a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
+                <span class="navbar-toggler-icon"><i class="fas fa-bars fa-2x"></i></span>
             </button>
 
             <div class="collapse navbar-collapse justify-content-end" id="navbarsExampleDefault">
@@ -89,6 +89,7 @@
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                         @await Html.PartialAsync("_LoginPartial")
+                        <a asp-area="" class="dropdown-item" asp-controller="Customer" asp-action="OrderHistory">Orders History</a>
                     </div>
                 </div>
             </div>
