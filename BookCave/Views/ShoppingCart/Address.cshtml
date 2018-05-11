@@ -33,10 +33,17 @@
                           <label>Use as delivery address</label><input type="radio" name="useAsDelivery" checked>
                         </td>
                         <td class="text-center">
+<<<<<<< HEAD
                            <label>Use as delivery address</label><input type="radio" name="useAsBilling" checked>
                         </td> 
                         <td>
                             <button type="button" class="btn btn-danger">Delete</button> 
+=======
+                           <label>Use as billing address</label><input type="radio" name="useAsBilling" checked>
+                        </td> 
+                        <td>
+                            <button type="button" class="btn btn-danger">Delete</button>
+>>>>>>> dagur
                          </td>
                     </tr>
                 </tbody>
@@ -52,7 +59,11 @@
 
   <div class="row mt-1" id="addressAdding" style="display:none">
     <div class="col-md-8 col-md-offset-8">
+<<<<<<< HEAD
       <form class="form-horizontal" role="form">
+=======
+      <form class="form-horizontal" role="form" method="POST" asp-controller="Address" asp-action="AddAddress">
+>>>>>>> dagur
         <fieldset>
 
           <!-- Form Name -->

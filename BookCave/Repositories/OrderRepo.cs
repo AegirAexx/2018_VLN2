@@ -27,20 +27,6 @@ namespace BookCave.Repositories
                            UserName = (from u in _db.AspNetUsers
                                         where u.Id == currentUser
                                         select u.Email).SingleOrDefault()
-                           /*OrderItems = (from oi in _db.OrderItems
-                                        where oi.OrderId == o.Id
-                                        select new OrderItemViewModel
-                                        {
-                                            BookId = oi.BookId,
-                                            TotalPrice = oi.Price,
-                                            Book = (from b in _db.Books
-                                                    where b.Id == oi.BookId
-                                                    select new BookListViewModel
-                                                    {
-                                                        Title = b.Title,
-                                                        Id = b.Id
-                                                    }).ToList()
-                                        }).ToList()*/
                         }).ToList();
            return orders;
        }
