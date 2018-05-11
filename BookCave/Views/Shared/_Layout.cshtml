@@ -17,7 +17,7 @@
         <div class="container">
             <a asp-area="" asp-controller="Home" asp-action="Index">
                 <img src="~/images/logo.png" alt="BookCave" class="navbar-brand" id="logo-image">
-            </a><strong>Book Cave</strong></a>
+            </a><a asp-area="" asp-controller="Home" asp-action="Index" id="nounderline"><strong>Book Cave</strong></a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault"
                 aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -27,7 +27,7 @@
                 <ul class="navbar-nav m-auto">
                     <li class="nav-item m-auto">
                         <div class="dropdown nav-item ">
-                            <a class="dropdown-toggle btn btn-info btn-sm ml-3" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+                            <a class="dropdown-toggle btn btn-info btn-sm mr-3" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
                             aria-haspopup="true" aria-expanded="false">
                             Categories
                         </a>
@@ -43,11 +43,11 @@
                     
                 </div>
                     </li>
-                    <li class="nav-item m-auto">
-                        <a class="nav-link" asp-area="" asp-controller="Home" asp-action="TopTenBooks" id="top-ten-trigger">Top 10 books</a>
-                    </li>
-
+                        <a class="btn btn-info btn-sm mr-l m-auto" asp-area="" asp-controller="Home" asp-action="TopTenBooks">
+                             Top 10 books
+                        </a>
                 </ul>
+
 
                 <form asp-controller="Home" asp-action="Search" method="get" id="top-search" class="form-inline my-2 my-lg-0">
                     <div class="input-group input-group-sm">

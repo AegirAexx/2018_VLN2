@@ -35,3 +35,5 @@ BookCave/obj/Debug/netcoreapp2.0/BookCave.csproj.CoreCompileInputs.cache
 *.pdb
 
 *.cache
+BookCave/Views/Manage/Index.cshtml
+BookCave/Views/Manage/Index.cshtml

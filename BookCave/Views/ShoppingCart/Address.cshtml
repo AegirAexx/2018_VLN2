@@ -1,3 +1,5 @@
+@model AddressViewModel
+
 <h2>Address</h2>
 <div class="">
     <div class="row">
@@ -33,10 +35,10 @@
                           <label>Use as delivery address</label><input type="radio" name="useAsDelivery" checked>
                         </td>
                         <td class="text-center">
-                           <label>Use as delivery address</label><input type="radio" name="useAsBilling" checked>
+                           <label>Use as billing address</label><input type="radio" name="useAsBilling" checked>
                         </td> 
                         <td>
-                            <button type="button" class="btn btn-danger">Delete</button> 
+                            <button type="button" class="btn btn-danger">Delete</button>
                          </td>
                     </tr>
                 </tbody>
@@ -52,7 +54,7 @@
 
   <div class="row mt-1" id="addressAdding" style="display:none">
     <div class="col-md-8 col-md-offset-8">
-      <form class="form-horizontal" role="form">
+      <form class="form-horizontal" role="form" method="POST" asp-controller="ShoppingCart" asp-action="AddAddress">
         <fieldset>
 
           <!-- Form Name -->
@@ -60,48 +62,53 @@
 
           <!-- Text input-->
           <div class="form-group">
-            <label class="col-sm-3 control-label" for="textinput">Name:</label>
+            <label class="col-sm-3 control-label" asp-for="Name"></label>
             <div class="col-sm-10">
-              <input type="text" placeholder="Name:" class="form-control">
+              <input type="text" placeholder="Name" class="form-control" asp-for="Name">
             </div>
           </div>
 
           <!-- Text input-->
           <div class="form-group">
-            <label class="col-sm-3 control-label" for="textinput">Street Name:</label>
+            <label class="col-sm-3 control-label" asp-for="StreetName"></label>
             <div class="col-sm-10">
-              <input type="text" placeholder="Street Name:" class="form-control">
+              <input type="text" placeholder="Street Name" class="form-control" asp-for="StreetName">
             </div>
           </div>
 
           <!-- Text input-->
           <div class="form-group">
-            <label class="col-sm-3 control-label" for="textinput">House number:</label>
+            <label class="col-sm-3 control-label" asp-for="HouseNumber"></label>
             <div class="col-sm-10">
-              <input type="text" placeholder="houseNumber:" class="form-control">
+              <input type="text" placeholder="houseNumber" class="form-control" asp-for="HouseNumber">
             </div>
           </div>
 
           <!-- Text input-->
           <div class="form-group">
-            <label class="col-sm-3 control-label" for="textinput">Town/City:</label>
+            <label class="col-sm-3 control-label" asp-for="City"></label>
             <div class="col-sm-10">
-              <input type="text" placeholder="Town/City:" class="form-control">
+              <input type="text" placeholder="Town/City" class="form-control" asp-for="City">
             </div>
           </div>
 
           <!-- Text input-->
-
-
-          <div class="form-group">
-            <label class="col-sm-3 control-label" for="textinput">Country:</label>
+            <div class="form-group">
+            <label class="col-sm-3 control-label" asp-for="Country">Country:</label>
             <div class="col-sm-10">
-              <select value="ISL" data-role="country-selector" class="form-control"></select>
+              <select value="ISL" data-role="country-selector" class="form-control"asp-for="Country"></select>
             </div>
 
-            <label class="col-sm-3 control-label" for="textinput">Postcode</label>
+            <div class="form-group">
+            <label class="col-sm-3 control-label" asp-for="Country"></label>
+            <div class="col-sm-10">
+              <select value="ISL" data-role="country-selector" class="form-control" asp-for="Country"></select>
+            </div>
+
+
+            <label class="col-sm-3 control-label" asp-for="ZipCode"></label>
             <div class="col-sm-4">
-              <input type="text" placeholder="Post Code" class="form-control">
+              <input type="text" placeholder="Post Code" class="form-control" asp-for="ZipCode">
             </div>
           </div>
 
@@ -109,7 +116,7 @@
             <div class="col-sm-offset-2 col-sm-10">
               <div class="pull-right">
                 <button type="submit" id="saveAddress" class="btn btn-default">Cancel</button>
-                <button type="submit" id="cancelAddress"class="btn btn-primary">Save</button>
+                <button type="submit" id="cancelAddress" class="btn btn-success ml-4">Save</button>
               </div>
             </div>
           </div>

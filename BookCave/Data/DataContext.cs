@@ -15,6 +15,8 @@ namespace BookCave.Data
         public DbSet<AspNetUser> AspNetUsers { get; set; }
 
         public DbSet<OrderItem> OrderItems { get; set; }
+
+        public DbSet<Comment> Comments { get; set; }
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             optionsBuilder

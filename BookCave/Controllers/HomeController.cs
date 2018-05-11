@@ -28,6 +28,7 @@ namespace BookCave.Controllers
         }
         public IActionResult Index()
         {
+            var homePageList = _bookService.GetHomeBooks();
             return View();
         }
         public IActionResult About()
