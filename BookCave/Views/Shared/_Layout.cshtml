@@ -7,8 +7,8 @@
     <link rel="stylesheet" href="http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.12/css/all.css" integrity="sha384-G0fIWCsCzJIMAVNQPfjH08cyYaUtMwjJwqiRKxxE/rx96Uroj1BtIQ6MLJuheaO9" crossorigin="anonymous">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
-    <link rel="stylesheet" href="~/css/site.css">
     <link rel="stylesheet" href="~/css/w3.css">
+    <link rel="stylesheet" href="~/css/site.css">
 </head>
 
 
@@ -17,9 +17,11 @@
         <div class="container">
             <a asp-area="" asp-controller="Home" asp-action="Index">
                 <img src="~/images/logo.png" alt="BookCave" class="navbar-brand" id="logo-image">
-            </a><a asp-area="" asp-controller="Home" asp-action="Index" id="nounderline"><strong>Book Cave</strong></a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault"
-                aria-expanded="false" aria-label="Toggle navigation">
+            </a>
+            <a asp-area="" asp-controller="Home" asp-action="Index" id="nounderline">
+                <strong>Book Cave</strong>
+            </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
 
@@ -27,6 +29,7 @@
                 <ul class="navbar-nav m-auto">
                     <li class="nav-item m-auto">
                         <div class="dropdown nav-item ">
+<<<<<<< HEAD
                             <a class="dropdown-toggle btn btn-info btn-sm mr-3" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
                             aria-haspopup="true" aria-expanded="false">
                             Categories
@@ -63,16 +66,29 @@
                     </div>
                     
                 </div>
+=======
+                            <a class="dropdown-toggle btn btn-info btn-sm mr-3" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Categories
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <a asp-area="" class="dropdown-item" asp-controller="Account" asp-action="Contemporary">Contemporary</a>
+                                <a asp-area="" class="dropdown-item" asp-controller="Account" asp-action="Crime">Crime</a>
+                                <a asp-area="" class="dropdown-item" asp-controller="Account" asp-action="Humor">Humor</a>
+                                <a asp-area="" class="dropdown-item" asp-controller="Account" asp-action="Mystery">Mystery</a>
+                                <a asp-area="" class="dropdown-item" asp-controller="Account" asp-action="Romance">Romance</a>
+                                <a asp-area="" class="dropdown-item" asp-controller="Account" asp-action="Science">Science</a>
+                                <a asp-area="" class="dropdown-item" asp-controller="Account" asp-action="Children">Children</a>
+                            </div>
+                        </div>
+>>>>>>> master
                     </li>
-                        <a class="btn btn-info btn-sm mr-l m-auto" asp-area="" asp-controller="Home" asp-action="TopTenBooks">
-                             Top 10 books
-                        </a>
+                    <a class="btn btn-info btn-sm mr-l m-auto" asp-area="" asp-controller="Home" asp-action="TopTenBooks">
+                        Top 10 books
+                    </a>
                 </ul>
-
-
                 <form asp-controller="Home" asp-action="Search" method="get" id="top-search" class="form-inline my-2 my-lg-0">
                     <div class="input-group input-group-sm">
-                        <input id="x" type="text" class="form-control" name="x" placeholder="Title / Author / ISBN" aria-label="Small" aria-describedby="inputGroup-sizing-sm">
+                        <input id="x" type="text" class="form-control" name="x" placeholder="Title..." aria-label="Small" aria-describedby="inputGroup-sizing-sm">
                         <div class="input-group-append">
                             <button type="submit" class="btn nav-search">
                                 <i class="fas fa-search"></i>
@@ -80,87 +96,21 @@
                         </div>
                     </div>
                 </form>
-               <div>
-                <a class="btn btn-danger btn-sm ml-3 " asp-area="" asp-controller="ShoppingCart" asp-action="Index">
-                    <i class="far fa-heart"></i> Wishlist
-                    <span class="badge badge-light">3</span>
-                </a>
-            </div>
                 <a class="btn btn-success btn-sm ml-3" asp-area="" asp-controller="ShoppingCart" asp-action="Index">
                     <i class="fa fa-shopping-cart"></i> Cart
-                    <span class="badge badge-light">3</span>
                 </a>
                 <div class="dropdown nav-item ">
-                    <a class="dropdown-toggle btn btn-info btn-sm ml-3" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
-                        aria-haspopup="true" aria-expanded="false">
+                    <a class="dropdown-toggle btn btn-info btn-sm ml-3" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         <i class="fas fa-user-circle"></i> User
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                         @await Html.PartialAsync("_LoginPartial")
                     </div>
-                    
                 </div>
-
             </div>
+        </div>
     </nav>
-<!-- 
-<body>
-    <header class="w3-top">
-        <div class="menu-container">
-        <div class="menu">
-            <ul class="d-flex justify-content-center">
-                <li><a asp-area="" asp-controller="Home" asp-action="Index"><img src="~/images/logo.png" alt="BookCave" class="hide-mobile" id="logo-image"></a></li>
-                <li><a href="#">Shop by Category</a>
-                    <ul>
-                        <li><a href="#">Study</a>
-                            <ul>
-                                <li><a href="#">Undergraduate</a></li>
-                                <li><a href="#">Masters</a></li>
-                                <li><a href="#">International</a></li>
-                                <li><a href="#">Online</a></li>
-                            </ul>
-                        </li>
-                        <li><a href="#">Research</a>
-                            <ul>
-                                <li><a href="#">SHOPPING</a></li>
-                                <li><a asp-area="" asp-controller="ShoppingCart" asp-action="Index">CART</a></li>
-                                <li><a href="#">ITEM</a></li>
-                            </ul>
-                        </li>
-                    </ul>
-                </li>
-                <li>
-                    <a asp-area="" asp-controller="Home" asp-action="TopTenBooks" id="top-ten-trigger">Top 10 Books</a>
-                </li>
-                <li id="li-search" class="li-nohover">
-                    <form asp-controller="Home" asp-action="Search" method="get" id="top-search" class="form-inline">
-                        <div class="form-group">
-                            <input id="x" type="text" class="form-control" name="x" placeholder="Title / Author / ISBN">
-                            <button type="submit" class="btn nav-search"><i class="fas fa-search"></i></button>
-                        </div>
-                    </form>
-                </li>
-                <li class="mt-1">
-                    <a href="#"><i class="far fa-heart fa-lg"></i></a>
-                </li>
-                <li class="mt-1"><a a asp-area="" asp-controller="ShoppingCart" asp-action="Index"><i class="fas fa-shopping-cart fa-lg"></i></a>
-                    <ul>
-                        <li><a href="#">SHOPPING</a></li>
-                        <li><a asp-area="" asp-controller="ShoppingCart" asp-action="Index">CART</a></li>
-                        <li><a asp-area="" asp-controller="Customer" asp-action="OrderHistory">ORDER HISTORY</a></li>
-                    </ul>
-                </li>
-                <li class="mt-1"><a href="#"><i class="fas fa-user-circle fa-lg"></a></i>
-                    <ul>
-                        @await Html.PartialAsync("_LoginPartial")
-                    </ul>
-                </li>                      
-            </ul>
-        </div>
-        </div>
-    </header> -->
-
-    <div id="main-body" class="container">
+    <div class="container">
         @RenderBody()
     </div>
 
@@ -181,6 +131,7 @@
     <script src="https://ajax.aspnetcdn.com/ajax/jquery.validate/1.16.0/jquery.validate.min.js"></script>
     <script src="https://ajax.aspnetcdn.com/ajax/jquery.validation.unobtrusive/3.2.6/jquery.validate.unobtrusive.min.js"></script>
     @RenderSection("Scripts", required: false)
+
           
 </body>
 </html>

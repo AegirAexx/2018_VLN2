@@ -1,3 +1,5 @@
+@model AddressIdViewModel
+
 <h2>Order details</h2>
     <div class="container">
         <div class="row">
@@ -23,7 +25,7 @@
                 </div>
             </div>
             <div class="col-sm-5 card h-25 ml-3 mr-3" >
-                <button type="button" class="btn btn-success mt-2 ml-2 mr-2">Buy now!</button>
+                <a class="btn btn-success mt-2 ml-2 mr-2" asp-area="" asp-controller="ShoppingCart" asp-action="Buy" asp-route-id="@Model.Id">Buy now!</a>
                 <div class="card-body">
                     <strong>Order summary: </strong>
                     <div>Books: 100kr</div>

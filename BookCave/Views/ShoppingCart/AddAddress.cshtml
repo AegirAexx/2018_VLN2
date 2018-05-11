@@ -1,0 +1,65 @@
+@model AddressInputModel
+
+    <div class="book-div-color mt-3 p-2 w-75">
+        <h1 class="text-center">Address Details</h1>
+      <form class="form-horizontal" role="form" method="POST" asp-controller="ShoppingCart" asp-action="AddAddress">
+
+          <!-- Text input-->
+          <div class="form-group">
+            <label class="control-label" asp-for="Name"></label>
+            <div class="">
+              <input type="text" placeholder="Name" class="form-control" asp-for="Name">
+            </div>
+          </div>
+
+          <!-- Text input-->
+          <div class="form-group">
+            <label class="control-label" asp-for="StreetName"></label>
+            <div class="">
+              <input type="text" placeholder="Street Name" class="form-control" asp-for="StreetName">
+            </div>
+          </div>
+
+          <!-- Text input-->
+          <div class="form-group">
+            <label class="control-label" asp-for="HouseNumber"></label>
+            <div class="">
+              <input type="number" placeholder="houseNumber" class="form-control" asp-for="HouseNumber">
+            </div>
+          </div>
+
+          <!-- Text input-->
+          <div class="form-group">
+            <label class=""" control-label" asp-for="City"></label>
+            <div class="">
+              <input type="text" placeholder="Town/City" class="form-control" asp-for="City">
+            </div>
+          </div>
+
+          <!-- Text input-->
+            <div class="form-group">
+            <label class="control-label" asp-for="Country">Country:</label>
+            <div class="">
+              <select value="ISL" data-role="country-selector" class="form-control"asp-for="Country"></select>
+            </div>
+
+            <label class=""" control-label" asp-for="ZipCode"></label>
+            <div class="">
+              <input type="number" placeholder="Post Code" class="form-control" asp-for="ZipCode">
+            </div>
+          </div>
+
+          <div class="form-group">
+            <div class="">
+              <div class="pull-right">
+                <button type="submit" id="saveAddress" class="btn btn-success">Save</button>
+                <a class="btn btn-danger" asp-area="" asp-controller="ShoppingCart" asp-action="Address">Cancel</a>
+              </div>
+            </div>
+          </div>
+      </form>
+    </div>
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="~/js/country.js"></script>

@@ -1,4 +1,4 @@
-@model AddressViewModel
+@model AddressIdViewModel
 
 <h2>Address</h2>
 <div class="">
@@ -43,88 +43,11 @@
                     </tr>
                 </tbody>
             </table>
-            <button type="button" class="btn btn-block" id="addAddress"><strong><i class="fas fa-plus"></i></strong>  ADD NEW ADDRESS</button>
+            <a class="btn btn-light btn-block mt-2" asp-area="" asp-controller="ShoppingCart" asp-action="AddAddress"><strong><i class="fas fa-plus"></i></strong>  ADD NEW ADDRESS</a>
         </div>
             <div class="card h-25">
-        <button type="button" class="btn btn-success mt-2 ml-2 mr-2">Continue</button>
+              <a class="btn btn-success mt-2 ml-2 mr-2" asp-area="" asp-controller="ShoppingCart" asp-action="CheckOut" asp-route-id="@Model.Id">Continue</a>
          <div class="card-body">Continue to payment</div>
     </div>
     </div>
 </div>
-
-  <div class="row mt-1" id="addressAdding" style="display:none">
-    <div class="col-md-8 col-md-offset-8">
-      <form class="form-horizontal" role="form" method="POST" asp-controller="ShoppingCart" asp-action="AddAddress">
-        <fieldset>
-
-          <!-- Form Name -->
-          <legend> Address Details</legend>
-
-          <!-- Text input-->
-          <div class="form-group">
-            <label class="col-sm-3 control-label" asp-for="Name"></label>
-            <div class="col-sm-10">
-              <input type="text" placeholder="Name" class="form-control" asp-for="Name">
-            </div>
-          </div>
-
-          <!-- Text input-->
-          <div class="form-group">
-            <label class="col-sm-3 control-label" asp-for="StreetName"></label>
-            <div class="col-sm-10">
-              <input type="text" placeholder="Street Name" class="form-control" asp-for="StreetName">
-            </div>
-          </div>
-
-          <!-- Text input-->
-          <div class="form-group">
-            <label class="col-sm-3 control-label" asp-for="HouseNumber"></label>
-            <div class="col-sm-10">
-              <input type="text" placeholder="houseNumber" class="form-control" asp-for="HouseNumber">
-            </div>
-          </div>
-
-          <!-- Text input-->
-          <div class="form-group">
-            <label class="col-sm-3 control-label" asp-for="City"></label>
-            <div class="col-sm-10">
-              <input type="text" placeholder="Town/City" class="form-control" asp-for="City">
-            </div>
-          </div>
-
-          <!-- Text input-->
-            <div class="form-group">
-            <label class="col-sm-3 control-label" asp-for="Country">Country:</label>
-            <div class="col-sm-10">
-              <select value="ISL" data-role="country-selector" class="form-control"asp-for="Country"></select>
-            </div>
-
-            <div class="form-group">
-            <label class="col-sm-3 control-label" asp-for="Country"></label>
-            <div class="col-sm-10">
-              <select value="ISL" data-role="country-selector" class="form-control" asp-for="Country"></select>
-            </div>
-
-
-            <label class="col-sm-3 control-label" asp-for="ZipCode"></label>
-            <div class="col-sm-4">
-              <input type="text" placeholder="Post Code" class="form-control" asp-for="ZipCode">
-            </div>
-          </div>
-
-          <div class="form-group">
-            <div class="col-sm-offset-2 col-sm-10">
-              <div class="pull-right">
-                <button type="submit" id="saveAddress" class="btn btn-default">Cancel</button>
-                <button type="submit" id="cancelAddress" class="btn btn-success ml-4">Save</button>
-              </div>
-            </div>
-          </div>
-
-        </fieldset>
-      </form>
-    </div><!-- /.col-lg-12 -->
-</div><!-- /.row -->
-
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-<script src="~/js/country.js"></script>
