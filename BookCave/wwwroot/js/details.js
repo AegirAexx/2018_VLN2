@@ -3,7 +3,8 @@ $(document).ready(function () {
   const key = "AIzaSyBAnYjI3ZTTYIPGedsL7TYsgV0Emwgo_oI";
 
   const bookISBN = document.querySelector("#details-isbn").innerHTML;
-  const bookID = document.querySelector("#details-id").innerHTML;
+  let tempID = document.querySelector("#details-id").innerHTML;
+  const bookID = parseInt(tempID);
 
   console.log(bookID);
 
