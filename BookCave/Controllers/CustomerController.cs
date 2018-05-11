@@ -16,9 +16,10 @@ namespace BookCave.Controllers
 
         private OrderService _orderService;
 
+        [HttpGet]
         public IActionResult Index()
         {
-            return View();
+            return RedirectToAction("index", "Home");
         }
         public CustomerController(UserManager<ApplicationUser> userManager)
         {

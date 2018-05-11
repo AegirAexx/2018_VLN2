@@ -8,6 +8,7 @@ using BookCave.Models;
 using BookCave.Services;
 using Microsoft.AspNetCore.Identity;
 using BookCave.Models.InputModels;
+using BookCave.Models.ViewModels;
 
 namespace BookCave.Controllers
 {
@@ -27,7 +28,7 @@ namespace BookCave.Controllers
         [HttpGet]
         public IActionResult Index()
         {
-            return View();
+            return RedirectToAction("index", "Home");
         }
 
         [HttpGet]
@@ -45,7 +46,9 @@ namespace BookCave.Controllers
 
             _bookService.AddComment(inputComment, currentUser);
 
-            return View();
+            int x = inputComment.BookId;
+
+            return RedirectToAction("Details", "Book", new{id = x});
         }
 
         [HttpPost]

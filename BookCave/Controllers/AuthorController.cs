@@ -21,7 +21,7 @@ namespace BookCave.Controllers
         [HttpGet]
         public IActionResult Index()
         {
-            return View();
+            return RedirectToAction("index", "Home");
         }
     }
 }
