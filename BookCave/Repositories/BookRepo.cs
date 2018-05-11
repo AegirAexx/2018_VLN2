@@ -3,6 +3,7 @@ using System.Linq;
 using BookCave.Data;
 using BookCave.Data.EntityModels;
 using BookCave.Models.ViewModels;
+using BookCave.Models.InputModels;
 
 namespace BookCave.Repositories
 {
@@ -217,6 +218,49 @@ namespace BookCave.Repositories
                                 };
             
             return homePageList;
+        }
+        public void AddComment(Comment commentToAdd)
+        {
+            _db.Comments.Add(commentToAdd);
+            _db.SaveChanges(); 
+        }
+
+        public void AddTotalRating(int id, int rating)
+        {
+            var bookToUpdate = (from b in _db.Books
+                                where b.Id == id
+                                select b).SingleOrDefault();
+            
+            bookToUpdate.RatingCount += 1;
+            bookToUpdate.RatingTotal += rating;
+            _db.SaveChanges();
+        }
+
+        public int GetTotalRating(int id)
+        {
+            var totalRating = (from b in _db.Books
+                                where b.Id == id
+                                select b.RatingTotal).SingleOrDefault();
+            return totalRating;
+        }
+
+        public int GetRatingCount(int id)
+        {
+            var ratingCount = (from b in _db.Books
+                                where b.Id == id
+                                select b.RatingCount).SingleOrDefault();
+            return ratingCount;
+        }
+
+        public void UpdateRating(int id, int newAverage)
+        {
+
+            var bookToUpdate = (from b in _db.Books
+                                where b.Id == id
+                                select b).SingleOrDefault();
+            
+            bookToUpdate.Rating = newAverage;
+            _db.SaveChanges();
         }
     }
 

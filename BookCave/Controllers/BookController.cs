@@ -6,6 +6,8 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using BookCave.Models;
 using BookCave.Services;
+using Microsoft.AspNetCore.Identity;
+using BookCave.Models.InputModels;
 
 namespace BookCave.Controllers
 {
@@ -13,9 +15,13 @@ namespace BookCave.Controllers
     {
         private BookService _bookService;
 
-        public BookController()
+        private readonly UserManager<ApplicationUser> _userManager;
+
+        public BookController(UserManager<ApplicationUser> userManager)
         {
             _bookService = new BookService();
+
+            _userManager = userManager;
         }
 
         [HttpGet]
@@ -31,5 +37,24 @@ namespace BookCave.Controllers
 
             return View(bookDetails);
         }
+
+        [HttpPost]
+        public IActionResult AddComment(CommentInputModel inputComment)
+        {
+            var currentUser = _userManager.GetUserId(HttpContext.User);
+
+            _bookService.AddComment(inputComment, currentUser);
+
+            return View();
+        }
+
+        [HttpPost]
+        public IActionResult AddRating(int bookId, int rating)
+        {
+            _bookService.AddRating(bookId, rating);
+
+            return View();
+        }
+
     }
 }
