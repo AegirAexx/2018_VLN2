@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using BookCave.Data;
+using BookCave.Data.EntityModels;
 using BookCave.Models.ViewModels;
 
 namespace BookCave.Repositories
@@ -107,7 +108,18 @@ namespace BookCave.Repositories
                                     OriginalPublicationYear = b.OriginalPublicationYear,
                                     Rating = b.Rating,
                                     Genre = b.Genre,
-                                    Price = b.Price
+                                    Price = b.Price,
+                                    Comments = (from c in _db.Comments
+                                                    where c.BookId == id
+                                                    select new Comment
+                                                    {
+                                                        Id = c.Id, 
+                                                        UserId = (from u in _db.AspNetUsers
+                                                                    where u.Id == c.UserId
+                                                                    select u.Email).SingleOrDefault(),
+                                                        BookId = c.BookId,
+                                                        CommentText = c.CommentText
+                                                    }).ToList()
                                 }).SingleOrDefault();
             
             return bookDetails;

@@ -73,7 +73,7 @@
               <div class="panel-body">
                 <header class="text-left">
                   <div class="comment-user">
-                    <i class="fa fa-user"></i> Username </div>
+                    <i class="fa fa-user"></i> </div>
                   <time class="comment-date" datetime="16-12-2014 01:05">
                     <i class="fa fa-clock-o"></i> Dec 16, 2014</time>
                 </header>
@@ -90,6 +90,12 @@
       </div>
 </div>
 
+@foreach(var comment in @Model.Comments)
+{
+    <ol>
+        <span>User: @comment.UserId , Comment: @comment.CommentText</span>
+    </ol>
+}
 
 
 <!-- First Comment -->
