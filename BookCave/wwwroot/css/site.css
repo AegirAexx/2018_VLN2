@@ -37,14 +37,8 @@ body {
     background: #D3D1CA;
 }
 
-/* #mobile-view{
-    display: flex; 
-    flex-flow: row;
-
-} */
-
 .bookcave-color{
-    background: #8E6441;
+    background-color: #8E6441;
     color: #D3D1CA;
 }
 
@@ -52,29 +46,12 @@ body {
     background-color: #dddbd4;
 }
 
-#main-body {
-    margin-top: 30px;
-}
-
 #logo-image {
     width: 2.5em;
 }
 
-#li-search {
-    margin-top: 10px;
-}
-.li-nohover:hover {
-    background-color: inherit;
-}
-
 .book-div-color{
     background-color: #dddbd4;
-}
-
-.flex-list {
-    display: flex;
-    flex-flow: row wrap;
-    justify-content: space-between;
 }
 
 footer {
@@ -91,6 +68,11 @@ footer a {
     background-color: #C6B99E;
 }
 
+footer a:hover {
+    color: #303030;
+    background-color: #C6B99E;
+}
+
 
 .cart-nav{
     background-color: #B6D7A8;
@@ -101,10 +83,6 @@ footer a {
     background-color: #D3D1CA;
 }
 
-
-/* ––––––––––––––––––––––––––––––––––––––––––––––––––
-Book detail's
-–––––––––––––––––––––––––––––––––––––––––––––––––– */
 #book-title{
     margin-top: 0px;
 }
@@ -114,9 +92,8 @@ Book detail's
 #book-divider{
     margin: 0px 0px;
 }
-/* ––––––––––––––––––––––––––––––––––––––––––––––––––
-Book detail's
-–––––––––––––––––––––––––––––––––––––––––––––––––– */
+
+
 .border-light{
     margin: 10px 10px;
 }
