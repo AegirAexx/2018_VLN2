@@ -26,11 +26,6 @@ namespace BookCave.Controllers
 
             _userManager = userManager;
         }
-       /* public IActionResult Index()
-        {
-            var homePageList = _bookService.GetHomeBooks();
-            return View();
-        }*/
         public IActionResult About()
         {
             return View();

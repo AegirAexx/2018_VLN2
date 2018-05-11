@@ -23,14 +23,7 @@
         </div>
         <div>
           <br>
-
-          <button class="btn btn-block btn-success" type="button">
-                <a asp-controller="ShoppingCart" asp-action="Add" asp-route-id="@Model.Id"> <i class="fas fa-shopping-cart"></i>Add to Cart </a>
-          </button>
-            
-          <button class="btn btn-block btn-danger">
-            <i class="far fa-heart"></i> Add to wishlist
-          </button>
+                <a class="btn btn-block btn-success" asp-controller="ShoppingCart" asp-action="Add" asp-route-id="@Model.Id"> <i class="fas fa-shopping-cart"></i> Add to Cart </a>
         </div>
       </div>
     </div>
