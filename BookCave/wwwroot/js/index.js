@@ -10,7 +10,7 @@ $(document).ready(function () {
         $.get(googleURL,(data) => {
           const imageURL = data.items[0].volumeInfo.imageLinks.Thumbnail;
     
-          const cover = `<img class="card-img-top " src="${imageURL}" alt="Card image cap">`;
+          const cover = `<img src="${imageURL}">`;
           
           $(this).parent().find(".thumbnail").append(cover);
   });

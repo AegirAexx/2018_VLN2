@@ -1,52 +1,37 @@
 @model List<BookListViewModel>
 @{
     ViewData["Title"] = "BookCave Inc";
+        int counter = 0;
+
 }
-  <div class="py-5">
-    <div class="container">
-      <div class="row">
-        <div class="col-md-3">
-          <div class="card" id="PoppularBooks">
-            <div class="card-header"> Poppular books</div>
-            <div class="card-body">
-              <ul class="">
-                <li>Best sellers</li>
-                <li>Top new releases</li>
-                <li>Top 10 books</li>
-              </ul>
-            </div>
-          </div>
-          <div class="card" id="Genre">
-            <div class="card-header"> Genre</div>
-            <div class="card-body">
-              <ul class="">
-                <li>One</li>
-                <li>Two</li>
-                <li>Three</li>
-              </ul>
-            </div>
-          </div>
-        </div>
-        
-
-<div>
-    @foreach(var book in @Model)
+<h1 class="text-center">Welcome to the Cave </h1>
+<div class="row">
+@foreach (var book in @Model)
+{
+    if (counter != 0 && counter % 4 == 0)
     {
-      <div class="" >
-        <div class="" >
-          <div class="thumbnail">                <img src="https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1445981000i/11557._SY180_.jpg" alt="Card image cap">
-</div>
-          <div class="">
-            <h5 class="">@book.Title</h5>
-            <a href="#" class="btn btn-primary">Add to Cart</a>
-          </div>
-          
-        </div>
-      </div>
-      
+        @:</div>
+        @:<div class="row">
     }
-</div>
 
+    <div class="col-md-3 mt-2 mb-2">
+        <div class="book-div-color rounded pt-3 pb-4 d-flex flex-column justify-content-between align-items-center h-100">
+            <div class=""><img src="~/images/bookCover.jpeg"></div>
+            <div class="caption" >
+                <h4 id="thumbnail-label" class="text-center ml-2 mr-2">@book.Title</h4>
+                <p class="isbn" style="visibility: hidden">@book.ISBN13</p>
+            </div>
+                <a asp-controller="ShoppingCart" asp-action="Add" asp-route-id="@book.Id" class="btn btn-success">Add to Cart</a>
+        </div>
+    </div>
+
+    counter++;
+}
+</div>
+      </div>
+    </div>
+  </div>
+</div>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-<script src="~/js/index.js"></script>
+<script src=""></script>
