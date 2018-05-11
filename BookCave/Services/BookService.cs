@@ -1,11 +1,8 @@
 using System;
 using System.Collections.Generic;
-<<<<<<< HEAD
 using System.Linq;
-=======
 using BookCave.Data.EntityModels;
 using BookCave.Models.InputModels;
->>>>>>> dagur
 using BookCave.Models.ViewModels;
 using BookCave.Repositories;
 
