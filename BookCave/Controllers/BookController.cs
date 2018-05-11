@@ -51,6 +51,7 @@ namespace BookCave.Controllers
         [HttpPost]
         public IActionResult AddRating(int bookId, int rating)
         {
+            //Fall sem tekur við bookId og rating tölu frá notanda, sendir það svo áfram á service
             _bookService.AddRating(bookId, rating);
 
             return View();
