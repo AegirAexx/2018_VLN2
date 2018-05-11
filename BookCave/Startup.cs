@@ -28,6 +28,7 @@ namespace BookCave
         public void ConfigureServices(IServiceCollection services)
         {
             Environment.SetEnvironmentVariable("AWS_ACCESS_KEY_ID", Configuration.GetSection("Aws").GetValue<string>("AccessKeyId"));
+            var test = Environment.GetEnvironmentVariable("AWS_ACCESS_KEY_ID");
             Environment.SetEnvironmentVariable("AWS_SECRET_ACCESS_KEY", Configuration.GetSection("Aws").GetValue<string>("SecretAccessKey"));
             Environment.SetEnvironmentVariable("AWS_REGION", "eu-west-2");
             services.AddDefaultAWSOptions(Configuration.GetAWSOptions());

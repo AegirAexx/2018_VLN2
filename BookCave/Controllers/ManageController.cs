@@ -46,7 +46,6 @@ namespace BookCave.Controllers
         [HttpGet]
         public async Task<IActionResult> Index()
         {
-            S3Helper s3Helper = new S3Helper(_s3Client);
 
             var user = await _userManager.GetUserAsync(User);
             if (user == null)
@@ -63,8 +62,7 @@ namespace BookCave.Controllers
                 StatusMessage = StatusMessage
             };
             
-            var img = s3Helper.GetUrl(_imageBucket, "images/" + user.Image);
-            ViewBag.Image = img.ToString();
+            
 
             return View(model);
         }
@@ -84,24 +82,7 @@ namespace BookCave.Controllers
                 throw new AuthenticationException($"Unable to load user with ID '{_userManager.GetUserId(User)}'.");
             }
 
-            // Save ImageData
-            Stream fileStream = null;
-            var contentType = "";
-            if (ImageData != null)  // ImageData er: IFormFile ImageData
-            {
-                contentType = ImageData.ContentType;
-                fileStream = ImageData.OpenReadStream();
-                var ImageExtension = ImageData.FileName.Substring(ImageData.FileName.LastIndexOf(".")).ToLower();
-                var ImageName = user.Id; // gæti verið t.d. userid?
-
-    //Save Image to bucket
-    // Add Image to S3 bucket
-                S3Helper s3Helper = new S3Helper(_s3Client);
-                await s3Helper.SaveFile(_imageBucket, "images/" + ImageName + ImageExtension, fileStream, S3CannedACL.PublicRead, contentType);
-
-
-                model.Image = ImageName + ImageExtension;
-            }
+            
 
             var email = user.Email;
             if (model.Email != email)
@@ -225,8 +206,13 @@ namespace BookCave.Controllers
         [Authorize]
         [HttpGet]
          public async Task<IActionResult> EditProfile()
-        {   
+        {
+            S3Helper s3Helper = new S3Helper(_s3Client);
+
             var user = await _userManager.GetUserAsync(User);
+
+            var img = s3Helper.GetUrl(_imageBucket, "images/" + user.Image);
+            ViewBag.Image = img.ToString();
 
             return View(new EditProfileViewModel {
                 FirstName = user.FirstName,
@@ -240,9 +226,28 @@ namespace BookCave.Controllers
         [Authorize]
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> EditProfile(EditProfileViewModel model)
+        public async Task<IActionResult> EditProfile(EditProfileViewModel model, IFormFile ImageData)
         {
             var user = await _userManager.GetUserAsync(User);
+
+            // Save ImageData
+            Stream fileStream = null;
+            var contentType = "";
+            if (ImageData != null)  // ImageData er: IFormFile ImageData
+            {
+                contentType = ImageData.ContentType;
+                fileStream = ImageData.OpenReadStream();
+                var ImageExtension = ImageData.FileName.Substring(ImageData.FileName.LastIndexOf(".")).ToLower();
+                var ImageName = user.Id; // gæti verið t.d. userid?
+
+                //Save Image to bucket
+                // Add Image to S3 bucket
+                S3Helper s3Helper = new S3Helper(_s3Client);
+                await s3Helper.SaveFile(_imageBucket, "images/" + ImageName + ImageExtension, fileStream, S3CannedACL.PublicRead, contentType);
+
+
+                model.Image = ImageName + ImageExtension;
+            }
 
             user.FirstName = model.FirstName;
             user.LastName = model.LastName;
@@ -253,7 +258,7 @@ namespace BookCave.Controllers
             await _userManager.UpdateAsync(user);
 
 
-            return Ok();
+            return View(model);
         }
 
 
