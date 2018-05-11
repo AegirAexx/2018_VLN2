@@ -17,6 +17,8 @@ namespace BookCave.Repositories
 
         public List<CartBookViewModel> GetCartList(string userId)
         {
+            GetCartId(userId);
+
             var cartBooks = (from oi in _db.OrderItems
                                 where oi.UserId == userId && oi.Status == "Cart"
                                 select new CartBookViewModel
@@ -70,11 +72,11 @@ namespace BookCave.Repositories
             return newCartId;
         }
 
-        public void Add(int bookToAdd, string currentUser, int cartId)
+        public void Add(int id, string currentUser, int cartId)
         {
             var newCartItem = new OrderItem
                                     {
-                                        BookId = bookToAdd,
+                                        BookId = id,
                                         Price = 50,
                                         OrderId = cartId,
                                         Status = "Cart",
@@ -120,8 +122,16 @@ namespace BookCave.Repositories
             {
                 item.Status = "Order";
             }
+            
+            var orderToBuy = (from o in _db.Orders
+                                where o.Id == id
+                                select o).SingleOrDefault();
+            
+            orderToBuy.OrderStatus = "Confirmed";
+
             _db.SaveChanges();
             
+
             var orderDetails = (from o in _db.Orders
                                 where o.Id == id
                                 select new PayOrderViewModel

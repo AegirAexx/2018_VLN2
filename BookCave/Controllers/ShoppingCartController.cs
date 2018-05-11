@@ -40,17 +40,23 @@ namespace BookCave.Controllers
 
             var cartBookList = _shoppingCartService.GetCartList(currentUser);
 
-            return View(cartBookList);
+            if(cartBookList.Count() < 1)
+            {
+                return View("Empty");
+            }
+            else
+            {
+                return View(cartBookList);
+            }
         }
 
-        [HttpPost]
         public IActionResult Add(int id)
         {
             var currentUser = _userManager.GetUserId(HttpContext.User);
             
             _shoppingCartService.Add(id, currentUser);
 
-            return Ok();
+            return View();
         }
 
         public IActionResult Remove(int id)
