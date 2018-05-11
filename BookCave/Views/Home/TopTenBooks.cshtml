@@ -1,25 +1,26 @@
 @model List<BookListViewModel>
 @{
-    ViewData["TopTen"] = "Top Ten Books";
+    ViewData["Title"] = "Top Ten Books";
 }
 <!-- <button type="button" id="top-ten-nigger"></button> -->
 @{int i = 1;}
 @foreach(var book in @Model)
 {
-  <div class="py-5" >
+  <div class="py-5">
     <div class="container">
       <div class="row">
         <div class="col-md-1 display-1 d-flex justify-content-center align-items-center">@i</div>
-        <div class="col-md-2 d-flex justify-content-center align-items-center" id="top-ten-@i"></div>
+        <div class="col-md-2 d-flex justify-content-center align-items-center thumbnail" id="top-ten-@i"></div>
         <div class="col-md-9">
           <a asp-area="" asp-controller="Book" asp-action="Details" asp-route-id="@book.Id"><h1>@book.Title</h1></a>
           <p class="lead">By @book.Author</p>
           <p>Rating: @book.Rating</p>
         </div>
+        <p id="top-ten-isbn-@i" class="isbn" style="visibility: hidden">@book.ISBN13</p>
       </div>
     </div>
   </div>
-  <p id="top-ten-isbn-@i" class="isbn" style="visibility: hidden">@book.ISBN13</p>
+  
  i++;
 }
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
