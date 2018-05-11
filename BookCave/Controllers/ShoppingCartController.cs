@@ -95,6 +95,17 @@ namespace BookCave.Controllers
             return View(order);
         }
 
+        [HttpPost]
+        public IActionResult AddAddress(AddressInputModel address)
+        {
+            
+            
+            var currentUser = _userManager.GetUserId(HttpContext.User);
+
+
+            return View("Address");
+        }
+
     }
 }
 
