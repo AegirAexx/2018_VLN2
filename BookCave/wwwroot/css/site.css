@@ -48,6 +48,10 @@ body {
     color: #D3D1CA;
 }
 
+#details-description{
+    background-color: #dddbd4;
+}
+
 #main-body {
     margin-top: 30px;
 }
