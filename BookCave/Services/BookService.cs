@@ -50,5 +50,12 @@ namespace BookCave.Services
             
             return bookDetails;
         }
+
+        public FrontPageViewModel GetHomeBooks()
+        {
+            var homePageList = _bookRepo.GetHomeBooks();
+            
+            return homePageList;
+        }
     }
 }

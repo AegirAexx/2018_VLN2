@@ -19,8 +19,11 @@ namespace BookCave.Repositories
            var books = (from b in _db.Books
                         select new BookListViewModel
                         {
-                           Id = b.Id,
-                           Title = b.Title 
+                            Id = b.Id,
+                            Title = b.Title,
+                            Rating = b.Rating,
+                            ISBN13 = b.ISBN13,
+                            Author = b.Author
                         }).ToList();
            return books;
        }
@@ -50,7 +53,8 @@ namespace BookCave.Repositories
                             Id = b.Id,
                             Title = b.Title,
                             Rating = b.Rating,
-                            Genre = b.Genre
+                            ISBN13 = b.ISBN13,
+                            Author = b.Author
                         }).ToList();
 
            return genreView;
@@ -64,6 +68,9 @@ namespace BookCave.Repositories
                         {
                             Id = b.Id,
                             Title = b.Title,
+                            Rating = b.Rating,
+                            ISBN13 = b.ISBN13,
+                            Author = b.Author
                         }).ToList();
            return bookSearch;
        }
@@ -74,7 +81,11 @@ namespace BookCave.Repositories
                                 orderby b.Title
                                 select new BookListViewModel
                                 {
+                                    Id = b.Id,
                                     Title = b.Title,
+                                    Rating = b.Rating,
+                                    ISBN13 = b.ISBN13,
+                                    Author = b.Author
                                 }).ToList();
            return booksAlphaOrder;
        }
@@ -100,6 +111,100 @@ namespace BookCave.Repositories
                                 }).SingleOrDefault();
             
             return bookDetails;
+        }
+
+        public FrontPageViewModel GetHomeBooks()
+        {
+            var homePageList = new FrontPageViewModel
+                                {
+                                    SciFi = (from b in _db.Books
+                                            where b.Genre == "Science Fiction"
+                                            select new BookDetailsViewModel
+                                            {
+                                                Id = b.Id,
+                                                GoodReadsId = b.GoodReadsId,
+                                                Title = b.Title,
+                                                Author = b.Author,
+                                                ISBN13 = b.ISBN13,
+                                                Publisher = b.Publisher,
+                                                PageCount = b.PageCount,
+                                                YearPublished = b.YearPublished,
+                                                OriginalPublicationYear = b.OriginalPublicationYear,
+                                                Rating = b.Rating,
+                                                Genre = b.Genre,
+                                                Price = b.Price
+                                            }).ToList(),
+                                    Children = (from b in _db.Books
+                                            where b.Genre == "Children"
+                                            select new BookDetailsViewModel
+                                            {
+                                                Id = b.Id,
+                                                GoodReadsId = b.GoodReadsId,
+                                                Title = b.Title,
+                                                Author = b.Author,
+                                                ISBN13 = b.ISBN13,
+                                                Publisher = b.Publisher,
+                                                PageCount = b.PageCount,
+                                                YearPublished = b.YearPublished,
+                                                OriginalPublicationYear = b.OriginalPublicationYear,
+                                                Rating = b.Rating,
+                                                Genre = b.Genre,
+                                                Price = b.Price
+                                            }).ToList(),
+                                    Contemporary = (from b in _db.Books
+                                            where b.Genre == "Contemporary"
+                                            select new BookDetailsViewModel
+                                            {
+                                                Id = b.Id,
+                                                GoodReadsId = b.GoodReadsId,
+                                                Title = b.Title,
+                                                Author = b.Author,
+                                                ISBN13 = b.ISBN13,
+                                                Publisher = b.Publisher,
+                                                PageCount = b.PageCount,
+                                                YearPublished = b.YearPublished,
+                                                OriginalPublicationYear = b.OriginalPublicationYear,
+                                                Rating = b.Rating,
+                                                Genre = b.Genre,
+                                                Price = b.Price
+                                            }).ToList(),
+                                    Fantasy = (from b in _db.Books
+                                            where b.Genre == "Fantasy"
+                                            select new BookDetailsViewModel
+                                            {
+                                                Id = b.Id,
+                                                GoodReadsId = b.GoodReadsId,
+                                                Title = b.Title,
+                                                Author = b.Author,
+                                                ISBN13 = b.ISBN13,
+                                                Publisher = b.Publisher,
+                                                PageCount = b.PageCount,
+                                                YearPublished = b.YearPublished,
+                                                OriginalPublicationYear = b.OriginalPublicationYear,
+                                                Rating = b.Rating,
+                                                Genre = b.Genre,
+                                                Price = b.Price
+                                            }).ToList(),
+                                    YoungAdult = (from b in _db.Books
+                                            where b.Genre == "Young Adult"
+                                            select new BookDetailsViewModel
+                                            {
+                                                Id = b.Id,
+                                                GoodReadsId = b.GoodReadsId,
+                                                Title = b.Title,
+                                                Author = b.Author,
+                                                ISBN13 = b.ISBN13,
+                                                Publisher = b.Publisher,
+                                                PageCount = b.PageCount,
+                                                YearPublished = b.YearPublished,
+                                                OriginalPublicationYear = b.OriginalPublicationYear,
+                                                Rating = b.Rating,
+                                                Genre = b.Genre,
+                                                Price = b.Price
+                                            }).ToList()
+                                };
+            
+            return homePageList;
         }
     }
 
