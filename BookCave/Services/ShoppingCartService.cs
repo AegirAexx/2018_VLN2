@@ -26,12 +26,11 @@ namespace BookCave.Services
             
             return cartBookList; 
         }
-
-        public void Add(int bookToAdd, string currentUser)
+        public void Add(int id, string currentUser)
         {
             var cartId = GetCartId(currentUser);
             
-            _shoppingCartRepo.Add(bookToAdd, currentUser, cartId);
+            _shoppingCartRepo.Add(id, currentUser, cartId);
 
         }
 

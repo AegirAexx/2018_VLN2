@@ -3,11 +3,10 @@ $(document).ready(function () {
   const key = "AIzaSyBAnYjI3ZTTYIPGedsL7TYsgV0Emwgo_oI";
 
   const bookISBN = document.querySelector("#details-isbn").innerHTML;
-  const bookID = document.querySelector("#details-id").innerHTML;
+  let tempID = document.querySelector("#details-id").innerHTML;
+  const bookID = parseInt(tempID);
 
-  console.log(bookID);
-
-  const googleURL = `https://www.googleapis.com/books/v1/volumes?q=${bookISBN}&key=${key}`;
+  const googleURL = `https://www.googleapis.com/books/v1/volumes?q=${bookISBN}`;
 
   $.get(googleURL,(data) => {
       const imageURL = data.items[0].volumeInfo.imageLinks.thumbnail;
@@ -17,6 +16,7 @@ $(document).ready(function () {
       
       $("#details-cover").append(cover);
       $("#details-description").append(text);
+      console.log("haha");
   });
 
   $("#add-to-cart").click(() =>  { 
@@ -26,9 +26,6 @@ $(document).ready(function () {
     });
     
   });
-
-
-
 });
 
 

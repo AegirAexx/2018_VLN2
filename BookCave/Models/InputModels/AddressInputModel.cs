@@ -1,8 +1,9 @@
-namespace BookCave.Data.EntityModels
+using System.ComponentModel.DataAnnotations;
+
+namespace BookCave.Models.InputModels
 {
-    public class Address
+    public class AddressInputModel
     {
-        public int Id { get; set; }
         public string UserId { get; set; }
         public string StreetName { get; set; }
         public int HouseNumber { get; set; }
@@ -11,6 +12,5 @@ namespace BookCave.Data.EntityModels
         public string Country { get; set; }
         public int ZipCode { get; set; }
         public string Name { get; set; }
-
     }
 }

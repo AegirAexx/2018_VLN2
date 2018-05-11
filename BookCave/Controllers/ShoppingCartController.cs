@@ -20,6 +20,8 @@ namespace BookCave.Controllers
 
         private ShoppingCartService _shoppingCartService;
 
+         private AddressService _addressService;
+
         private readonly UserManager<ApplicationUser> _userManager;
 
         public ShoppingCartController(UserManager<ApplicationUser> userManager)
@@ -29,6 +31,8 @@ namespace BookCave.Controllers
             _orderService = new OrderService();
 
             _shoppingCartService = new ShoppingCartService();
+
+            _addressService = new AddressService();
 
             _userManager = userManager;
         }
@@ -40,17 +44,23 @@ namespace BookCave.Controllers
 
             var cartBookList = _shoppingCartService.GetCartList(currentUser);
 
-            return View(cartBookList);
+            if(cartBookList.Count() < 1)
+            {
+                return View("Empty");
+            }
+            else
+            {
+                return View(cartBookList);
+            }
         }
 
-        [HttpPost]
         public IActionResult Add(int id)
         {
             var currentUser = _userManager.GetUserId(HttpContext.User);
             
             _shoppingCartService.Add(id, currentUser);
 
-            return Ok();
+            return View();
         }
 
         public IActionResult Remove(int id)
@@ -87,6 +97,17 @@ namespace BookCave.Controllers
             var order = _shoppingCartService.Buy(id);
             
             return View(order);
+        }
+
+        [HttpPost]
+        public IActionResult AddAddress(AddressInputModel address)
+        {
+            
+            var currentUser = _userManager.GetUserId(HttpContext.User);
+
+            _addressService.AddAddress(address, currentUser);
+
+            return View("Address");
         }
 
     }

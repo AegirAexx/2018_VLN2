@@ -24,8 +24,8 @@
         <div>
           <br>
 
-          <button class="btn btn-block btn-success" type="button" id="add-to-cart">
-              <i class="fas fa-shopping-cart"></i> Add to Cart
+          <button class="btn btn-block btn-success" type="button">
+                <a asp-controller="ShoppingCart" asp-action="Add" asp-route-id="@Model.Id"> <i class="fas fa-shopping-cart"></i>Add to Cart </a>
           </button>
             
           <button class="btn btn-block btn-danger">
@@ -34,11 +34,12 @@
         </div>
       </div>
     </div>
+    <br>
   <hr id="book-divider">
   <div>
     <div class="container">
       <div class="row">
-        <div class="col-md-6" id="BookDetails">
+        <div class="col" id="BookDetails">
           <h3 class="" contenteditable="true">Book details</h3>
             <ul class="">
                 <li>Pages: @Model.PageCount pages</li>
@@ -50,15 +51,6 @@
                 <li>Genre: @Model.Genre</li>
             </ul>
         </div>
-        <div class="col-md-6">
-          <h3 class="" contenteditable="true">About the author</h3>
-          <p class="">Paragraph. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-        </div>
-      </div>
-      <div class="col-md-6">
-        <h3 class="" contenteditable="true">About the author</h3>
-        <p class="">Paragraph. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-      </div>
     </div>
   </div>
 </div>
@@ -81,7 +73,7 @@
               <div class="panel-body">
                 <header class="text-left">
                   <div class="comment-user">
-                    <i class="fa fa-user"></i> Username </div>
+                    <i class="fa fa-user"></i> </div>
                   <time class="comment-date" datetime="16-12-2014 01:05">
                     <i class="fa fa-clock-o"></i> Dec 16, 2014</time>
                 </header>
@@ -98,6 +90,12 @@
       </div>
 </div>
 
+@foreach(var comment in @Model.Comments)
+{
+    <ol>
+        <span>User: @comment.UserId , Comment: @comment.CommentText</span>
+    </ol>
+}
 
 
 <!-- First Comment -->
@@ -156,6 +154,22 @@
      </form>
     </div>
   </div>
+</div>
+
+
+<div>
+    <p>Add a comment!!!!</p>
+    <form method="POST" asp-controller="Book" asp-action="AddComment" asp-route-id="@Model.Id">
+        <textarea name="CommentText" rows="10" cols="30">Enter comment here...</textarea>
+        <br>
+        <input type="submit">
+    </form>
+</div>
+
+<div>
+    <form action="">
+        <a asp-controller="Book" asp-action="AddRating" asp-route-id="@Model.Id">Add Rating!!!</a>
+    </form>
 </div>
 
           <p id="details-isbn" style="visibility: hidden">@Model.ISBN13</p>

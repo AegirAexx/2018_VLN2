@@ -8,9 +8,9 @@ $(document).ready(function () {
         const googleURL = `https://www.googleapis.com/books/v1/volumes?q=${book}`;
         
         $.get(googleURL,(data) => {
-          const imageURL = data.items[0].volumeInfo.imageLinks.smallThumbnail;
+          const imageURL = data.items[0].volumeInfo.imageLinks.Thumbnail;
     
-          const cover = `<img class="media-object" src="${imageURL}" style="width: 80px; height: 120px;">`;
+          const cover = `<img src="${imageURL}">`;
           
           $(this).parent().find(".thumbnail").append(cover);
   });

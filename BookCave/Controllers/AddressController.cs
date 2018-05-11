@@ -10,39 +10,31 @@ using Microsoft.AspNetCore.Identity;
 
 namespace BookCave.Controllers
 {
-    public class CustomerController : Controller
+    public class AddressController : Controller
     {
         private readonly UserManager<ApplicationUser> _userManager;
 
-        private OrderService _orderService;
+        private AddressService _addressService;
 
         public IActionResult Index()
         {
             return View();
         }
-        public CustomerController(UserManager<ApplicationUser> userManager)
+        public AddressController(UserManager<ApplicationUser> userManager)
         {
-            _orderService = new OrderService();
+            _addressService = new AddressService();
 
             _userManager = userManager;
         }
 
-        public IActionResult OrderHistory()
+        [HttpPost]
+        public IActionResult AddAddress()
         {
             var currentUser = _userManager.GetUserId(HttpContext.User);
 
-            var orders = _orderService.GetAllOrders(currentUser);
-            return View(orders);
-        }
 
-        public IActionResult OrderDetails(int id)
-        {
-            
-            var orderItems = _orderService.GetOrderDetails(id);
-            
-            return View(orderItems);
+            return View();
         }
-
 
     }
 }
