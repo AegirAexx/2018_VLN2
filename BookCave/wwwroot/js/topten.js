@@ -122,6 +122,4 @@ $(document).ready(function () {
 
         $("#top-ten-10").append(event);
     });
-
-
 });

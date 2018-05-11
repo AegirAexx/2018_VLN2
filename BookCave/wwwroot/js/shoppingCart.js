@@ -13,7 +13,6 @@ $(document).ready(function () {
           const cover = `<img class="media-object" src="${imageURL}" style="width: 80px; height: 120px;">`;
           
           $(this).parent().find(".thumbnail").append(cover);
-          console.log("findid");
   });
 });
 });
