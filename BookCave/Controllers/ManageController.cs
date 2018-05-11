@@ -4,6 +4,7 @@ using BookCave.Models.ViewModels;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Configuration;
 using System.Collections.Generic;
 using System;
 using Microsoft.AspNetCore.Authentication;
@@ -13,20 +14,30 @@ using System.Security.Authentication;
 using System.Text;
 using System.Text.Encodings.Web;
 using Microsoft.Extensions.Options;
+using Amazon.S3;
+using BookCave.Helpers;
+using Microsoft.AspNetCore.Http;
+using System.IO;
 
 namespace BookCave.Controllers
 {
     public class ManageController : Controller
     {
+        IConfigurationRoot _config;
         private readonly SignInManager<ApplicationUser> _signInManager;
         private readonly UserManager<ApplicationUser> _userManager; 
-
+        public string _imageBucket = "";
+        IAmazonS3 _s3Client; 
         public ManageController(
             SignInManager<ApplicationUser> signInManager,
-            UserManager<ApplicationUser> userManager)
+            UserManager<ApplicationUser> userManager,
+            IAmazonS3 s3Client)
         {
+            _config = Helpers.Config.Load();
             _signInManager = signInManager;
             _userManager = userManager;
+            _s3Client = s3Client;
+            _imageBucket = _config["Aws:S3:ImageBucket"];
         }
 
         [TempData]
@@ -35,6 +46,8 @@ namespace BookCave.Controllers
         [HttpGet]
         public async Task<IActionResult> Index()
         {
+            S3Helper s3Helper = new S3Helper(_s3Client);
+
             var user = await _userManager.GetUserAsync(User);
             if (user == null)
             {
@@ -49,13 +62,16 @@ namespace BookCave.Controllers
                 IsEmailConfirmed = user.EmailConfirmed,
                 StatusMessage = StatusMessage
             };
+            
+            var img = s3Helper.GetUrl(_imageBucket, "images/" + user.Image);
+            ViewBag.Image = img.ToString();
 
             return View(model);
         }
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Index(IndexViewModel model)
+        public async Task<IActionResult> Index(IndexViewModel model, IFormFile ImageData)
         {
             if (!ModelState.IsValid)
             {
@@ -66,6 +82,25 @@ namespace BookCave.Controllers
             if (user == null)
             {
                 throw new AuthenticationException($"Unable to load user with ID '{_userManager.GetUserId(User)}'.");
+            }
+
+            // Save ImageData
+            Stream fileStream = null;
+            var contentType = "";
+            if (ImageData != null)  // ImageData er: IFormFile ImageData
+            {
+                contentType = ImageData.ContentType;
+                fileStream = ImageData.OpenReadStream();
+                var ImageExtension = ImageData.FileName.Substring(ImageData.FileName.LastIndexOf(".")).ToLower();
+                var ImageName = user.Id; // gæti verið t.d. userid?
+
+    //Save Image to bucket
+    // Add Image to S3 bucket
+                S3Helper s3Helper = new S3Helper(_s3Client);
+                await s3Helper.SaveFile(_imageBucket, "images/" + ImageName + ImageExtension, fileStream, S3CannedACL.PublicRead, contentType);
+
+
+                model.Image = ImageName + ImageExtension;
             }
 
             var email = user.Email;
@@ -218,7 +253,7 @@ namespace BookCave.Controllers
             await _userManager.UpdateAsync(user);
 
 
-            return View(model);
+            return Ok();
         }
 
 

@@ -21,5 +21,7 @@ namespace BookCave.Models.ViewModels
         public string PhoneNumber { get; set; }
 
         public string StatusMessage { get; set; }
+
+        public string Image { get; set; }
     }
 }
