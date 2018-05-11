@@ -17,6 +17,8 @@ namespace BookCave.Repositories
 
         public List<CartBookViewModel> GetCartList(string userId)
         {
+            GetCartId(userId);
+
             var cartBooks = (from oi in _db.OrderItems
                                 where oi.UserId == userId && oi.Status == "Cart"
                                 select new CartBookViewModel
@@ -29,7 +31,10 @@ namespace BookCave.Repositories
                                     Author = (from b in _db.Books
                                             where b.Id == oi.BookId
                                             select b.Author).SingleOrDefault(),
-                                    OrderId = oi.OrderId
+                                    OrderId = oi.OrderId,
+                                    ISBN13 = (from b in _db.Books
+                                            where b.Id == oi.BookId
+                                            select b.ISBN13).SingleOrDefault()
                                 }).ToList();
                 
                 return cartBooks;
@@ -52,7 +57,9 @@ namespace BookCave.Repositories
                                     {
                                         UserId = currentUser,
                                         TotalPrice = 0,
-                                        OrderStatus = "Cart"
+                                        OrderStatus = "Cart",
+                                        BillingAddressId = 0,
+                                        ShippingAddressId = 0
                                     };
                 _db.Orders.Add(newCart);
                 _db.SaveChanges();
@@ -65,11 +72,11 @@ namespace BookCave.Repositories
             return newCartId;
         }
 
-        public void Add(int bookToAdd, string currentUser, int cartId)
+        public void Add(int id, string currentUser, int cartId)
         {
             var newCartItem = new OrderItem
                                     {
-                                        BookId = bookToAdd,
+                                        BookId = id,
                                         Price = 50,
                                         OrderId = cartId,
                                         Status = "Cart",
@@ -91,7 +98,7 @@ namespace BookCave.Repositories
                 _db.SaveChanges();
             }
         }
-        public PayOrderViewModel  CheckOut(int id, int price)
+        public PayOrderViewModel CheckOut(int id, int price)
         {
             
             var orderDetails = (from o in _db.Orders
@@ -100,6 +107,37 @@ namespace BookCave.Repositories
                                 {
                                     Id = o.Id,
                                     TotalPrice = price
+                                }).SingleOrDefault();
+            
+            return orderDetails;
+        }
+
+        public PayOrderViewModel Buy(int id)
+        {
+            var orderItemsToBuy = (from oi in _db.OrderItems
+                                    where oi.OrderId == id
+                                    select oi).ToList();
+            
+            foreach(var item in orderItemsToBuy)
+            {
+                item.Status = "Order";
+            }
+            
+            var orderToBuy = (from o in _db.Orders
+                                where o.Id == id
+                                select o).SingleOrDefault();
+            
+            orderToBuy.OrderStatus = "Confirmed";
+
+            _db.SaveChanges();
+            
+
+            var orderDetails = (from o in _db.Orders
+                                where o.Id == id
+                                select new PayOrderViewModel
+                                {
+                                    Id = o.Id,
+                                    TotalPrice = o.TotalPrice
                                 }).SingleOrDefault();
             
             return orderDetails;

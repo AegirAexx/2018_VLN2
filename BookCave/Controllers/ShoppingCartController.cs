@@ -14,10 +14,9 @@ namespace BookCave.Controllers
 {
     public class ShoppingCartController : Controller
     {
-        // Þarf controller ekki Data Repo?
-        private BookService _bookService; // Read only?
+        private BookService _bookService;
 
-        private OrderService _orderService; // Read only?
+        private OrderService _orderService;
 
         private ShoppingCartService _shoppingCartService;
 
@@ -41,7 +40,14 @@ namespace BookCave.Controllers
 
             var cartBookList = _shoppingCartService.GetCartList(currentUser);
 
-            return View(cartBookList);
+            if(cartBookList.Count() < 1)
+            {
+                return View("Empty");
+            }
+            else
+            {
+                return View(cartBookList);
+            }
         }
 
         public IActionResult Add(int id)
@@ -60,6 +66,11 @@ namespace BookCave.Controllers
             return View();
         }
 
+        public IActionResult Address() ///Arnar
+        {
+            return View();
+        }
+
         public IActionResult RemoveFromShoppingCart(/*int|inputmodel ???Id*/)
         {
             // Created an OrderItem? from JSON
@@ -73,6 +84,13 @@ namespace BookCave.Controllers
         public IActionResult CheckOut(int id)
         {
             var order = _shoppingCartService.CheckOut(id);
+            
+            return View(order);
+        }
+
+        public IActionResult Buy(int id)
+        {
+            var order = _shoppingCartService.Buy(id);
             
             return View(order);
         }

@@ -19,33 +19,28 @@
                             </ul>
                         </div>
                         <div class="form-group">
-                            <label for="cc-payment" class="control-label mb-1">Total Price</label>
-                            <input id="cc-payment" name="cc-payment" type="text" class="form-control" aria-required="true" aria-invalid="false" required value="@Model.TotalPrice">
-                            <span class="invalid-feedback">Enter the payment amount</span>
+                            <label for="cc-payment" class="control-label mb-1">Total Price: </label>
+                            <span>@Model.TotalPrice ISK</span>
                         </div>
                         <div class="form-group has-success">
                             <label for="cc-name" class="control-label mb-1">Name on card</label>
-                            <input id="cc-name" name="cc-name" type="text" class="form-control cc-name" required autocomplete="cc-name" aria-required="true" aria-invalid="false" aria-describedby="cc-name-error">
-                            <span class="invalid-feedback">Enter the name as shown on credit card</span>
+                            <input id="cc-name" name="cc-name" type="text" class="form-control cc-name">
                         </div>
                         <div class="form-group">
                             <label for="cc-number" class="control-label mb-1">Card number</label>
-                            <input id="cc-number" name="cc-number" type="tel" class="form-control cc-number identified visa" required="" pattern="[0-9]{16}">
-                            <span class="invalid-feedback">Enter a valid 16 digit card number</span>
+                            <input id="cc-number" name="cc-number" type="tel" class="form-control cc-number identified visa">
                         </div>
                         <div class="row">
                             <div class="col-6">
                                 <div class="form-group">
                                     <label for="cc-exp" class="control-label mb-1">Expiration</label>
-                                    <input id="cc-exp" name="cc-exp" type="tel" class="form-control cc-exp" required placeholder="MM / YY" autocomplete="cc-exp">
-                                    <span class="invalid-feedback">Enter the expiration date</span>
+                                    <input id="cc-exp" name="cc-exp" type="tel" class="form-control cc-exp">
                                 </div>
                             </div>
                             <div class="col-6">
                                 <label for="x_card_code" class="control-label mb-1">Security code</label>
                                 <div class="input-group">
-                                    <input id="x_card_code" name="x_card_code" type="tel" class="form-control cc-cvc" required autocomplete="off">
-                                    <span class="invalid-feedback order-last">Enter the 3-digit code on back</span>
+                                    <input id="x_card_code" name="x_card_code" type="tel" class="form-control cc-cvc">
                                     <div class="input-group-append">
                                         <div class="input-group-text">
                                         <span class="fa fa-question-circle fa-lg" data-toggle="popover" data-container="body" data-html="true" data-title="Security Code" 
@@ -58,13 +53,13 @@
                         </div>
                         <div class="form-group">
                             <label for="x_zip" class="control-label mb-1">Postal code</label>
-                            <input id="x_zip" name="x_zip" type="text" class="form-control" value="" data-val="true" data-val-required="Please enter the ZIP/Postal code" autocomplete="postal-code">
+                            <input id="x_zip" name="x_zip" type="text" class="form-control" value="">
                             <span class="help-block" data-valmsg-for="x_zip" data-valmsg-replace="true"></span>
                         </div>
                         <div>
                             <button id="payment-button" type="submit" class="btn btn-lg btn-info btn-block">
                                 <i class="fa fa-lock fa-lg"></i>&nbsp;
-                                <span id="payment-button-amount">Buy</span>
+                                <a asp-area="" asp-controller="ShoppingCart" asp-action="Buy" asp-route-id="@Model.Id">Buy</a>
                                 <span id="payment-button-sending" style="display:none;">Sending…</span>
                             </button>
                         </div>

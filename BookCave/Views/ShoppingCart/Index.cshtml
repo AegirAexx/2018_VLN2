@@ -6,7 +6,7 @@
     <div class="row">
         <div class="col-sm-12 col-md-10 col-md-offset-1">
             <table class="table table-hover">
-                <thead>
+                <thead class="table-secondary">
                     <tr>
                         <th>Product</th>
                         <th>Quantity</th>
@@ -21,12 +21,14 @@
                         <tr>
                             <td class="col-sm-8 col-md-6">
                             <div class="media">
-                                <a class="thumbnail pull-left" href="#"> <img class="media-object" src="http://icons.iconarchive.com/icons/custom-icon-design/flatastic-2/72/product-icon.png" style="width: 72px; height: 72px;"> </a>
+                                <a id="details-cover" class="thumbnail pull-left" href="#"></a>
                                 <div class="media-body">
                                     <h4 class="media-heading"><a href="#">@item.Title</a></h4>
                                     <h5 class="media-heading"> by <a href="#">@item.Author</a></h5>
                                 </div>
-                            </div></td>
+                            </div>
+                            <p id="details-isbn-1" class="isbn" style="display:none;">@item.ISBN13</p>
+                            </td>
                             <td class="col-sm-1 col-md-1" style="text-align: center">
                             <input type="email" class="form-control" id="exampleInputEmail1" value="1">
                             </td>
@@ -35,7 +37,8 @@
                             <td class="col-sm-1 col-md-1">
                             <button type="button" class="btn btn-danger">
                                 <a asp-area="" asp-controller="ShoppingCart" asp-action="Remove" asp-route-id="@item.Id">Remove from cart</a>
-                            </button></td>
+                            </button>
+                            </td>
                         </tr>
                     }
 
@@ -69,7 +72,7 @@
                             <span class="glyphicon glyphicon-shopping-cart"></span> Continue Shopping
                         </button></td>
                         <td>
-                        <button type="button" class="btn btn-success">
+                        <button type="button" class="btn btn-success btn-block">
                             <a asp-area="" asp-controller="ShoppingCart" asp-action="Checkout" asp-route-id="@Model.ElementAt(0).OrderId">Checkout</a>
                         </button></td>
                     </tr>
@@ -78,5 +81,8 @@
         </div>
     </div>
 </div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="~/js/shoppingCart.js"></script>
 
 

@@ -26,12 +26,11 @@ namespace BookCave.Services
             
             return cartBookList; 
         }
-
-        public void Add(int bookToAdd, string currentUser)
+        public void Add(int id, string currentUser)
         {
             var cartId = GetCartId(currentUser);
             
-            _shoppingCartRepo.Add(bookToAdd, currentUser, cartId);
+            _shoppingCartRepo.Add(id, currentUser, cartId);
 
         }
 
@@ -58,9 +57,16 @@ namespace BookCave.Services
 
         public PayOrderViewModel  CheckOut(int id)
         {
-            var totalPrice = GetCartTotal(id);
+            var totalPrice = GetCartTotal(id); 
             
             var orderDetails = _shoppingCartRepo.CheckOut(id, totalPrice);
+            
+            return orderDetails;
+        }
+
+        public PayOrderViewModel Buy(int id)
+        {
+            var orderDetails = _shoppingCartRepo.Buy(id);
             
             return orderDetails;
         }

@@ -6,11 +6,13 @@ namespace BookCave.Data
 {
     public class DataContext : DbContext
     {
-        public DbSet<Author> Authors { get; set; }
+        public DbSet<Address> Addresses { get; set; }
 
         public DbSet<Book> Books { get; set; }
 
         public DbSet<Order> Orders { get; set; }
+
+        public DbSet<AspNetUser> AspNetUsers { get; set; }
 
         public DbSet<OrderItem> OrderItems { get; set; }
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)

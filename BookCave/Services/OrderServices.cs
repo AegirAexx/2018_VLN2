@@ -15,17 +15,18 @@ namespace BookCave.Services
             _orderRepo = new OrderRepo();
         }
 
-       public List<OrderListViewModel> GetAllOrders()
+       public List<OrderListViewModel> GetAllOrders(string currentUser)
        {
-           var orders = _orderRepo.GetAllOrders();
+           var orders = _orderRepo.GetAllOrders(currentUser);
 
            return orders;
        }
 
-        /*  //á eftir að breyta þessu í order - Dagur
-       public void AddOrder(User newUser)
-       {
-           _userRepo.AddUser(newUser);
-       }*/
+        public List<OrderItemViewModel> GetOrderDetails(int id)
+        {
+            var orderItems = _orderRepo.GetOrderDetails(id);
+            
+            return orderItems;
+        }
     }
 }
