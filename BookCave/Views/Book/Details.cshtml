@@ -156,6 +156,16 @@
   </div>
 </div>
 
+
+<div>
+    <p>Add a comment!!!!</p>
+    <form method="POST" asp-controller="Book" asp-action="AddComment" asp-route-id="@Model.Id">
+        <textarea name="CommentText" rows="10" cols="30">Enter comment here...</textarea>
+        <br>
+        <input type="submit">
+    </form>
+</div>
+
           <p id="details-isbn" style="visibility: hidden">@Model.ISBN13</p>
           <p id="details-id" style="visibility: hidden">@Model.Id</p>
 
