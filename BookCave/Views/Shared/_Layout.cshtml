@@ -10,6 +10,79 @@
     <link rel="stylesheet" href="~/css/site.css">
     <link rel="stylesheet" href="~/css/w3.css">
 </head>
+
+
+<body>
+    <nav class="navbar navbar-expand-md  bookcave-color">
+        <div class="container">
+            <a asp-area="" asp-controller="Home" asp-action="Index">
+                <img src="~/images/logo.png" alt="BookCave" class="navbar-brand" id="logo-image">
+            </a><strong>Book Cave</strong></a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault"
+                aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse justify-content-end" id="navbarsExampleDefault">
+                <ul class="navbar-nav m-auto">
+                    <li class="nav-item m-auto">
+                        <div class="dropdown nav-item ">
+                            <a class="dropdown-toggle btn btn-info btn-sm ml-3" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+                            aria-haspopup="true" aria-expanded="false">
+                            Categories
+                        </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a asp-area="" class="dropdown-item" asp-controller="Account" asp-action="Contemporary">Contemporary</a>
+                        <a asp-area="" class="dropdown-item" asp-controller="Account" asp-action="Crime">Crime</a>
+                        <a asp-area="" class="dropdown-item" asp-controller="Account" asp-action="Humor">Humor</a>
+                        <a asp-area="" class="dropdown-item" asp-controller="Account" asp-action="Mystery">Mystery</a>
+                        <a asp-area="" class="dropdown-item" asp-controller="Account" asp-action="Romance">Romance</a>
+                        <a asp-area="" class="dropdown-item" asp-controller="Account" asp-action="Science">Science</a>
+                        <a asp-area="" class="dropdown-item" asp-controller="Account" asp-action="Children">Children</a>
+                    </div>
+                    
+                </div>
+                    </li>
+                    <li class="nav-item m-auto">
+                        <a class="nav-link" asp-area="" asp-controller="Home" asp-action="TopTenBooks" id="top-ten-trigger">Top 10 books</a>
+                    </li>
+
+                </ul>
+
+                <form asp-controller="Home" asp-action="Search" method="get" id="top-search" class="form-inline my-2 my-lg-0">
+                    <div class="input-group input-group-sm">
+                        <input id="x" type="text" class="form-control" name="x" placeholder="Title / Author / ISBN" aria-label="Small" aria-describedby="inputGroup-sizing-sm">
+                        <div class="input-group-append">
+                            <button type="submit" class="btn nav-search">
+                                <i class="fas fa-search"></i>
+                            </button>
+                        </div>
+                    </div>
+                </form>
+               <div>
+                <a class="btn btn-danger btn-sm ml-3 " asp-area="" asp-controller="ShoppingCart" asp-action="Index">
+                    <i class="far fa-heart"></i> Wishlist
+                    <span class="badge badge-light">3</span>
+                </a>
+            </div>
+                <a class="btn btn-success btn-sm ml-3" asp-area="" asp-controller="ShoppingCart" asp-action="Index">
+                    <i class="fa fa-shopping-cart"></i> Cart
+                    <span class="badge badge-light">3</span>
+                </a>
+                <div class="dropdown nav-item ">
+                    <a class="dropdown-toggle btn btn-info btn-sm ml-3" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+                        aria-haspopup="true" aria-expanded="false">
+                        <i class="fas fa-user-circle"></i> User
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        @await Html.PartialAsync("_LoginPartial")
+                    </div>
+                    
+                </div>
+
+            </div>
+    </nav>
+<!-- 
 <body>
     <header class="w3-top">
         <div class="menu-container">
@@ -18,14 +91,6 @@
                 <li><a asp-area="" asp-controller="Home" asp-action="Index"><img src="~/images/logo.png" alt="BookCave" class="hide-mobile" id="logo-image"></a></li>
                 <li><a href="#">Shop by Category</a>
                     <ul>
-                        <li><a href="">School</a>
-                            <ul>
-                                <li><a href="#">Lidership</a></li>
-                                <li><a href="#">History</a></li>
-                                <li><a href="#">Locations</a></li>
-                                <li><a href="#">Careers</a></li>
-                            </ul>
-                        </li>
                         <li><a href="#">Study</a>
                             <ul>
                                 <li><a href="#">Undergraduate</a></li>
@@ -41,17 +106,11 @@
                                 <li><a href="#">ITEM</a></li>
                             </ul>
                         </li>
-                        <li><a href="#">Something</a>
-                            <ul>
-                                <li><a href="#">Sub something</a></li>
-                                <li><a href="#">Sub something</a></li>
-                                <li><a href="#">Sub something</a></li>
-                                <li><a href="#">Sub something</a></li>
-                            </ul>
-                        </li>
                     </ul>
                 </li>
-                <li><a asp-area="" asp-controller="Home" asp-action="TopTenBooks" id="top-ten-trigger">Top 10 Books</a></li>
+                <li>
+                    <a asp-area="" asp-controller="Home" asp-action="TopTenBooks" id="top-ten-trigger">Top 10 Books</a>
+                </li>
                 <li id="li-search" class="li-nohover">
                     <form asp-controller="Home" asp-action="Search" method="get" id="top-search" class="form-inline">
                         <div class="form-group">
@@ -60,12 +119,8 @@
                         </div>
                     </form>
                 </li>
-                <li class="mt-1"><a href="#"><i class="far fa-heart fa-lg"></i></a>
-                    <ul>
-                        <li><a href="#">BOOK</a></li>
-                        <li><a href="#">LIST</a></li>
-                        <li><a href="#">ITEM</a></li>
-                    </ul>
+                <li class="mt-1">
+                    <a href="#"><i class="far fa-heart fa-lg"></i></a>
                 </li>
                 <li class="mt-1"><a a asp-area="" asp-controller="ShoppingCart" asp-action="Index"><i class="fas fa-shopping-cart fa-lg"></i></a>
                     <ul>
@@ -74,7 +129,7 @@
                         <li><a href="#">ITEM</a></li>
                     </ul>
                 </li>
-                <li class="mt-1"><a href="#"><i class="fas fa-user-circle fa-lg"></i></a>
+                <li class="mt-1"><a href="#"><i class="fas fa-user-circle fa-lg"></a></i>
                     <ul>
                         @await Html.PartialAsync("_LoginPartial")
                     </ul>
@@ -82,7 +137,7 @@
             </ul>
         </div>
         </div>
-    </header>
+    </header> -->
 
     <div id="main-body" class="container">
         @RenderBody()
