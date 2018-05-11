@@ -73,14 +73,7 @@ namespace BookCave.Controllers
             return View();
         }
 
-<<<<<<< HEAD
-        public IActionResult Address()
-        {
-            var currentUser = _userManager.GetUserId(HttpContext.User);
-            
-            var userAddresses = _addressService.GetAddresses(currentUser);
-            return View(userAddresses);
-=======
+
         public IActionResult Address(int id)
         {
             var orderId = new AddressIdViewModel();
@@ -88,7 +81,6 @@ namespace BookCave.Controllers
             orderId.Id = id;
 
             return View(orderId);
->>>>>>> Arnar
         }
 
         public IActionResult CheckOut(int id)
