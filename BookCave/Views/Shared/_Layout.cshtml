@@ -59,15 +59,14 @@
                 </form>
                 <a class="btn btn-success btn-sm ml-3" asp-area="" asp-controller="ShoppingCart" asp-action="Index">
                     <i class="fa fa-shopping-cart"></i> Cart
-                    <span class="badge badge-light">3</span>
                 </a>
                 <div class="dropdown nav-item ">
                     <a class="dropdown-toggle btn btn-info btn-sm ml-3" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         <i class="fas fa-user-circle"></i> User
                     </a>
-                </div>
-                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                    @await Html.PartialAsync("_LoginPartial")
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        @await Html.PartialAsync("_LoginPartial")
+                    </div>
                 </div>
             </div>
         </div>

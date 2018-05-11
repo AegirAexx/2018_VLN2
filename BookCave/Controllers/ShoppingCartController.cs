@@ -7,11 +7,14 @@ using Microsoft.AspNetCore.Mvc;
 using BookCave.Models;
 using BookCave.Services;
 using BookCave.Models.InputModels;
+using BookCave.Models.ViewModels;
 using BookCave.Data.EntityModels;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Authorization;
 
 namespace BookCave.Controllers
 {
+    [Authorize]
     public class ShoppingCartController : Controller
     {
         private BookService _bookService;
@@ -70,12 +73,22 @@ namespace BookCave.Controllers
             return View();
         }
 
+<<<<<<< HEAD
         public IActionResult Address()
         {
             var currentUser = _userManager.GetUserId(HttpContext.User);
             
             var userAddresses = _addressService.GetAddresses(currentUser);
             return View(userAddresses);
+=======
+        public IActionResult Address(int id)
+        {
+            var orderId = new AddressIdViewModel();
+
+            orderId.Id = id;
+
+            return View(orderId);
+>>>>>>> Arnar
         }
 
         public IActionResult CheckOut(int id)
@@ -89,7 +102,13 @@ namespace BookCave.Controllers
         {
             var order = _shoppingCartService.Buy(id);
             
-            return View(order);
+            return View();
+        }
+
+        [HttpGet]
+        public IActionResult AddAddress()
+        {
+            return View();
         }
 
         [HttpPost]
@@ -100,7 +119,16 @@ namespace BookCave.Controllers
 
             _addressService.AddAddress(address, currentUser);
 
-            return View("Address");
+            return RedirectToAction("Address");
+        }
+
+        public IActionResult Review(int id)
+        {            
+            var orderId = new AddressIdViewModel();
+
+            orderId.Id = id;
+
+            return View(orderId);
         }
 
     }
