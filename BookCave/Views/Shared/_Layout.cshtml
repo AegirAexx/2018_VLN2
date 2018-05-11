@@ -32,13 +32,34 @@
                             Categories
                         </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a asp-area="" class="dropdown-item" asp-controller="Account" asp-action="Contemporary">Contemporary</a>
-                        <a asp-area="" class="dropdown-item" asp-controller="Account" asp-action="Crime">Crime</a>
-                        <a asp-area="" class="dropdown-item" asp-controller="Account" asp-action="Humor">Humor</a>
-                        <a asp-area="" class="dropdown-item" asp-controller="Account" asp-action="Mystery">Mystery</a>
-                        <a asp-area="" class="dropdown-item" asp-controller="Account" asp-action="Romance">Romance</a>
-                        <a asp-area="" class="dropdown-item" asp-controller="Account" asp-action="Science">Science</a>
-                        <a asp-area="" class="dropdown-item" asp-controller="Account" asp-action="Children">Children</a>
+                        <form method="get" asp-controller="Home" asp-action="Genre">
+                            <input id="genre" name="genre" type="text" style="display: none" value="Contemporary" readonly>
+                            <input type="submit" class="dropdown-item btn btn-link" value="Contemporary">
+                        </form>
+                        <form method="get" asp-controller="Home" asp-action="Genre">
+                            <input id="genre" name="genre" type="text" style="display: none" value="Crime" readonly>
+                            <input type="submit" class="dropdown-item btn btn-link" value="Crime">
+                        </form>
+                        <form method="get" asp-controller="Home" asp-action="Genre">
+                            <input id="genre" name="genre" type="text" style="display: none" value="Humor" readonly>
+                            <input type="submit" class="dropdown-item btn btn-link" value="Humor">
+                        </form>
+                        <form method="get" asp-controller="Home" asp-action="Genre">
+                            <input id="genre" name="genre" type="text" style="display: none" value="Mystery, Thriller & Suspense" readonly>
+                            <input type="submit" class="dropdown-item btn btn-link" value="Mystery">
+                        </form>
+                        <form method="get" asp-controller="Home" asp-action="Genre">
+                            <input id="genre" name="genre" type="text" style="display: none" value="Romance" readonly>
+                            <input type="submit" class="dropdown-item btn btn-link" value="Romance">
+                        </form>
+                        <form method="get" asp-controller="Home" asp-action="Genre">
+                            <input id="genre" name="genre" type="text" style="display: none" value="Science Fiction" readonly>
+                            <input type="submit" class="dropdown-item btn btn-link" value="Science Fiction">
+                        </form>
+                        <form method="get" asp-controller="Home" asp-action="Genre">
+                            <input id="genre" name="genre" type="text" style="display: none" value="Children" readonly>
+                            <input type="submit" class="dropdown-item btn btn-link" value="Children">
+                        </form>
                     </div>
                     
                 </div>
