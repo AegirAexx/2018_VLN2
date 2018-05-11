@@ -3,6 +3,7 @@ using System.Linq;
 using BookCave.Data;
 using BookCave.Models.ViewModels;
 using BookCave.Models.InputModels;
+using BookCave.Data.EntityModels;
 
 namespace BookCave.Repositories
 {
@@ -15,12 +16,11 @@ namespace BookCave.Repositories
             _db = new DataContext();
         }
 
-        public void AddAddress()
+        public void AddAddress(Address address)
         {
-            //skrifa 
-
+            _db.Addresses.Add(address);
+            _db.SaveChanges();
         }
-
     }
 
 }

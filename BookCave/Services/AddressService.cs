@@ -15,11 +15,21 @@ namespace BookCave.Services
             _addressRepo = new AddressRepo();
         }
 
-        public void AddAddress()
+        public void AddAddress(AddressInputModel address, string currentUser)
         {
-            //Byggja nytt address inputModel til að skrifa i grunninn
+            var addressToAdd = new Address
+                                    {
+                                        UserId = currentUser,
+                                        StreetName = address.StreetName,
+                                        HouseNumber = address.HouseNumber,
+                                        City = address.City,
+                                        State = address.State,
+                                        Country = address.Country,
+                                        ZipCode = address.ZipCode,
+                                        Name = address.Name
+                                    };
             
-
+            _addressRepo.AddAddress(addressToAdd);
         }
 
     }
