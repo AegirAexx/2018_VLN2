@@ -25,7 +25,7 @@ namespace BookCave.Repositories
                             Rating = b.Rating,
                             ISBN13 = b.ISBN13,
                             Author = b.Author
-                        }).ToList();
+                        }).Take(32).ToList();
            return books;
        }
 

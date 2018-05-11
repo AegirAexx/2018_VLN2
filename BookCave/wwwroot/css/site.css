@@ -67,6 +67,10 @@ body {
     background-color: inherit;
 }
 
+.book-div-color{
+    background-color: #dddbd4;
+}
+
 .flex-list {
     display: flex;
     flex-flow: row wrap;
@@ -192,22 +196,6 @@ Delivery address's
 #addresstable, table, th, td{
     border: 1px solid lightgray;
 }
-
-/* ––––––––––––––––––––––––––––––––––––––––––––––––––
-Mobile style's
-–––––––––––––––––––––––––––––––––––––––––––––––––– */
-/* 
-@media only screen and (max-width: 691px) {
-   
-    #mobile-view{
-        display: block;
-        
-
-    }
-
-
-}
-} */
 
 
 .btn-success {
