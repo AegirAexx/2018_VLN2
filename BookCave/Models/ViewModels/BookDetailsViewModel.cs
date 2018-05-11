@@ -11,7 +11,7 @@ namespace BookCave.Models.ViewModels
         public int PageCount { get; set; }
         public int YearPublished { get; set; }
         public int OriginalPublicationYear { get; set; }
-        public float Rating { get; set; }
+        public int Rating { get; set; }
         public string Genre { get; set; }
         public int Price { get; set; }
     }
