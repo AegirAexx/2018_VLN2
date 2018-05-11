@@ -16,7 +16,7 @@ namespace BookCave.Controllers
 {
     public class AccountController : Controller
     {
-        private readonly IUserServices _userServices; ///Arnar
+        private readonly IUserServices _userServices;
       
         private readonly SignInManager<ApplicationUser> _signInManager;
         private readonly UserManager<ApplicationUser> _userManager;
@@ -50,9 +50,8 @@ namespace BookCave.Controllers
 
             if(result.Succeeded)
             {
-                //The user is successfully registered
-                //Add the concatenated first and last name as fullName in claims
                 await _userManager.AddClaimAsync(user, new Claim("Name", $"{model.FirstName} {model.LastName}"));
+
                 await _signInManager.SignInAsync(user, false);
 
                 return RedirectToAction("Index", "Home");

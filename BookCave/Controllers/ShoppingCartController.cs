@@ -7,11 +7,14 @@ using Microsoft.AspNetCore.Mvc;
 using BookCave.Models;
 using BookCave.Services;
 using BookCave.Models.InputModels;
+using BookCave.Models.ViewModels;
 using BookCave.Data.EntityModels;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Authorization;
 
 namespace BookCave.Controllers
 {
+    [Authorize]
     public class ShoppingCartController : Controller
     {
         private BookService _bookService;
@@ -70,21 +73,15 @@ namespace BookCave.Controllers
             return View();
         }
 
-        public IActionResult Address() ///Arnar
+        public IActionResult Address(int id)
         {
-            return View();
+            var orderId = new AddressIdViewModel();
+
+            orderId.Id = id;
+
+            return View(orderId);
         }
 
-        public IActionResult RemoveFromShoppingCart(/*int|inputmodel ???Id*/)
-        {
-            // Created an OrderItem? from JSON
-
-            // Remove from Book<List> 
-
-            return Ok(/*NewShoppingCartViewModelItem*/);
-            // It will be AJAX back into DOM to reflect change 
-            // in the cart inventory.
-        }
         public IActionResult CheckOut(int id)
         {
             var order = _shoppingCartService.CheckOut(id);
@@ -96,7 +93,13 @@ namespace BookCave.Controllers
         {
             var order = _shoppingCartService.Buy(id);
             
-            return View(order);
+            return View();
+        }
+
+        [HttpGet]
+        public IActionResult AddAddress()
+        {
+            return View();
         }
 
         [HttpPost]
@@ -107,7 +110,16 @@ namespace BookCave.Controllers
 
             _addressService.AddAddress(address, currentUser);
 
-            return View("Address");
+            return RedirectToAction("Address");
+        }
+
+        public IActionResult Review(int id)
+        {            
+            var orderId = new AddressIdViewModel();
+
+            orderId.Id = id;
+
+            return View(orderId);
         }
 
     }

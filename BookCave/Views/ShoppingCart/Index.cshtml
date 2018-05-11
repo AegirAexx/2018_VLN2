@@ -21,7 +21,7 @@
                         <tr>
                             <td class="col-sm-8 col-md-6">
                             <div class="media">
-                                <a id="details-cover" class="thumbnail pull-left" href="#"></a>
+                                <a id="details-cover" class="thumbnail pull-left p-2" href="#"></a>
                                 <div class="media-body">
                                     <h4 class="media-heading"><a href="#">@item.Title</a></h4>
                                     <h5 class="media-heading"> by <a href="#">@item.Author</a></h5>
@@ -68,13 +68,11 @@
                         <td>   </td>
                         <td>   </td>
                         <td>
-                        <button type="button" class="btn btn-default">
-                            <span class="glyphicon glyphicon-shopping-cart"></span> Continue Shopping
-                        </button></td>
+                           <a class="btn btn-light btn-block" asp-area="" asp-controller="Home" asp-action="Index">Continue Shopping</a>
+                        </td>
                         <td>
-                        <button type="button" class="btn btn-success btn-block">
-                            <a asp-area="" asp-controller="ShoppingCart" asp-action="Checkout" asp-route-id="@Model.ElementAt(0).OrderId">Checkout</a>
-                        </button></td>
+                            <a class="btn btn-success btn-block" asp-area="" asp-controller="ShoppingCart" asp-action="Address" asp-route-id="@Model.ElementAt(0).OrderId">Checkout</a>
+                        </td>
                     </tr>
                 </tbody>
             </table>

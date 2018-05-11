@@ -23,7 +23,6 @@ namespace BookCave.Services
                                         StreetName = address.StreetName,
                                         HouseNumber = address.HouseNumber,
                                         City = address.City,
-                                        State = address.State,
                                         Country = address.Country,
                                         ZipCode = address.ZipCode,
                                         Name = address.Name
