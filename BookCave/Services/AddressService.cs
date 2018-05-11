@@ -23,7 +23,6 @@ namespace BookCave.Services
                                         StreetName = address.StreetName,
                                         HouseNumber = address.HouseNumber,
                                         City = address.City,
-                                        State = address.State,
                                         Country = address.Country,
                                         ZipCode = address.ZipCode,
                                         Name = address.Name
@@ -31,6 +30,14 @@ namespace BookCave.Services
             
             _addressRepo.AddAddress(addressToAdd);
         }
+
+        public List<AddressViewModel> GetAddresses(string currentUser)
+        {
+            var userAddresses = _addressRepo.GetAddresses(currentUser);
+
+            return userAddresses;
+        }
+
 
     }
 }

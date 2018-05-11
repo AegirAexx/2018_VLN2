@@ -21,6 +21,23 @@ namespace BookCave.Repositories
             _db.Addresses.Add(address);
             _db.SaveChanges();
         }
+
+        public List<AddressViewModel> GetAddresses(string currentUser)
+        {
+            var userAddresses = (from a in _db.Addresses
+                                where a.UserId == currentUser
+                                select new AddressViewModel
+                                {
+                                    StreetName = a.StreetName,
+                                    HouseNumber = a.HouseNumber,
+                                    City = a.City,
+                                    Country = a.Country,
+                                    ZipCode = a.ZipCode,
+                                    Name = a.Name
+                                }).ToList();
+
+            return userAddresses;
+        }
     }
 
 }

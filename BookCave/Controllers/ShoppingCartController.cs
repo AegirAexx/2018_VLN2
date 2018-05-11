@@ -70,21 +70,14 @@ namespace BookCave.Controllers
             return View();
         }
 
-        public IActionResult Address() ///Arnar
+        public IActionResult Address()
         {
-            return View();
+            var currentUser = _userManager.GetUserId(HttpContext.User);
+            
+            var userAddresses = _addressService.GetAddresses(currentUser);
+            return View(userAddresses);
         }
 
-        public IActionResult RemoveFromShoppingCart(/*int|inputmodel ???Id*/)
-        {
-            // Created an OrderItem? from JSON
-
-            // Remove from Book<List> 
-
-            return Ok(/*NewShoppingCartViewModelItem*/);
-            // It will be AJAX back into DOM to reflect change 
-            // in the cart inventory.
-        }
         public IActionResult CheckOut(int id)
         {
             var order = _shoppingCartService.CheckOut(id);
