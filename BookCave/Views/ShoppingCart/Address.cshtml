@@ -1,19 +1,20 @@
-<div class="container">
+<h2>Address</h2>
+<div class="">
     <div class="row">
-        <div class="col-sm-12 col-md-10">
-            <table class="table">
-                <thead>
+        <div class="col-sm-9 col-md-9">
+            <table class="table table-light">
+                <thead class="table-secondary">
                     <tr>
                         <th>Name</th>
                         <th>Address</th>
-                        <th>delivery address</th>
-                        <th>billing address</th>
-                        <th>Total</th>
-                        
+                        <th>Delivery address</th>
+                        <th>Billing address</th>
+                        <th>Edit</th>
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
+                    </tr>
+                                        <tr>
                         <td >
                           <ul id="address">
                                 <li><strong>Guðni Th. Jóhannesson</strong></li>
@@ -28,16 +29,95 @@
                                 <li><strong>Zip code: </strong> 225</li>
                             </ul>
                         </td>
-                        <td >
-                          <input type="radio" name="useAsDelivery" checked>
+                        <td class="text-center">
+                          <label>Use as delivery address</label><input type="radio" name="useAsDelivery" checked>
                         </td>
-                        <td >
-                          <input type="radio" name="useAsBilling" checked>
+                        <td class="text-center">
+                           <label>Use as delivery address</label><input type="radio" name="useAsBilling" checked>
                         </td> 
-                        <td >  </td>
-                    <tr>
+                        <td>
+                            <button type="button" class="btn btn-danger">Delete</button> 
+                         </td>
+                    </tr>
                 </tbody>
             </table>
+            <button type="button" class="btn btn-block" id="addAddress"><strong><i class="fas fa-plus"></i></strong>  ADD NEW ADDRESS</button>
         </div>
+            <div class="card h-25">
+        <button type="button" class="btn btn-success mt-2 ml-2 mr-2">Continue</button>
+         <div class="card-body">Continue to payment</div>
+    </div>
     </div>
 </div>
+
+  <div class="row mt-1" id="addressAdding" style="display:none">
+    <div class="col-md-8 col-md-offset-8">
+      <form class="form-horizontal" role="form">
+        <fieldset>
+
+          <!-- Form Name -->
+          <legend> Address Details</legend>
+
+          <!-- Text input-->
+          <div class="form-group">
+            <label class="col-sm-3 control-label" for="textinput">Name:</label>
+            <div class="col-sm-10">
+              <input type="text" placeholder="Name:" class="form-control">
+            </div>
+          </div>
+
+          <!-- Text input-->
+          <div class="form-group">
+            <label class="col-sm-3 control-label" for="textinput">Street Name:</label>
+            <div class="col-sm-10">
+              <input type="text" placeholder="Street Name:" class="form-control">
+            </div>
+          </div>
+
+          <!-- Text input-->
+          <div class="form-group">
+            <label class="col-sm-3 control-label" for="textinput">House number:</label>
+            <div class="col-sm-10">
+              <input type="text" placeholder="houseNumber:" class="form-control">
+            </div>
+          </div>
+
+          <!-- Text input-->
+          <div class="form-group">
+            <label class="col-sm-3 control-label" for="textinput">Town/City:</label>
+            <div class="col-sm-10">
+              <input type="text" placeholder="Town/City:" class="form-control">
+            </div>
+          </div>
+
+          <!-- Text input-->
+
+
+          <div class="form-group">
+            <label class="col-sm-3 control-label" for="textinput">Country:</label>
+            <div class="col-sm-10">
+              <select value="ISL" data-role="country-selector" class="form-control"></select>
+            </div>
+
+            <label class="col-sm-3 control-label" for="textinput">Postcode</label>
+            <div class="col-sm-4">
+              <input type="text" placeholder="Post Code" class="form-control">
+            </div>
+          </div>
+
+          <div class="form-group">
+            <div class="col-sm-offset-2 col-sm-10">
+              <div class="pull-right">
+                <button type="submit" id="saveAddress" class="btn btn-default">Cancel</button>
+                <button type="submit" id="cancelAddress"class="btn btn-primary">Save</button>
+              </div>
+            </div>
+          </div>
+
+        </fieldset>
+      </form>
+    </div><!-- /.col-lg-12 -->
+</div><!-- /.row -->
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="~/js/country.js"></script>
