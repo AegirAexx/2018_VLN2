@@ -1,8 +1,16 @@
 @using BookCave.Views.Manage
 @inject SignInManager<ApplicationUser> SignInManager
 
-<ul class="nav nav-pills nav-stacked">
-    <li class="@ManageNavPages.IndexNavClass(ViewContext)"><a asp-action="Index">Profile</a></li>
-    <li class="@ManageNavPages.ChangePasswordNavClass(ViewContext)"><a asp-action="ChangePassword">Password</a></li>
-    <li class="@ManageNavPages.EditProfileNavClass(ViewContext)"><a asp-action="EditProfile">Edit profile</a></li>
-</ul>
+
+<div class="d-flex flex-row">
+        <button class="btn btn-info">
+        <a asp-action="Index" class=" @ManageNavPages.IndexNavClass(ViewContext)">Profile</a>
+        </button>
+        <button class="btn btn-info ml-3">
+        <a asp-action="ChangePassword" class=" @ManageNavPages.ChangePasswordNavClass(ViewContext)">Password</a>
+        </button>
+        <button class="btn btn-info ml-3">
+        <a asp-action="EditProfile" class=" @ManageNavPages.EditProfileNavClass(ViewContext)">Edit profile</a>
+        </button>
+</div>
+
