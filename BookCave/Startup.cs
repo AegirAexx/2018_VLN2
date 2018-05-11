@@ -11,6 +11,7 @@ using Microsoft.Extensions.DependencyInjection;
 using BookCave.Data;
 using BookCave.Models;
 using BookCave.Services;
+using Amazon.S3;
 
 namespace BookCave
 {
@@ -26,9 +27,15 @@ namespace BookCave
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            Environment.SetEnvironmentVariable("AWS_ACCESS_KEY_ID", Configuration.GetSection("Aws").GetValue<string>("AccessKeyId"));
+            var test = Environment.GetEnvironmentVariable("AWS_ACCESS_KEY_ID");
+            Environment.SetEnvironmentVariable("AWS_SECRET_ACCESS_KEY", Configuration.GetSection("Aws").GetValue<string>("SecretAccessKey"));
+            Environment.SetEnvironmentVariable("AWS_REGION", "eu-west-2");
+            services.AddDefaultAWSOptions(Configuration.GetAWSOptions());
+            services.AddAWSService<IAmazonS3>();
             services.AddTransient<IUserServices, UserService>();
             services.AddDbContext<AuthenticationDbContext>(options => options.UseSqlServer(Configuration.GetConnectionString("AuthenticationConnection")));
-
+            
             services.AddIdentity<ApplicationUser, IdentityRole>()
             .AddEntityFrameworkStores<AuthenticationDbContext>()
             .AddDefaultTokenProviders();
