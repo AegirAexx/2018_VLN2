@@ -1,8 +1,10 @@
-@model FrontPageViewModel
-
+@model List<BookListViewModel>
 @{
     ViewData["Title"] = "BookCave Inc";
+        int counter = 0;
+
 }
+<<<<<<< HEAD
   <div class="py-5">
     <div class="container">
       <div class="row">
@@ -190,17 +192,36 @@
             
           </div>
           
+=======
+<h1 class="text-center">Welcome to the Cave </h1>
+<div class="row">
+@foreach (var book in @Model)
+{
+    if (counter != 0 && counter % 4 == 0)
+    {
+        @:</div>
+        @:<div class="row">
+    }
+
+    <div class="col-md-3 mt-2 mb-2">
+        <div class="book-div-color rounded pt-3 pb-4 d-flex flex-column justify-content-between align-items-center h-100">
+            <div class=""><img src="~/images/bookCover.jpeg"></div>
+            <div class="caption" >
+                <h4 id="thumbnail-label" class="text-center ml-2 mr-2">@book.Title</h4>
+                <p class="isbn" style="visibility: hidden">@book.ISBN13</p>
+            </div>
+                <a asp-controller="ShoppingCart" asp-action="Add" asp-route-id="@book.Id" class="btn btn-success">Add to Cart</a>
+>>>>>>> elfar-v2
         </div>
-        
-      </div>
-      
     </div>
-    
+
+    counter++;
+}
+</div>
+      </div>
+    </div>
   </div>
-
-
-
-
+</div>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-<script src="~/js/index.js"></script>
+<script src=""></script>

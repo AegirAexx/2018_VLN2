@@ -1,4 +1,6 @@
+using System;
 using System.Collections.Generic;
+using System.Linq;
 using BookCave.Models.ViewModels;
 using BookCave.Repositories;
 
@@ -15,8 +17,17 @@ namespace BookCave.Services
 
        public List<BookListViewModel> GetAllBooks()
        {
-           var books = _bookRepo.GetAllBooks();
+            var books = _bookRepo.GetAllBooks();
 
+            int n = books.Count;
+            Random rnd = new Random();
+            while (n > 1) {
+                int k = (rnd.Next(0, n) % n);
+                n--;
+                BookListViewModel value = books[k];
+                books[k] = books[n];
+                books[n] = value;
+            }
            return books;
        }
 
