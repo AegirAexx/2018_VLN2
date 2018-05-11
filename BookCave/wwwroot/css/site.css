@@ -170,6 +170,10 @@ Book detail's
 
 }
 
+#nounderline{
+    text-decoration: none;
+    color: #D3D1CA;
+}
 
 /* ––––––––––––––––––––––––––––––––––––––––––––––––––
 Delivery address's
