@@ -1,5 +1,4 @@
-@model FrontPageViewModel
-
+@model List<BookListViewModel>
 @{
     ViewData["Title"] = "BookCave Inc";
 }
@@ -28,178 +27,25 @@
             </div>
           </div>
         </div>
-        <div class="col-md-9">
-          <h1 class="">Best sellers @Model.Fantasy.ElementAt(0).Title</h1>
-          <div class="row">
-            <div class="col-md-3" >
-              <div class="card" >
-                <img class="card-img-top" src="https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1445981000i/11557._SY180_.jpg" alt="Card image cap">
-                <div class="card-body">
-                  <h5 class="card-title">Card title</h5>
-                  <a href="#" class="btn btn-primary">Add to Cart</a>
-                </div>
-              </div>
-            </div>
-            
-            <div class="col-md-3">
-              <div class="card">
-                <img class="card-img-top" src="https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1445981000i/11557._SY180_.jpg" alt="Card image cap">
-                <div class="card-body">
-                  <h5 class="card-title">Card title</h5>
-                  <a href="#" class="btn btn-primary">Add to Cart</a>
-                </div>
-              </div>
-            </div>
-            <div class="col-md-3">
-              <div class="card">
-                <img class="card-img-top" src="https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1445981000i/11557._SY180_.jpg" alt="Card image cap">
-                <div class="card-body">
-                  <h5 class="card-title">Card title</h5>
-                  <a href="#" class="btn btn-primary">Add to Cart</a>
-                </div>
-              </div>
-            </div>
-            <div class="col-md-3">
-              <div class="card">
-                <img class="card-img-top" src="https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1445981000i/11557._SY180_.jpg" alt="Card image cap">
-                <div class="card-body">
-                  <h5 class="card-title">Card title</h5>
-                  <a href="#" class="btn btn-primary">Add to Cart</a>
-                </div>
-              </div>
-            </div>
-          </div>
-          <h1 class="">Recommented for you&nbsp;</h1>
-          <div class="row">
-            <div class="col-md-3">
-              <div class="card">
-                <img class="card-img-top" src="https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1445981000i/11557._SY180_.jpg" alt="Card image cap">
-                <div class="card-body">
-                  <h5 class="card-title">Card title</h5>
-                  <a href="#" class="btn btn-primary">Add to Cart</a>
-                </div>
-              </div>
-            </div>
-            <div class="col-md-3">
-              <div class="card">
-                <img class="card-img-top" src="https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1445981000i/11557._SY180_.jpg" alt="Card image cap">
-                <div class="card-body">
-                  <h5 class="card-title">Card title</h5>
-                  <a href="#" class="btn btn-primary">Add to Cart</a>
-                </div>
-              </div>
-            </div>
-            <div class="col-md-3">
-              <div class="card">
-                <img class="card-img-top" src="https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1445981000i/11557._SY180_.jpg" alt="Card image cap">
-                <div class="card-body">
-                  <h5 class="card-title">Card title</h5>
-                  <a href="#" class="btn btn-primary">Add to Cart</a>
-                </div>
-              </div>
-            </div>
-            <div class="col-md-3">
-              <div class="card">
-                <img class="card-img-top" src="https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1445981000i/11557._SY180_.jpg" alt="Card image cap">
-                <div class="card-body">
-                  <h5 class="card-title">Card title</h5>
-                  <a href="#" class="btn btn-primary">Add to Cart</a>
-                </div>
-              </div>
-            </div>
-          </div>
-          <h1 class="">On sale</h1>
-          <div class="row">
-            <div class="col-md-3">
-              <div class="card">
-                <img class="card-img-top" src="https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1445981000i/11557._SY180_.jpg" alt="Card image cap">
-                <div class="card-body">
-                  <h5 class="card-title">Card title</h5>
-                  <a href="#" class="btn btn-primary">Add to Cart</a>
-                </div>
-              </div>
-            </div>
-            <div class="col-md-3">
-              <div class="card">
-                <img class="card-img-top" src="https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1445981000i/11557._SY180_.jpg" alt="Card image cap">
-                <div class="card-body">
-                  <h5 class="card-title">Card title</h5>
-                  <a href="#" class="btn btn-primary">Add to Cart</a>
-                </div>
-              </div>
-            </div>
-            <div class="col-md-3">
-              <div class="card">
-                <img class="card-img-top" src="https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1445981000i/11557._SY180_.jpg" alt="Card image cap">
-                <div class="card-body">
-                  <h5 class="card-title">Card title</h5>
-                  <a href="#" class="btn btn-primary">Add to Cart</a>
-                </div>
-              </div>
-            </div>
-            <div class="col-md-3">
-              <div class="card">
-                <img class="card-img-top" src="https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1445981000i/11557._SY180_.jpg" alt="Card image cap">
-                <div class="card-body">
-                  <h5 class="card-title">Card title</h5>
-                  <a href="#" class="btn btn-primary">Add to Cart</a>
-                </div>
-              </div>
-            </div>
-          </div>
-          <h1 class="">Top in non-fiction</h1>
-          <div class="row">
-            <div class="col-md-3">
-              <div class="card">
-                <img class="card-img-top" src="https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1445981000i/11557._SY180_.jpg" alt="Card image cap">
-                <div class="card-body">
-                  <h5 class="card-title">Card title</h5>
-                  <a href="#" class="btn btn-primary">Add to Cart</a>
-                </div>
-              </div>
-            </div>
-            <div class="col-md-3">
-              <div class="card">
-                <img class="card-img-top" src="https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1445981000i/11557._SY180_.jpg" alt="Card image cap">
-                <div class="card-body">
-                  <h5 class="card-title">Card title</h5>
-                  <a href="#" class="btn btn-primary">Add to Cart</a>
-                </div>
-              </div>
-            </div>
-            <div class="col-md-3">
-              <div class="card">
-                <img class="card-img-top" src="https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1445981000i/11557._SY180_.jpg" alt="Card image cap">
-                <div class="card-body">
-                  <h5 class="card-title">Card title</h5>
-                  <a href="#" class="btn btn-primary">Add to Cart</a>
-                </div>
-              </div>
-            </div>
-            <div class="col-md-3">
-              <div class="card">
-                <img class="card-img-top" src="https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1445981000i/11557._SY180_.jpg" alt="Card image cap">
-                <div class="card-body">
-                  <h5 class="card-title">Card title</h5>
-                  <a href="#" class="btn btn-primary">Add to Cart</a>
-                </div>
-                
-              </div>
-              
-            </div>
-            
+        
+
+<div>
+    @foreach(var book in @Model)
+    {
+      <div class="" >
+        <div class="" >
+          <div class="thumbnail">                <img src="https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1445981000i/11557._SY180_.jpg" alt="Card image cap">
+</div>
+          <div class="">
+            <h5 class="">@book.Title</h5>
+            <a href="#" class="btn btn-primary">Add to Cart</a>
           </div>
           
         </div>
-        
       </div>
       
-    </div>
-    
-  </div>
-
-
-
+    }
+</div>
 
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
